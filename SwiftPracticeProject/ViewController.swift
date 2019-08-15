@@ -8,13 +8,16 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: LDBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.random
     }
 
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        navigationController?.pushViewController(ViewController(), animated: true)
+    }
 
 }
 
