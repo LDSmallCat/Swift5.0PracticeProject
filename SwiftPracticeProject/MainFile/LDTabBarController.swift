@@ -17,7 +17,7 @@ class LDTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.blue
+        
         
         setValue(LDTabBar(), forKeyPath: "tabBar")
         tabBar.isTranslucent = false
