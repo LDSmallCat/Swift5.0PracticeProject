@@ -16,7 +16,7 @@ class LDTabBar: UITabBar {
         super.layoutSubviews()
         for button in subviews where button is UIControl {
             var frame = button.frame
-            frame.origin.y = 10
+            frame.origin.y = 7
             button.frame = frame
         }
     }

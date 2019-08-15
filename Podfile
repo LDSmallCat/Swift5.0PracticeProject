@@ -16,10 +16,20 @@ target 'SwiftPracticeProject' do
     inherit! :search_paths
     # Pods for testing
   end
+
 pod 'SnapKit'
 pod 'Alamofire'
 pod 'SwiftyJSON'
 pod 'Kingfisher'
 pod 'MJRefresh'
 pod 'KakaJSON'
+pod 'HMSegmentedControl'
+pod 'Then'
+pod 'Moya'
+pod 'Reusable'
+pod 'LLCycleScrollView'
+pod 'MBProgressHUD'
+pod 'IQKeyboardManagerSwift'
+pod 'EmptyDataSet-Swift'
+pod 'UINavigation-SXFixSpace'
 end

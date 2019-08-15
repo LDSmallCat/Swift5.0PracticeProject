@@ -46,3 +46,9 @@ class LDTabBarController: UITabBarController {
     
 
 }
+extension LDTabBarController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        guard let select = selectedViewController else { return .lightContent }
+        return select.preferredStatusBarStyle
+    }
+}

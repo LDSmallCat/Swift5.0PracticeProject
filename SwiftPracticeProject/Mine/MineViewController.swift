@@ -13,7 +13,7 @@ class MineViewController: LDBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = UIColor.random
+        view.backgroundColor = UIColor.red
     }
     
 

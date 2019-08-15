@@ -9,16 +9,15 @@
 import UIKit
 
 class HomeViewController: LDBaseViewController {
+  
+   
+}
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
 
-        view.backgroundColor = UIColor.random
+extension HomeViewController {
+
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+
+        return .darkContent
     }
-    
-
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        navigationController?.pushViewController(ViewController(), animated: true)
-    }
-
 }

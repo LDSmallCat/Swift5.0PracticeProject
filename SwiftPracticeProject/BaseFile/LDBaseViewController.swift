@@ -37,37 +37,9 @@ class LDBaseViewController: UIViewController {
 }
 
 extension LDBaseViewController {
-    
-    
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle{
-        
+
         return .lightContent
     }
-    
-    
-    
-    
-   
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 }

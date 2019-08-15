@@ -25,3 +25,9 @@ class LDNavigationViewController: UINavigationController {
     
     
 }
+extension LDNavigationViewController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        guard let topVC = topViewController else { return .lightContent }
+        return topVC.preferredStatusBarStyle
+    }
+}
