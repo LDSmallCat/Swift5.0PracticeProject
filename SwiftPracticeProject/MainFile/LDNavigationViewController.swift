@@ -7,6 +7,11 @@
 //
 
 import UIKit
+enum NavigationBarStyle {
+    case theme
+    case clear
+    case white
+}
 
 class LDNavigationViewController: UINavigationController {
 
@@ -22,8 +27,24 @@ class LDNavigationViewController: UINavigationController {
         }
         super.pushViewController(viewController, animated: animated)
     }
-    
-    
+}
+extension LDNavigationViewController {
+    func barStyle(_ style: NavigationBarStyle) {
+        switch style {
+        case .theme:
+            navigationBar.barStyle = .black
+            navigationBar.setBackgroundImage(UIImage(named: "nav_bg"), for: .default)
+            navigationBar.shadowImage = UIImage()
+        case .clear:
+            navigationBar.barStyle = .black
+            navigationBar.setBackgroundImage(UIImage(), for: .default)
+            navigationBar.shadowImage = UIImage()
+        case .white:
+            navigationBar.barStyle = .default
+            navigationBar.setBackgroundImage(UIColor.white.image(), for: .default)
+            navigationBar.shadowImage = nil
+        }
+    }
 }
 extension LDNavigationViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {

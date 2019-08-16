@@ -1,26 +1,22 @@
 //
-//  MineViewController.swift
+//  SubscribeViewController.swift
 //  SwiftPracticeProject
 //
-//  Created by Mac on 2019/8/15.
+//  Created by Mac on 2019/8/16.
 //  Copyright © 2019 caolaidong. All rights reserved.
 //
 
 import UIKit
 
-class MineViewController: LDBaseViewController {
+class SubscribeViewController: LDBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = UIColor.red
-        
+view.backgroundColor = UIColor.blue
+        // Do any additional setup after loading the view.
     }
     
-//    override func configNavigationBar() {
-//        super.configNavigationBar()
-//        (navigationController as? LDNavigationViewController)?.barStyle(.clear)
-//    }
+
     /*
     // MARK: - Navigation
 

@@ -49,8 +49,13 @@ public extension KK where Base: NSDictionary {
 
 extension Dictionary where Key == String {
     func kk_fastModel(_ type: Convertible.Type) -> Convertible? {
-        var model = type.init()
-        model.kk_convert(from: self)
+        var model: Convertible?
+        if let ns = type as? NSObject.Type {
+            model = ns.newConvertible()
+        } else {
+            model = type.init()
+        }
+        model?.kk_convert(from: self)
         return model
     }
     
@@ -68,12 +73,12 @@ extension Dictionary where Key == String {
         return dict.isEmpty ? nil : dict
     }
     
-    func kk_value(for modelKey: ModelKey) -> Any? {
-        if let key = modelKey as? String {
+    func kk_value(for modelPropertyKey: ModelPropertyKey) -> Any? {
+        if let key = modelPropertyKey as? String {
             return _value(stringKey: key)
         }
         
-        let keyArray = modelKey as! [String]
+        let keyArray = modelPropertyKey as! [String]
         for key in keyArray {
             if let value = _value(stringKey: key) {
                 return value
@@ -109,7 +114,7 @@ extension NSDictionary {
         return (self as? JSONObject)?.kk_fastModel(type)
     }
     
-    func kk_value(for modelKey: ModelKey) -> Any? {
+    func kk_value(for modelKey: ModelPropertyKey) -> Any? {
         return (self as? JSONObject)?.kk_value(for: modelKey)
     }
 }

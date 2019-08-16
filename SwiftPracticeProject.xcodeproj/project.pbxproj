@@ -24,6 +24,11 @@
 		D2038C1B2304F71F004CF263 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2038C192304F71F004CF263 /* LaunchScreen.storyboard */; };
 		D2038C1F2304F777004CF263 /* LDNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2038C1E2304F777004CF263 /* LDNavigationViewController.swift */; };
 		D224CDF62305491C008411A8 /* LDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D224CDF52305491C008411A8 /* LDViewController.m */; };
+		D2604EF0230654D700351C93 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EEF230654D700351C93 /* RecommendViewController.swift */; };
+		D2604EF2230654E200351C93 /* VIPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EF1230654E200351C93 /* VIPViewController.swift */; };
+		D2604EF42306554300351C93 /* SubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EF32306554300351C93 /* SubscribeViewController.swift */; };
+		D2604EF62306555300351C93 /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EF52306555300351C93 /* RankViewController.swift */; };
+		D279A15523055D4A0004192A /* LDPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279A15423055D4A0004192A /* LDPageViewController.swift */; };
 		D2889AC823050E41006C7B0E /* LDTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889AC723050E41006C7B0E /* LDTabBar.swift */; };
 		D2889ACF23052151006C7B0E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889ACE23052151006C7B0E /* UIColorExtension.swift */; };
 		D2889AD3230521A1006C7B0E /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */; };
@@ -82,6 +87,11 @@
 		D224CDF32305491B008411A8 /* SwiftPracticeProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPracticeProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		D224CDF42305491C008411A8 /* LDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDViewController.h; sourceTree = "<group>"; };
 		D224CDF52305491C008411A8 /* LDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDViewController.m; sourceTree = "<group>"; };
+		D2604EEF230654D700351C93 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
+		D2604EF1230654E200351C93 /* VIPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPViewController.swift; sourceTree = "<group>"; };
+		D2604EF32306554300351C93 /* SubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewController.swift; sourceTree = "<group>"; };
+		D2604EF52306555300351C93 /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
+		D279A15423055D4A0004192A /* LDPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDPageViewController.swift; sourceTree = "<group>"; };
 		D2889AC723050E41006C7B0E /* LDTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDTabBar.swift; sourceTree = "<group>"; };
 		D2889ACE23052151006C7B0E /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
@@ -224,6 +234,7 @@
 			isa = PBXGroup;
 			children = (
 				D2038C0E2304F671004CF263 /* LDBaseViewController.swift */,
+				D279A15423055D4A0004192A /* LDPageViewController.swift */,
 			);
 			path = BaseFile;
 			sourceTree = "<group>";
@@ -232,6 +243,10 @@
 			isa = PBXGroup;
 			children = (
 				D2038C102304F68E004CF263 /* HomeViewController.swift */,
+				D2604EEF230654D700351C93 /* RecommendViewController.swift */,
+				D2604EF1230654E200351C93 /* VIPViewController.swift */,
+				D2604EF32306554300351C93 /* SubscribeViewController.swift */,
+				D2604EF52306555300351C93 /* RankViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -492,15 +507,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				D2038C132304F698004CF263 /* VoiceViewController.swift in Sources */,
+				D2604EF0230654D700351C93 /* RecommendViewController.swift in Sources */,
 				D2038BDA2304F391004CF263 /* ViewController.swift in Sources */,
 				D224CDF62305491C008411A8 /* LDViewController.m in Sources */,
 				D2038C1F2304F777004CF263 /* LDNavigationViewController.swift in Sources */,
 				D2038C172304F6A6004CF263 /* MineViewController.swift in Sources */,
+				D2604EF62306555300351C93 /* RankViewController.swift in Sources */,
+				D2604EF2230654E200351C93 /* VIPViewController.swift in Sources */,
 				D2038C152304F69E004CF263 /* VideoViewController.swift in Sources */,
 				D2038C0F2304F671004CF263 /* LDBaseViewController.swift in Sources */,
+				D2604EF42306554300351C93 /* SubscribeViewController.swift in Sources */,
 				D2889AD3230521A1006C7B0E /* UIBarButtonItemExtension.swift in Sources */,
 				D2889ACF23052151006C7B0E /* UIColorExtension.swift in Sources */,
 				D2889AC823050E41006C7B0E /* LDTabBar.swift in Sources */,
+				D279A15523055D4A0004192A /* LDPageViewController.swift in Sources */,
 				D2038BD62304F391004CF263 /* AppDelegate.swift in Sources */,
 				D2038BD82304F391004CF263 /* SceneDelegate.swift in Sources */,
 				D2038C092304F62E004CF263 /* LDTabBarController.swift in Sources */,

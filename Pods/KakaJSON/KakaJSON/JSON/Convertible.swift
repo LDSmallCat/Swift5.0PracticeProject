@@ -11,11 +11,11 @@ public typealias JSONObject = [String: Any]
 public typealias JSONArray = [[String: Any]]
 
 // MARK: - Convertible Interface
-public protocol ModelKey {}
-extension String: ModelKey {}
-extension Array: ModelKey where Element == String {}
+public protocol ModelPropertyKey {}
+extension String: ModelPropertyKey {}
+extension Array: ModelPropertyKey where Element == String {}
 
-public typealias JSONKey = String
+public typealias JSONPropertyKey = String
 
 public protocol Convertible {
     init()
@@ -23,7 +23,7 @@ public protocol Convertible {
     /// Get a key from propertyName when converting from JSON to model
     ///
     /// Only call once for every property of every type
-    func kk_modelKey(from property: Property) -> ModelKey
+    func kk_modelKey(from property: Property) -> ModelPropertyKey
     
     /// Get a model modelValue from jsonValue when converting from JSON to model
     ///
@@ -46,7 +46,7 @@ public protocol Convertible {
     /// Get a key from propertyName when converting from model to JSON
     ///
     /// Only call once for every property of every type
-    func kk_JSONKey(from property: Property) -> JSONKey
+    func kk_JSONKey(from property: Property) -> JSONPropertyKey
     
     /// Get a JSONValue from modelValue when converting from JSON to model
     ///
@@ -63,21 +63,29 @@ public protocol Convertible {
 }
 
 public extension Convertible {
-    func kk_modelKey(from property: Property) -> ModelKey {
-        return property.name
+    func kk_modelKey(from property: Property) -> ModelPropertyKey {
+        return ConvertibleConfig.modelKey(Self.self, property: property)
     }
     func kk_modelValue(from jsonValue: Any?,
-                       property: Property) -> Any? { return jsonValue }
+                       property: Property) -> Any? {
+        return ConvertibleConfig.modelValue(Self.self,
+                                            jsonValue: jsonValue,
+                                            property: property)
+    }
     func kk_modelType(from jsonValue: Any?,
                       property: Property) -> Convertible.Type? { return nil }
     func kk_willConvertToModel(from json: JSONObject) {}
     func kk_didConvertToModel(from json: JSONObject) {}
     
-    func kk_JSONKey(from property: Property) -> JSONKey {
-        return property.name
+    func kk_JSONKey(from property: Property) -> JSONPropertyKey {
+        return ConvertibleConfig.JSONKey(Self.self, property: property)
     }
     func kk_JSONValue(from modelValue: Any?,
-                      property: Property) -> Any? { return modelValue }
+                      property: Property) -> Any? {
+        return ConvertibleConfig.JSONValue(Self.self,
+                                           modelValue: modelValue,
+                                           property: property)
+    }
     func kk_willConvertToJSON() {}
     func kk_didConvertToJSON(json: JSONObject?) {}
 }
