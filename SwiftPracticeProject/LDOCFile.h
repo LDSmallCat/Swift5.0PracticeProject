@@ -1,8 +1,8 @@
 //
-//  LDViewController.h
+//  LDOCFile.h
 //  SwiftPracticeProject
 //
-//  Created by Mac on 2019/8/15.
+//  Created by Mac on 2019/8/16.
 //  Copyright © 2019 caolaidong. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface LDViewController : NSObject
+@interface LDOCFile : NSObject
 
 @end
 

@@ -15,6 +15,11 @@ PODS:
     - Alamofire (~> 4.1)
     - Result (~> 4.1)
   - Result (4.1.0)
+  - Reusable (4.1.0):
+    - Reusable/Storyboard (= 4.1.0)
+    - Reusable/View (= 4.1.0)
+  - Reusable/Storyboard (4.1.0)
+  - Reusable/View (4.1.0)
   - SnapKit (5.0.1)
   - SwiftyJSON (5.0.0)
   - Then (2.5.0)
@@ -31,6 +36,7 @@ DEPENDENCIES:
   - MBProgressHUD
   - MJRefresh
   - Moya
+  - Reusable
   - SnapKit
   - SwiftyJSON
   - Then
@@ -49,6 +55,7 @@ SPEC REPOS:
     - MJRefresh
     - Moya
     - Result
+    - Reusable
     - SnapKit
     - SwiftyJSON
     - Then
@@ -66,11 +73,12 @@ SPEC CHECKSUMS:
   MJRefresh: ed450d6eb9d3346a2cb033ab7eb6de090aeef437
   Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
   Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  Reusable: 82be188f29d96dc5eff0db7b2393bcc08d2cdd5b
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
   Then: 0157115e883545c77967b452fe74a1d25fb796e1
   UINavigation-SXFixSpace: 10f223253ebff2ceefa26694e23b7694269763c4
 
-PODFILE CHECKSUM: c68528cb22b625f0bd426bc4f6f97044f8ebaea8
+PODFILE CHECKSUM: d180b852b0e6f4d581b1907231581ee5fd0f35cf
 
 COCOAPODS: 1.7.4
