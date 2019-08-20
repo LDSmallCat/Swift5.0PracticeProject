@@ -24,10 +24,19 @@ struct GalleryItemModel: Convertible {
 }
 
 // MARK: - HomeModel
+enum comicType: Int {
+    case none = 0
+    case update = 3
+    case thematic = 5
+    case animation = 9
+    case billboard = 11
+}
 struct ComicListModel: Convertible {
+    let comicType: comicType = .none
     let comics: [ComicModel] = []
     let itemTitle = ""
     let titleIconUrl = ""
+    ///URL
     let newTitleIconUrl = ""
 }
 struct ComicModel: Convertible {

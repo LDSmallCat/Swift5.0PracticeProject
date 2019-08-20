@@ -35,7 +35,7 @@ class RecommendCell: LDBaseCollectionViewCell {
     
     override func configUI() {
         clipsToBounds = true
-        
+        contentView.backgroundColor = UIColor.white
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.left.right.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10))
@@ -93,9 +93,9 @@ class RecommendCell: LDBaseCollectionViewCell {
         didSet {
             guard let model = model else { return }
             titleLabel.text = model.name
-            descLabel.text = model.subTitle            
-            coverImage.kf.setImage(with: URL(string: model.cover))
+            descLabel.text = model.subTitle
          
+            coverImage.kf.setImage(with: URL(string: model.cover), placeholder: (bounds.width > bounds.height) ? UIImage(named: "normal_placeholder_h") : UIImage(named: "normal_placeholder_v"))
         }
     }
     

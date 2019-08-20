@@ -31,6 +31,7 @@ class RecommendViewController: LDBaseViewController {
         let ft = UICollectionViewFlowLayout()
         ft.minimumInteritemSpacing = 5
         ft.minimumLineSpacing = 10
+        
         ft.itemSize = CGSize(width: (screenWidth - 11) / 2 , height: 160)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: ft)
         cv.backgroundColor = UIColor.background
@@ -41,7 +42,8 @@ class RecommendViewController: LDBaseViewController {
         cv.ldFooter = LDrefreshDiscoverFooter()
         cv.delegate = self
         cv.dataSource = self
-        
+        cv.register(supplementaryViewType: RecommendHeader.self, ofKind: UICollectionView.elementKindSectionHeader)
+        cv.register(supplementaryViewType: RecommendFooter.self, ofKind: UICollectionView.elementKindSectionFooter)
         cv.register(cellType: RecommendCell.self)
         return cv
     }()
@@ -91,13 +93,13 @@ extension RecommendViewController {
                 $0.cover
             } ?? []
             
-            
+            self?.collectionView.ldHeader.endRefreshing()
         }
 
     }
 }
 
-extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == collectionView {
             bannerView.snp.updateConstraints {
@@ -124,5 +126,43 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let comicList = comicLists[section]
+        return comicList.itemTitle.count > 0 ? CGSize(width: screenWidth, height: 44) : CGSize.zero
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        comicLists.count - 1 != section ? CGSize(width: screenWidth, height: 10) : CGSize.zero
+    }
+
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            let head = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: RecommendHeader.self)
+            let comicList = comicLists[indexPath.section]
+            head.imgView.kf.setImage(with: URL(string: comicList.newTitleIconUrl))
+            head.titleLbael.text = comicList.itemTitle
+            head.moreActionClosure { [weak self] in
+                
+                let vc = ViewController()
+                vc.titleString = String(comicList.comicType.rawValue)
+              self?.navigationController?.pushViewController(vc, animated: true)
+                switch comicList.comicType {
+                case .thematic:
+                    print("thematic")
+                case .animation:
+                    print("animation")
+                case .update:
+                    print("update")
+                default:
+                    print("default")
+                    
+                }
+                
+            }
+            return head
+        }else {
+            let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: RecommendFooter.self)
+            return footer
+        }
+    }
 }

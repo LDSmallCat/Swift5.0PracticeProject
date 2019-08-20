@@ -31,6 +31,9 @@
 		D28732B7230A33E600397CA4 /* LDBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28732B6230A33E600397CA4 /* LDBaseTableViewCell.swift */; };
 		D28732BB230A343300397CA4 /* LDBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28732BA230A343300397CA4 /* LDBaseCollectionViewCell.swift */; };
 		D28732BF230A34AC00397CA4 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28732BE230A34AC00397CA4 /* RecommendCell.swift */; };
+		D28732C3230A821300397CA4 /* LDBaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28732C2230A821300397CA4 /* LDBaseCollectionReusableView.swift */; };
+		D28732C5230A829000397CA4 /* RecommendHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28732C4230A829000397CA4 /* RecommendHeader.swift */; };
+		D28732C7230A888800397CA4 /* RecommendFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28732C6230A888800397CA4 /* RecommendFooter.swift */; };
 		D2889AC823050E41006C7B0E /* LDTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889AC723050E41006C7B0E /* LDTabBar.swift */; };
 		D2889ACF23052151006C7B0E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889ACE23052151006C7B0E /* UIColorExtension.swift */; };
 		D2889AD3230521A1006C7B0E /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */; };
@@ -100,6 +103,9 @@
 		D28732B6230A33E600397CA4 /* LDBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDBaseTableViewCell.swift; sourceTree = "<group>"; };
 		D28732BA230A343300397CA4 /* LDBaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDBaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		D28732BE230A34AC00397CA4 /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
+		D28732C2230A821300397CA4 /* LDBaseCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDBaseCollectionReusableView.swift; sourceTree = "<group>"; };
+		D28732C4230A829000397CA4 /* RecommendHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendHeader.swift; sourceTree = "<group>"; };
+		D28732C6230A888800397CA4 /* RecommendFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendFooter.swift; sourceTree = "<group>"; };
 		D2889AC723050E41006C7B0E /* LDTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDTabBar.swift; sourceTree = "<group>"; };
 		D2889ACE23052151006C7B0E /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
@@ -255,6 +261,7 @@
 				D2038C0E2304F671004CF263 /* LDBaseViewController.swift */,
 				D279A15423055D4A0004192A /* LDPageViewController.swift */,
 				D28732BA230A343300397CA4 /* LDBaseCollectionViewCell.swift */,
+				D28732C2230A821300397CA4 /* LDBaseCollectionReusableView.swift */,
 			);
 			path = BaseFile;
 			sourceTree = "<group>";
@@ -305,6 +312,8 @@
 			isa = PBXGroup;
 			children = (
 				D28732BE230A34AC00397CA4 /* RecommendCell.swift */,
+				D28732C4230A829000397CA4 /* RecommendHeader.swift */,
+				D28732C6230A888800397CA4 /* RecommendFooter.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -574,15 +583,18 @@
 				D2604EF42306554300351C93 /* SubscribeViewController.swift in Sources */,
 				D2889AD3230521A1006C7B0E /* UIBarButtonItemExtension.swift in Sources */,
 				D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */,
+				D28732C5230A829000397CA4 /* RecommendHeader.swift in Sources */,
 				D28732BB230A343300397CA4 /* LDBaseCollectionViewCell.swift in Sources */,
 				D28732BF230A34AC00397CA4 /* RecommendCell.swift in Sources */,
 				D2889ACF23052151006C7B0E /* UIColorExtension.swift in Sources */,
+				D28732C7230A888800397CA4 /* RecommendFooter.swift in Sources */,
 				D2889AC823050E41006C7B0E /* LDTabBar.swift in Sources */,
 				D279A15523055D4A0004192A /* LDPageViewController.swift in Sources */,
 				D2038BD62304F391004CF263 /* AppDelegate.swift in Sources */,
 				D2F422F023069AED00DFC244 /* LDConst.swift in Sources */,
 				D2038BD82304F391004CF263 /* SceneDelegate.swift in Sources */,
 				D2F422EB230692AC00DFC244 /* LDModel.swift in Sources */,
+				D28732C3230A821300397CA4 /* LDBaseCollectionReusableView.swift in Sources */,
 				D2038C092304F62E004CF263 /* LDTabBarController.swift in Sources */,
 				D2038C112304F68E004CF263 /* HomeViewController.swift in Sources */,
 			);

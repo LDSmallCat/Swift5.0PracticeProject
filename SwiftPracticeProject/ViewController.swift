@@ -9,10 +9,13 @@
 import UIKit
 
 class ViewController: LDBaseViewController {
-
+    var titleString = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.random
+        title = titleString
+        
     }
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

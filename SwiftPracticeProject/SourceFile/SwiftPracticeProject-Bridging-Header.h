@@ -12,6 +12,6 @@
 #import <Moya/Moya-Swift.h>
 #import <Reusable/Reusable-Swift.h>
 #import <LLCycleScrollView/LLCycleScrollView-Swift.h>
-#import <Kingfisher/Kingfisher-Swift.h>
+//#import <SDWebImage>
 
 
