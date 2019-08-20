@@ -7,16 +7,41 @@
 //
 
 import UIKit
-
+// 支持Date和NSDate，默认会将毫秒数转为Date\NSDate
+ 
+struct Student: Convertible {
+    var date1: NSDate?
+    var date2: NSDate?
+    var date3: Date?
+    var date4: Date?
+    var date5: Date?
+    var date6: Date?
+    var date7: Date?
+}
+ 
+let milliseconds: Int = 1565922866
+ 
+let json: [String: Any] = [
+    "date1": milliseconds,
+    "date2": Date(timeIntervalSince1970: TimeInterval(milliseconds)),
+    "date3": milliseconds,
+    "date4": NSDate(timeIntervalSince1970: TimeInterval(milliseconds)),
+    "date5": "\(milliseconds)",
+    "date6": NSDecimalNumber(string: "\(milliseconds)"),
+    "date7": Decimal(string: "\(milliseconds)") as Any
+]
+ 
 class VoiceViewController: LDBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = UIColor.green
+        let student = json.kk.model(Student.self)
+        
+        
+        guard let stu = student else { return }
+        guard let date1 = stu.date1 else { return }
+        print(date1)
     }
-    
-
     /*
     // MARK: - Navigation
 

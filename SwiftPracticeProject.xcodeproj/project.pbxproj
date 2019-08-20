@@ -23,6 +23,7 @@
 		D2038C1A2304F71F004CF263 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2038C182304F71F004CF263 /* Main.storyboard */; };
 		D2038C1B2304F71F004CF263 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2038C192304F71F004CF263 /* LaunchScreen.storyboard */; };
 		D2038C1F2304F777004CF263 /* LDNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2038C1E2304F777004CF263 /* LDNavigationViewController.swift */; };
+		D2523010230B9769001F9AB6 /* KakaJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252300F230B9769001F9AB6 /* KakaJson.swift */; };
 		D2604EF0230654D700351C93 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EEF230654D700351C93 /* RecommendViewController.swift */; };
 		D2604EF2230654E200351C93 /* VIPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EF1230654E200351C93 /* VIPViewController.swift */; };
 		D2604EF42306554300351C93 /* SubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EF32306554300351C93 /* SubscribeViewController.swift */; };
@@ -95,6 +96,7 @@
 		D2038C192304F71F004CF263 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2038C1E2304F777004CF263 /* LDNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDNavigationViewController.swift; sourceTree = "<group>"; };
 		D224CDF32305491B008411A8 /* SwiftPracticeProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPracticeProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		D252300F230B9769001F9AB6 /* KakaJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaJson.swift; sourceTree = "<group>"; };
 		D2604EEF230654D700351C93 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		D2604EF1230654E200351C93 /* VIPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPViewController.swift; sourceTree = "<group>"; };
 		D2604EF32306554300351C93 /* SubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewController.swift; sourceTree = "<group>"; };
@@ -193,6 +195,7 @@
 		D2038BD42304F391004CF263 /* SwiftPracticeProject */ = {
 			isa = PBXGroup;
 			children = (
+				D252300E230B9758001F9AB6 /* Test */,
 				D2F422EC230697DA00DFC244 /* LDOCFile.h */,
 				D2F422ED230697DA00DFC244 /* LDOCFile.m */,
 				D2038BD92304F391004CF263 /* ViewController.swift */,
@@ -297,6 +300,14 @@
 				D2038C162304F6A6004CF263 /* MineViewController.swift */,
 			);
 			path = Mine;
+			sourceTree = "<group>";
+		};
+		D252300E230B9758001F9AB6 /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				D252300F230B9769001F9AB6 /* KakaJson.swift */,
+			);
+			path = Test;
 			sourceTree = "<group>";
 		};
 		D2889AC923051B90006C7B0E /* Extension */ = {
@@ -593,6 +604,7 @@
 				D2038BD62304F391004CF263 /* AppDelegate.swift in Sources */,
 				D2F422F023069AED00DFC244 /* LDConst.swift in Sources */,
 				D2038BD82304F391004CF263 /* SceneDelegate.swift in Sources */,
+				D2523010230B9769001F9AB6 /* KakaJson.swift in Sources */,
 				D2F422EB230692AC00DFC244 /* LDModel.swift in Sources */,
 				D28732C3230A821300397CA4 /* LDBaseCollectionReusableView.swift in Sources */,
 				D2038C092304F62E004CF263 /* LDTabBarController.swift in Sources */,

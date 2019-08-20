@@ -58,3 +58,35 @@ extension LDApi: TargetType {
 
 
 }
+
+
+extension MoyaProvider {
+    
+    func ldRequest(_ target: Target, successClosure: ((_ returnData: JSON) -> Void)?,abnormalClosure:((_ code: Int, _ message: String) -> Void)?, failureClosure: ((_ failureString: String) -> Void)?)
+        -> Void {
+            
+            request(target) { (result) in
+                switch result {
+                    case let .success(response):
+                        let jsonData = JSON(response.data)["data"]
+                        let code = jsonData["stateCode"].int!
+                        
+                        let msg = jsonData["message"].string!
+                        
+                        if code == 1 {
+                            guard let se = successClosure else { return }
+                            se(jsonData["returnData"])
+                        }else{
+                            
+                            guard let ae = abnormalClosure else { return }
+                            ae(code,msg)
+                        }
+                    
+                    case let .failure(error):
+                    guard let fe = failureClosure else { return }
+                        fe(error.errorDescription ?? "网络错误")
+                    }
+            }
+            
+    }
+}

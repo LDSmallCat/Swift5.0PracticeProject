@@ -23,6 +23,7 @@ class LDTabBarController: UITabBarController {
         
         addHomeVc()
         adddOtherVc()
+        self.selectedIndex = 1
     }
     func addHomeVc() {
         let titles = ["推荐","VIP","订阅","排行"]

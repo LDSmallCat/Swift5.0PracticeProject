@@ -51,6 +51,7 @@ class RecommendViewController: LDBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData(sexType: sex)
+        
     }
     
     override func configUI() {
@@ -76,27 +77,33 @@ extension RecommendViewController {
 
 // MARK: - reuqest
 extension RecommendViewController {
+    
+    
     func loadData(sexType: Int) {
-        ApiProvider.request(LDApi.recommendList(sexType: sexType), callbackQueue: nil, progress: nil) { [weak self] (result) in
+            ApiProvider.ldRequest((LDApi.recommendList(sexType: sexType)), successClosure: { [weak self] (json) in
+                let ca = modelArray(from: json["comicLists"].arrayObject, ComicListModel.self)
+                let ga = modelArray(from: json["galleryItems"].arrayObject, GalleryItemModel.self)
+                
+                if ca != nil {
+                    self?.comicLists.append(contentsOf: ca!)
+                }
+                if ga != nil {
+                    self?.galleryItems.append(contentsOf: ga!)
+                    self?.bannerView.imagePaths = self?.galleryItems.map {
+                        $0.cover
+                    } ?? []
+                }
+                
+                self?.collectionView.reloadData()
+                self?.collectionView.ldHeader.endRefreshing()
+            }, abnormalClosure: { (code, message) in
+                print(code,message)
+            }) { (message) in
+                print(message)
+            }
             
-            guard let data = result.value?.data else { return }
-            let json = JSON(data)
-            let comicListsJson = json["data"]["returnData"]["comicLists"].arrayObject
-            guard let comicListsArray = modelArray(from: comicListsJson, ComicListModel.self) else { return }
-            self?.comicLists.append(contentsOf: comicListsArray)
-           self?.collectionView.reloadData()
-            
-            let galleryItemsJson = json["data"]["returnData"]["galleryItems"].arrayObject
-            guard let galleryArray = modelArray(from: galleryItemsJson, GalleryItemModel.self) else { return }
-            self?.galleryItems.append(contentsOf: galleryArray)
-            self?.bannerView.imagePaths = self?.galleryItems.map {
-                $0.cover
-            } ?? []
-            
-            self?.collectionView.ldHeader.endRefreshing()
-        }
 
-    }
+        }
 }
 
 extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
