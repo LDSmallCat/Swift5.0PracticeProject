@@ -10,7 +10,7 @@ import UIKit
 
 class RecommendViewController: LDBaseViewController {
     // MARK: - private property
-    private var sex: Int = 1
+    private var sex: Int = 2
     private var galleryItems = [GalleryItemModel]()
     private var comicLists = [ComicListModel]()
 
@@ -34,7 +34,7 @@ class RecommendViewController: LDBaseViewController {
         
         ft.itemSize = CGSize(width: (screenWidth - 11) / 2 , height: 160)
         let cv = UICollectionView(frame: .zero, collectionViewLayout: ft)
-        cv.backgroundColor = UIColor.background
+        cv.backgroundColor = UIColor.white
         cv.alwaysBounceVertical = true
         cv.contentInset = UIEdgeInsets(top: screenWidth * 0.467, left: 0, bottom: 0, right: 0)
         cv.scrollIndicatorInsets = cv.contentInset
@@ -80,28 +80,28 @@ extension RecommendViewController {
     
     
     func loadData(sexType: Int) {
-            ApiProvider.ldRequest((LDApi.recommendList(sexType: sexType)), successClosure: { [weak self] (json) in
-                let ca = modelArray(from: json["comicLists"].arrayObject, ComicListModel.self)
-                let ga = modelArray(from: json["galleryItems"].arrayObject, GalleryItemModel.self)
-                
-                if ca != nil {
-                    self?.comicLists.append(contentsOf: ca!)
-                }
-                if ga != nil {
-                    self?.galleryItems.append(contentsOf: ga!)
-                    self?.bannerView.imagePaths = self?.galleryItems.map {
-                        $0.cover
-                    } ?? []
-                }
-                
-                self?.collectionView.reloadData()
-                self?.collectionView.ldHeader.endRefreshing()
-            }, abnormalClosure: { (code, message) in
-                print(code,message)
-            }) { (message) in
-                print(message)
-            }
-            
+        ApiLodingProvider.ldRequest(LDApi.recommendList(sexType: sexType), successClosure: { [weak self] (json) in
+            //print(json)
+            let ca = modelArray(from: json["comicLists"].arrayObject, ComicListModel.self)
+            let ga = modelArray(from: json["galleryItems"].arrayObject, GalleryItemModel.self)
+                             
+             if ca != nil {
+                 self?.comicLists.append(contentsOf: ca!)
+             }
+             if ga != nil {
+                 self?.galleryItems.append(contentsOf: ga!)
+                 self?.bannerView.imagePaths = self?.galleryItems.map {
+                     $0.cover
+                 } ?? []
+             }
+                             
+             self?.collectionView.reloadData()
+             self?.collectionView.ldHeader.endRefreshing()
+        }, abnormalClosure: { (code, message) in
+            print("abnormalClosure",code,message)
+        }) { (message) in
+            print("message")
+        }
 
         }
 }
@@ -148,24 +148,8 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
             let comicList = comicLists[indexPath.section]
             head.imgView.kf.setImage(with: URL(string: comicList.newTitleIconUrl))
             head.titleLbael.text = comicList.itemTitle
-            head.moreActionClosure { [weak self] in
-                
-                let vc = ViewController()
-                vc.titleString = String(comicList.comicType.rawValue)
-              self?.navigationController?.pushViewController(vc, animated: true)
-                switch comicList.comicType {
-                case .thematic:
-                    print("thematic")
-                case .animation:
-                    print("animation")
-                case .update:
-                    print("update")
-                default:
-                    print("default")
-                    
-                }
-                
-            }
+            head.moreActionClosure { print(comicList.itemTitle) }
+
             return head
         }else {
             let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: RecommendFooter.self)

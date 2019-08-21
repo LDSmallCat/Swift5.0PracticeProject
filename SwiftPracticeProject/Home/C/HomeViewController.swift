@@ -8,10 +8,14 @@
 
 import UIKit
 
+
 class HomeViewController: LDPageViewController {
+        
+   
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.random
+        
     }
    
     override func configNavigationBar() {

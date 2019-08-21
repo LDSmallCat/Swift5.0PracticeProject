@@ -32,15 +32,28 @@ enum comicType: Int {
     case billboard = 11
 }
 struct ComicListModel: Convertible {
-    let comicType: comicType = .none
+    //homePage
     let comics: [ComicModel] = []
     let itemTitle = ""
-    let titleIconUrl = ""
-    ///URL
     let newTitleIconUrl = ""
+    let titleIconUrl = ""
+    
+    //VIP
+    let argName = ""
+    let canMore = false
+    
+    let comicType: comicType = .none
 }
 struct ComicModel: Convertible {
-    let name: String = ""
-    let subTitle: String = ""
-    let cover: String = ""
+    let name = ""
+    let subTitle = ""
+    let cover = ""
+    let comicId = 0
+    
+}
+
+struct RankModel: Convertible {
+    let subTitle = ""
+    let title = ""
+    let cover = ""
 }

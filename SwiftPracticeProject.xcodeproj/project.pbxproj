@@ -24,6 +24,7 @@
 		D2038C1B2304F71F004CF263 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2038C192304F71F004CF263 /* LaunchScreen.storyboard */; };
 		D2038C1F2304F777004CF263 /* LDNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2038C1E2304F777004CF263 /* LDNavigationViewController.swift */; };
 		D2523010230B9769001F9AB6 /* KakaJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252300F230B9769001F9AB6 /* KakaJson.swift */; };
+		D2553318230D34BF002CF636 /* RankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2553317230D34BF002CF636 /* RankCell.swift */; };
 		D2604EF0230654D700351C93 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EEF230654D700351C93 /* RecommendViewController.swift */; };
 		D2604EF2230654E200351C93 /* VIPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EF1230654E200351C93 /* VIPViewController.swift */; };
 		D2604EF42306554300351C93 /* SubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EF32306554300351C93 /* SubscribeViewController.swift */; };
@@ -41,7 +42,7 @@
 		D28B861923066900005299D9 /* LDApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B861823066900005299D9 /* LDApi.swift */; };
 		D2F422EB230692AC00DFC244 /* LDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EA230692AC00DFC244 /* LDModel.swift */; };
 		D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F422ED230697DA00DFC244 /* LDOCFile.m */; };
-		D2F422F023069AED00DFC244 /* LDConst.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EF23069AED00DFC244 /* LDConst.swift */; };
+		D2F422F023069AED00DFC244 /* LDGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EF23069AED00DFC244 /* LDGlobal.swift */; };
 		D2F422F42306A1F800DFC244 /* LDRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422F32306A1F800DFC244 /* LDRefresh.swift */; };
 		D5BC557B1464E38258EC6809 /* Pods_SwiftPracticeProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8723BB38403252036805B7 /* Pods_SwiftPracticeProjectTests.framework */; };
 		E6CD31584458759FCCA050A0 /* Pods_SwiftPracticeProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2828B6065899C4F9E4F370FC /* Pods_SwiftPracticeProjectUITests.framework */; };
@@ -97,6 +98,7 @@
 		D2038C1E2304F777004CF263 /* LDNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDNavigationViewController.swift; sourceTree = "<group>"; };
 		D224CDF32305491B008411A8 /* SwiftPracticeProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPracticeProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		D252300F230B9769001F9AB6 /* KakaJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaJson.swift; sourceTree = "<group>"; };
+		D2553317230D34BF002CF636 /* RankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCell.swift; sourceTree = "<group>"; };
 		D2604EEF230654D700351C93 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		D2604EF1230654E200351C93 /* VIPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPViewController.swift; sourceTree = "<group>"; };
 		D2604EF32306554300351C93 /* SubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewController.swift; sourceTree = "<group>"; };
@@ -115,7 +117,7 @@
 		D2F422EA230692AC00DFC244 /* LDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDModel.swift; sourceTree = "<group>"; };
 		D2F422EC230697DA00DFC244 /* LDOCFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDOCFile.h; sourceTree = "<group>"; };
 		D2F422ED230697DA00DFC244 /* LDOCFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDOCFile.m; sourceTree = "<group>"; };
-		D2F422EF23069AED00DFC244 /* LDConst.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDConst.swift; sourceTree = "<group>"; };
+		D2F422EF23069AED00DFC244 /* LDGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDGlobal.swift; sourceTree = "<group>"; };
 		D2F422F32306A1F800DFC244 /* LDRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDRefresh.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -202,7 +204,7 @@
 				D2038BE32304F392004CF263 /* Info.plist */,
 				D2038BDE2304F392004CF263 /* Assets.xcassets */,
 				D28B861823066900005299D9 /* LDApi.swift */,
-				D2F422EF23069AED00DFC244 /* LDConst.swift */,
+				D2F422EF23069AED00DFC244 /* LDGlobal.swift */,
 				D2F422EA230692AC00DFC244 /* LDModel.swift */,
 				D2F422F12306A1E000DFC244 /* Component */,
 				D2038C0A2304F63F004CF263 /* Home */,
@@ -325,6 +327,7 @@
 				D28732BE230A34AC00397CA4 /* RecommendCell.swift */,
 				D28732C4230A829000397CA4 /* RecommendHeader.swift */,
 				D28732C6230A888800397CA4 /* RecommendFooter.swift */,
+				D2553317230D34BF002CF636 /* RankCell.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -598,11 +601,12 @@
 				D28732BB230A343300397CA4 /* LDBaseCollectionViewCell.swift in Sources */,
 				D28732BF230A34AC00397CA4 /* RecommendCell.swift in Sources */,
 				D2889ACF23052151006C7B0E /* UIColorExtension.swift in Sources */,
+				D2553318230D34BF002CF636 /* RankCell.swift in Sources */,
 				D28732C7230A888800397CA4 /* RecommendFooter.swift in Sources */,
 				D2889AC823050E41006C7B0E /* LDTabBar.swift in Sources */,
 				D279A15523055D4A0004192A /* LDPageViewController.swift in Sources */,
 				D2038BD62304F391004CF263 /* AppDelegate.swift in Sources */,
-				D2F422F023069AED00DFC244 /* LDConst.swift in Sources */,
+				D2F422F023069AED00DFC244 /* LDGlobal.swift in Sources */,
 				D2038BD82304F391004CF263 /* SceneDelegate.swift in Sources */,
 				D2523010230B9769001F9AB6 /* KakaJson.swift in Sources */,
 				D2F422EB230692AC00DFC244 /* LDModel.swift in Sources */,

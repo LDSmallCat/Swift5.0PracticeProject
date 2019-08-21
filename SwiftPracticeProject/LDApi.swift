@@ -6,10 +6,33 @@
 //  Copyright © 2019 caolaidong. All rights reserved.
 //
 
-import UIKit
+import Moya
 
-let ApiProvider = MoyaProvider<LDApi>()
 
+let loadingPlugin = NetworkActivityPlugin { (type, target) in
+    guard let vc = topVC else { return }
+    switch type {
+    case .began:
+        MBProgressHUD.hide(for: vc.view, animated: false)
+        MBProgressHUD.showAdded(to: vc.view, animated: true)
+    case .ended:
+        MBProgressHUD.hide(for: vc.view, animated: true)
+
+    }
+}
+
+let timeoutClosure = { (endpoint: Endpoint, closure: MoyaProvider<LDApi>.RequestResultClosure) -> Void in
+    
+    if var urlRequest = try? endpoint.urlRequest() {
+        urlRequest.timeoutInterval = 10
+        closure(.success(urlRequest))
+    } else {
+    closure(.failure(MoyaError.requestMapping(endpoint.url)))
+
+    }
+}
+let ApiProvider = MoyaProvider<LDApi>(requestClosure: timeoutClosure)
+let ApiLodingProvider = MoyaProvider<LDApi>(requestClosure: timeoutClosure, plugins: [loadingPlugin])
 
 enum LDApi {
     case recommendList(sexType: Int)
