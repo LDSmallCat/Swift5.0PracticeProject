@@ -40,6 +40,7 @@
 		D2889ACF23052151006C7B0E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889ACE23052151006C7B0E /* UIColorExtension.swift */; };
 		D2889AD3230521A1006C7B0E /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */; };
 		D28B861923066900005299D9 /* LDApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B861823066900005299D9 /* LDApi.swift */; };
+		D2EC2A8A230E379F00336301 /* UComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EC2A89230E379F00336301 /* UComicViewController.swift */; };
 		D2F422EB230692AC00DFC244 /* LDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EA230692AC00DFC244 /* LDModel.swift */; };
 		D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F422ED230697DA00DFC244 /* LDOCFile.m */; };
 		D2F422F023069AED00DFC244 /* LDGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EF23069AED00DFC244 /* LDGlobal.swift */; };
@@ -114,6 +115,7 @@
 		D2889ACE23052151006C7B0E /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
 		D28B861823066900005299D9 /* LDApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDApi.swift; sourceTree = "<group>"; };
+		D2EC2A89230E379F00336301 /* UComicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UComicViewController.swift; sourceTree = "<group>"; };
 		D2F422EA230692AC00DFC244 /* LDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDModel.swift; sourceTree = "<group>"; };
 		D2F422EC230697DA00DFC244 /* LDOCFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDOCFile.h; sourceTree = "<group>"; };
 		D2F422ED230697DA00DFC244 /* LDOCFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDOCFile.m; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				D2604EF1230654E200351C93 /* VIPViewController.swift */,
 				D2604EF32306554300351C93 /* SubscribeViewController.swift */,
 				D2604EF52306555300351C93 /* RankViewController.swift */,
+				D2EC2A89230E379F00336301 /* UComicViewController.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -602,6 +605,7 @@
 				D28732BF230A34AC00397CA4 /* RecommendCell.swift in Sources */,
 				D2889ACF23052151006C7B0E /* UIColorExtension.swift in Sources */,
 				D2553318230D34BF002CF636 /* RankCell.swift in Sources */,
+				D2EC2A8A230E379F00336301 /* UComicViewController.swift in Sources */,
 				D28732C7230A888800397CA4 /* RecommendFooter.swift in Sources */,
 				D2889AC823050E41006C7B0E /* LDTabBar.swift in Sources */,
 				D279A15523055D4A0004192A /* LDPageViewController.swift in Sources */,
@@ -771,6 +775,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RS8S42PTY6;
 				INFOPLIST_FILE = SwiftPracticeProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -793,6 +798,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RS8S42PTY6;
 				INFOPLIST_FILE = SwiftPracticeProject/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

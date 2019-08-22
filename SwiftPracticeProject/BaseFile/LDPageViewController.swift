@@ -50,6 +50,7 @@ class LDPageViewController: LDBaseViewController {
     }
     override func configUI() {
         guard let vcs = vcs else { return }
+        addChild(pageVC)
         view.addSubview(pageVC.view)
         pageVC.delegate = self
         pageVC.dataSource = self

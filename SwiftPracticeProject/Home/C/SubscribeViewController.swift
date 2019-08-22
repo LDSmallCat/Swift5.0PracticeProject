@@ -40,7 +40,7 @@ class SubscribeViewController: LDBaseViewController {
     }
     
     func loadData() {
-        ApiLodingProvider.ldRequest(LDApi.subscribeList, successClosure: { (json) in
+        UApiLodingProvider.ldRequest(UApi.subscribeList, successClosure: { (json) in
             print(json)
             let ar = modelArray(from: json["newSubscribeList"].arrayObject, ComicListModel.self)
             if ar != nil {

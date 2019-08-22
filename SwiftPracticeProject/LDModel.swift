@@ -24,7 +24,7 @@ struct GalleryItemModel: Convertible {
 }
 
 // MARK: - HomeModel
-enum comicType: Int {
+enum comicType: Int, ConvertibleEnum {
     case none = 0
     case update = 3
     case thematic = 5
@@ -37,19 +37,19 @@ struct ComicListModel: Convertible {
     let itemTitle = ""
     let newTitleIconUrl = ""
     let titleIconUrl = ""
-    
+    let comicType: comicType = .none
+
     //VIP
     let argName = ""
     let canMore = false
-    
-    let comicType: comicType = .none
 }
 struct ComicModel: Convertible {
     let name = ""
     let subTitle = ""
     let cover = ""
     let comicId = 0
-    
+    let linkType = 0
+
 }
 
 struct RankModel: Convertible {

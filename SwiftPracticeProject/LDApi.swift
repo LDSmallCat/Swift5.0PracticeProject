@@ -6,8 +6,6 @@
 //  Copyright © 2019 caolaidong. All rights reserved.
 //
 
-import Moya
-
 
 let loadingPlugin = NetworkActivityPlugin { (type, target) in
     guard let vc = topVC else { return }
@@ -21,7 +19,7 @@ let loadingPlugin = NetworkActivityPlugin { (type, target) in
     }
 }
 
-let timeoutClosure = { (endpoint: Endpoint, closure: MoyaProvider<LDApi>.RequestResultClosure) -> Void in
+let utimeoutClosure = { (endpoint: Endpoint, closure: MoyaProvider<UApi>.RequestResultClosure) -> Void in
     
     if var urlRequest = try? endpoint.urlRequest() {
         urlRequest.timeoutInterval = 10
@@ -31,10 +29,56 @@ let timeoutClosure = { (endpoint: Endpoint, closure: MoyaProvider<LDApi>.Request
 
     }
 }
-let ApiProvider = MoyaProvider<LDApi>(requestClosure: timeoutClosure)
-let ApiLodingProvider = MoyaProvider<LDApi>(requestClosure: timeoutClosure, plugins: [loadingPlugin])
+let UApiProvider = MoyaProvider<UApi>(requestClosure: utimeoutClosure)
+let UApiLodingProvider = MoyaProvider<UApi>(requestClosure: utimeoutClosure, plugins: [loadingPlugin])
 
-enum LDApi {
+
+enum HApi {
+    case likemomentsad(lastid: String)
+    
+}
+   
+extension HApi: TargetType {
+    var baseURL: URL { URL(string: "")! }
+    
+    var path: String {
+        switch self {
+        case .likemomentsad: return "http://soa-matchbox.huochaihe.net/v1/thread/likemomentsad"
+        
+        }
+    }
+    
+    var method: Moya.Method {
+        return .post
+    }
+    var task: Task {
+        var parmeters: [String: Any] = [:]
+        parmeters["source"] = "APP"
+        parmeters["uid"] = "978048"
+        parmeters["register_id"] = ""
+        parmeters["platform"] = "IOS"
+        parmeters["udid"] = "cf17589255f1e5dde7ac4987db0468bd14b2d510"
+        parmeters["user_id"] = "978048"
+        parmeters["version"] = "4.10.9"
+        parmeters["token_key"] = "OTc4MDQ4LOabueadpeS4nENjLCw2ZGFmMzszYWUyMDlhYWM0ZWM1MDg2NTUyZjNiZDA2ZDExMjc1Mw=="
+        switch self {
+        case .likemomentsad(let lastid):
+             parmeters["lastid"] = lastid
+             
+        }
+        
+        return .requestParameters(parameters: parmeters, encoding: URLEncoding.default)
+    }
+    var sampleData: Data { return "".data(using: .utf8)! }
+
+    var headers: [String : String]? { return nil }
+    //var headers: [String : String]? { return ["Content-type" : "application/json"] }
+
+
+}
+
+
+enum UApi {
     case recommendList(sexType: Int)
     case vipList
     case subscribeList
@@ -42,7 +86,7 @@ enum LDApi {
     case test
 }
 
-extension LDApi: TargetType {
+extension UApi: TargetType {
     var baseURL: URL { URL(string: "http://app.u17.com/v3/appV3_3/ios/phone")! }
     
     var path: String {

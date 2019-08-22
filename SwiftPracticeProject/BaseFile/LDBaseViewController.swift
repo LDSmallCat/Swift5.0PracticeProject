@@ -17,10 +17,11 @@ class LDBaseViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.background
         configUI()     
     }
     
-    func configUI() { view.backgroundColor = UIColor.background }
+    func configUI() {  }
     
     func configNavigationBar() {
         guard let navi = navigationController as? LDNavigationViewController else { return }

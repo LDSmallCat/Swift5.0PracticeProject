@@ -42,7 +42,7 @@ class VIPViewController: LDBaseViewController {
     }
     
     func loadData() {
-        ApiLodingProvider.ldRequest(LDApi.vipList, successClosure: { (json) in
+        UApiLodingProvider.ldRequest(UApi.vipList, successClosure: { (json) in
             print(json)
             let ar = modelArray(from: json["newVipList"].arrayObject, ComicListModel.self)
             if ar != nil {

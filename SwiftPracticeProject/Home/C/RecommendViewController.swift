@@ -80,7 +80,7 @@ extension RecommendViewController {
     
     
     func loadData(sexType: Int) {
-        ApiLodingProvider.ldRequest(LDApi.recommendList(sexType: sexType), successClosure: { [weak self] (json) in
+        UApiLodingProvider.ldRequest(UApi.recommendList(sexType: sexType), successClosure: { [weak self] (json) in
             //print(json)
             let ca = modelArray(from: json["comicLists"].arrayObject, ComicListModel.self)
             let ga = modelArray(from: json["galleryItems"].arrayObject, GalleryItemModel.self)
@@ -149,11 +149,31 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
             head.imgView.kf.setImage(with: URL(string: comicList.newTitleIconUrl))
             head.titleLbael.text = comicList.itemTitle
             head.moreActionClosure { print(comicList.itemTitle) }
-
+           
+            
             return head
         }else {
             let footer = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: RecommendFooter.self)
             return footer
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let comicList = comicLists[indexPath.section]
+        let item = comicList.comics[indexPath.row]
+        if comicList.comicType == .billboard { } else {
+            
+            switch item.linkType {
+                
+            case 2:
+                print(item.linkType)
+                
+            default:
+               
+            navigationController?.pushViewController(UComicViewController(), animated: true)
+                
+            }
+    
         }
     }
 }

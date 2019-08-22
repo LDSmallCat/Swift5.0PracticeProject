@@ -32,7 +32,7 @@ class RankViewController: LDBaseViewController {
         }
     }
     func loadData() {
-        ApiLodingProvider.ldRequest(LDApi.rankList, successClosure: { (json) in
+        UApiLodingProvider.ldRequest(UApi.rankList, successClosure: { (json) in
             print(json)
             let rk = modelArray(from: json["rankinglist"].arrayObject, RankModel.self)
             if rk != nil {
