@@ -9,6 +9,10 @@
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
 
+let navgationBarHeight: CGFloat = 44.0
+
+let statusBarHeight: CGFloat = isIphoneX ? 44.0 : 20.0
+
 var topVC: UIViewController? {
     var resultVC: UIViewController?
     
@@ -36,4 +40,10 @@ func lPrint<T>(_ message: T, file: String = #file, function: String = #function,
         let fileName = (file as NSString).lastPathComponent
     print("[\(fileName):funciton:\(function):line:\(lineNumber)]- \(message)")
     #endif
+}
+
+var isIphoneX: Bool {
+    return UIDevice.current.userInterfaceIdiom == .phone
+        && (max(UIScreen.main.bounds.height, UIScreen.main.bounds.width) == 812
+        || max(UIScreen.main.bounds.height, UIScreen.main.bounds.width) == 896)
 }
