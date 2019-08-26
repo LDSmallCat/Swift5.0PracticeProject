@@ -6,25 +6,24 @@
 //  Copyright © 2019 caolaidong. All rights reserved.
 //
 
-protocol ObserverScrollowDeleagte: NSObjectProtocol{
 
+protocol ObserverScrollowDeleagte: NSObjectProtocol{
+    
     func scrollowView(contentOffsetY: CGFloat)
 }
 
-
 class UComicBaseViewController: LDPageViewController {
+    static var comicId: Int = 0
+            
     weak var osd: ObserverScrollowDeleagte?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-      
+       
+        view.backgroundColor = UIColor.red
         pageVC.children.forEach {
             if let vc = $0 as? UComicBaseViewController
-            { vc.osd = self
-                print(vc)
-            }
-            
-        }
+            { vc.osd = self } }
     }
     
      override func configNavigationBar() {
@@ -37,40 +36,40 @@ class UComicBaseViewController: LDPageViewController {
    }
 }
 
-    extension UComicBaseViewController: ObserverScrollowDeleagte {
-        var aniTime : TimeInterval { get { 0.35 } }
+extension UComicBaseViewController: ObserverScrollowDeleagte {
+    
+    
+    var aniTime : TimeInterval { get { 0.35 } }
 
-        func scrollowView(contentOffsetY: CGFloat) {
+    func scrollowView(contentOffsetY: CGFloat) {
+        
+        if contentOffsetY > 0 {
+         (navigationController as! LDNavigationViewController).barStyle(.theme)
             
-            if contentOffsetY > 0 {
-             (navigationController as! LDNavigationViewController).barStyle(.theme)
+            UIView.animate(withDuration: aniTime) {
+                switch self.pageStyle {
+                case .topPaddingBar(let padding):
+                     self.sc.contentOffset = CGPoint(x: 0, y: padding - statusBarHeight -  navgationBarHeight)
+                default: break
+            }
                 
-                UIView.animate(withDuration: aniTime) {
-                    switch self.pageStyle {
-                    case .topPaddingBar(let padding):
-                         self.sc.contentOffset = CGPoint(x: 0, y: padding - statusBarHeight -  navgationBarHeight)
-                    default: break
-                }
+            }
                     
-                }
-                        
-             } else {
-                 (navigationController as! LDNavigationViewController).barStyle(.clear)
-                UIView.animate(withDuration: aniTime) {
-                    self.sc.contentOffset = CGPoint.zero
-                }
-                
-             }
-        }
-        
-        
+         } else {
+             (navigationController as! LDNavigationViewController).barStyle(.clear)
+            UIView.animate(withDuration: aniTime) {
+                self.sc.contentOffset = CGPoint.zero
+            }
+            
+         }
     }
+ 
+}
 
-extension ComicDetailViewController: UITableViewDelegate {
+extension UComicBaseViewController: UITableViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView == tb {
-            osd?.scrollowView(contentOffsetY: scrollView.contentOffset.y)
-        }
         
+            osd?.scrollowView(contentOffsetY: scrollView.contentOffset.y)
+
     }
 }

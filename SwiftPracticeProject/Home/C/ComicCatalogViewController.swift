@@ -19,7 +19,7 @@ class ComicCatalogViewController: UComicBaseViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
 
-            // Do any additional setup after loading the view.
+           
         }
         
         override func configUI() {
@@ -30,7 +30,7 @@ class ComicCatalogViewController: UComicBaseViewController {
         }
 }
 
-extension ComicCatalogViewController: UITableViewDataSource, UITableViewDelegate {
+extension ComicCatalogViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
                 100
     }

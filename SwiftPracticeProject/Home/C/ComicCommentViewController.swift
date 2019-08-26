@@ -19,7 +19,7 @@ class ComicCommentViewController: UComicBaseViewController {
         override func viewDidLoad() {
             super.viewDidLoad()
 
-            // Do any additional setup after loading the view.
+            
         }
         
         override func configUI() {
@@ -31,7 +31,7 @@ class ComicCommentViewController: UComicBaseViewController {
 
 }
 
-extension ComicCommentViewController: UITableViewDataSource, UITableViewDelegate {
+extension ComicCommentViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             100
     }

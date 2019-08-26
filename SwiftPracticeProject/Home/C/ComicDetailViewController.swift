@@ -8,8 +8,7 @@
 
 
 
-class ComicDetailViewController: UComicBaseViewController {
-
+class ComicDetailViewController: UComicBaseViewController{
     lazy var tb: UITableView = {
         let tb = UITableView(frame: CGRect.zero, style: .plain)
         tb.delegate = self
@@ -18,10 +17,18 @@ class ComicDetailViewController: UComicBaseViewController {
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        loadData()
+        
     }
-    
+    func loadData() {
+
+        UApiProvider.ldRequest(UApi.comicDetail(comicId: UComicBaseViewController.comicId), successClosure: { (json) in
+                print(json)
+            }, abnormalClosure: { (code, message) in
+                print(code,message)
+            }, failureClosure: nil)
+        
+    }
     override func configUI() {
         view.addSubview(tb)
         tb.snp.makeConstraints {
@@ -29,6 +36,7 @@ class ComicDetailViewController: UComicBaseViewController {
         }
     }
 
+    
 }
 
 

@@ -83,6 +83,7 @@ enum UApi {
     case vipList
     case subscribeList
     case rankList
+    case comicDetail(comicId: Int)
     case test
 }
 
@@ -96,6 +97,8 @@ extension UApi: TargetType {
         case .subscribeList: return "list/newSubscribeList"
         case .rankList: return "rank/list"
         case .test: return ""
+        case .comicDetail: return "comic/detail_realtime"
+            
         }
     }
     
@@ -114,6 +117,8 @@ extension UApi: TargetType {
         case .subscribeList: break
         case .rankList: break
         case .test: break
+        case .comicDetail(let comicId):
+            parmeters["comicid"] = comicId
         }
         
         return .requestParameters(parameters: parmeters, encoding: URLEncoding.default)

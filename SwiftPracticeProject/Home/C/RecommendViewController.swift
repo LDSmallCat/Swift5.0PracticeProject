@@ -173,8 +173,9 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
                 let vcs = [ComicDetailViewController(),ComicCatalogViewController(),ComicCommentViewController()]
                 
                 let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(200))
-                
+                UComicBaseViewController.comicId = item.comicId
                 navigationController?.pushViewController(cv, animated: true)
+                
                 
             }
     

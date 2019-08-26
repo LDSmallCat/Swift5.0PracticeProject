@@ -44,6 +44,7 @@
 		D2889ACF23052151006C7B0E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889ACE23052151006C7B0E /* UIColorExtension.swift */; };
 		D2889AD3230521A1006C7B0E /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */; };
 		D28B861923066900005299D9 /* LDApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B861823066900005299D9 /* LDApi.swift */; };
+		D29AFA432313B1A400ECD742 /* ComicDetaileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */; };
 		D2F422EB230692AC00DFC244 /* LDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EA230692AC00DFC244 /* LDModel.swift */; };
 		D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F422ED230697DA00DFC244 /* LDOCFile.m */; };
 		D2F422F023069AED00DFC244 /* LDGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EF23069AED00DFC244 /* LDGlobal.swift */; };
@@ -122,6 +123,7 @@
 		D2889ACE23052151006C7B0E /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
 		D28B861823066900005299D9 /* LDApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDApi.swift; sourceTree = "<group>"; };
+		D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetaileHeaderView.swift; sourceTree = "<group>"; };
 		D2F422EA230692AC00DFC244 /* LDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDModel.swift; sourceTree = "<group>"; };
 		D2F422EC230697DA00DFC244 /* LDOCFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDOCFile.h; sourceTree = "<group>"; };
 		D2F422ED230697DA00DFC244 /* LDOCFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDOCFile.m; sourceTree = "<group>"; };
@@ -336,6 +338,7 @@
 				D28732C4230A829000397CA4 /* RecommendHeader.swift */,
 				D28732C6230A888800397CA4 /* RecommendFooter.swift */,
 				D2553317230D34BF002CF636 /* RankCell.swift */,
+				D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -628,6 +631,7 @@
 				D2F422EB230692AC00DFC244 /* LDModel.swift in Sources */,
 				D28732C3230A821300397CA4 /* LDBaseCollectionReusableView.swift in Sources */,
 				D2038C092304F62E004CF263 /* LDTabBarController.swift in Sources */,
+				D29AFA432313B1A400ECD742 /* ComicDetaileHeaderView.swift in Sources */,
 				D2038C112304F68E004CF263 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

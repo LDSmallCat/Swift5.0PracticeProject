@@ -27,6 +27,15 @@ public enum PageStyle{
 }
 
 class LDPageViewController: LDBaseViewController {
+    convenience init(titles: [String] = [],vcs: [UIViewController] = [], pageStyle: PageStyle = .none) {
+            self.init()
+            self.titles = titles
+            self.vcs = vcs
+            self.pageStyle = pageStyle
+        }
+    
+    
+    
     var pageStyle: PageStyle!
     lazy var sc: UIScrollView = {
         let sc = UIScrollView(frame: CGRect.zero)
@@ -49,12 +58,7 @@ class LDPageViewController: LDBaseViewController {
     private(set) var titles: [String]!
     private var currentSelectedIndex: Int = 0
         
-    convenience init(titles: [String] = [],vcs: [UIViewController] = [], pageStyle: PageStyle = .none) {
-        self.init()
-        self.titles = titles
-        self.vcs = vcs
-        self.pageStyle = pageStyle
-    }
+    
     
     override func viewDidLoad() { super.viewDidLoad() }
     
