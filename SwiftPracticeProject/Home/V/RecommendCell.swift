@@ -93,7 +93,7 @@ class RecommendCell: LDBaseCollectionViewCell {
         didSet {
             guard let model = model else { return }
             titleLabel.text = model.name
-            descLabel.text = model.subTitle
+            descLabel.text = model.short_description
          
             coverImage.kf.setImage(with: URL(string: model.cover), placeholder: (bounds.width > bounds.height) ? UIImage(named: "normal_placeholder_h") : UIImage(named: "normal_placeholder_v"))
         }

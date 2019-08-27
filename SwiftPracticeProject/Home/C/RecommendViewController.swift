@@ -172,8 +172,8 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
                 let titles = ["详情","目录","评论"]
                 let vcs = [ComicDetailViewController(),ComicCatalogViewController(),ComicCommentViewController()]
                 
-                let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(200))
-                UComicBaseViewController.comicId = item.comicId
+                let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(240))
+                UComicBaseViewController.comicModel = item
                 navigationController?.pushViewController(cv, animated: true)
                 
                 

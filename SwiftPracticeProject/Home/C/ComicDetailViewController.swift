@@ -8,11 +8,13 @@
 
 
 
-class ComicDetailViewController: UComicBaseViewController{
+class ComicDetailViewController: LDBaseViewController {
     lazy var tb: UITableView = {
         let tb = UITableView(frame: CGRect.zero, style: .plain)
         tb.delegate = self
         tb.dataSource = self
+        tb.backgroundColor = UIColor.background
+        tb.showsVerticalScrollIndicator = false
         return tb
     }()
     override func viewDidLoad() {
@@ -22,8 +24,8 @@ class ComicDetailViewController: UComicBaseViewController{
     }
     func loadData() {
 
-        UApiProvider.ldRequest(UApi.comicDetail(comicId: UComicBaseViewController.comicId), successClosure: { (json) in
-                print(json)
+        UApiProvider.ldRequest(UApi.comicDetail(comicId: UComicBaseViewController.comicModel.comicId), successClosure: { (json) in
+                //print(json)
             }, abnormalClosure: { (code, message) in
                 print(code,message)
             }, failureClosure: nil)
@@ -40,7 +42,7 @@ class ComicDetailViewController: UComicBaseViewController{
 }
 
 
-extension ComicDetailViewController: UITableViewDataSource {
+extension ComicDetailViewController: UITableViewDataSource ,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             100
         }
@@ -51,4 +53,16 @@ extension ComicDetailViewController: UITableViewDataSource {
         return cell
         
     }
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        //guard let parent = self.parent?.parent as? UComicBaseViewController else { return }
+        //print(parent.segment.frame)
+        //print(scrollView.contentOffset.y)
+        
+    }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        //print(scrollView.contentOffset.y)
+        guard let parent = self.parent?.parent as? UComicBaseViewController else { return }
+        parent.slideDirection(down: scrollView.contentOffset.y < 0)
+    }
+
 }

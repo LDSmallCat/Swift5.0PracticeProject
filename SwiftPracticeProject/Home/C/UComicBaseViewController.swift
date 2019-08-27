@@ -7,23 +7,60 @@
 //
 
 
-protocol ObserverScrollowDeleagte: NSObjectProtocol{
+protocol ObserverTableViewSlide where Self: UIViewController {
+    var height: CGFloat { get }
+    var animateTime: TimeInterval { get }
+    func slideDirection(down: Bool)
+}
+extension UComicBaseViewController: ObserverTableViewSlide {
+
+    var animateTime: TimeInterval { 0.35 }
+    var height: CGFloat {
+        switch self.pageStyle {
+        case let .topPaddingBar(height):
+            return height
+        default: return 0
+        }
+    }
     
-    func scrollowView(contentOffsetY: CGFloat)
+}
+extension ObserverTableViewSlide {
+    func slideDirection(down: Bool) {
+        let nav = self.navigationController as! LDNavigationViewController
+        
+        if nav.cBarStyle == .clear , down == true {  return }
+        if nav.cBarStyle == .theme , down == false {  return }
+        
+        let barStyle: NavigationBarStyle = down ? .clear : .theme
+        let y = down ? 0 : statusBarHeight + navgationBarHeight - self.height
+        let rect = CGRect(x: 0, y: y, width: screenWidth, height: screenHeight + self.height - statusBarHeight - navgationBarHeight)
+        UIView.animate(withDuration: animateTime, animations: {
+             self.view.frame = rect
+            nav.barStyle(barStyle)
+        }) { (_) in
+            if down { self.view.frame.size.height = screenHeight; } } }
+    
 }
 
-class UComicBaseViewController: LDPageViewController {
-    static var comicId: Int = 0
-            
-    weak var osd: ObserverScrollowDeleagte?
 
+
+class UComicBaseViewController: LDPageViewController {
+    
+    static var comicModel: ComicModel! {
+        didSet {
+            
+        }
+    }
+            
+    
+    lazy var header: ComicDetaileHeaderView = {
+       let hr = ComicDetaileHeaderView()
+        hr.backgroundColor = UIColor.blue
+        return hr
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        view.backgroundColor = UIColor.red
-        pageVC.children.forEach {
-            if let vc = $0 as? UComicBaseViewController
-            { vc.osd = self } }
+
     }
     
      override func configNavigationBar() {
@@ -34,42 +71,18 @@ class UComicBaseViewController: LDPageViewController {
                    
        }
    }
-}
-
-extension UComicBaseViewController: ObserverScrollowDeleagte {
     
-    
-    var aniTime : TimeInterval { get { 0.35 } }
-
-    func scrollowView(contentOffsetY: CGFloat) {
+    override func configUI() {
+        super.configUI()
         
-        if contentOffsetY > 0 {
-         (navigationController as! LDNavigationViewController).barStyle(.theme)
-            
-            UIView.animate(withDuration: aniTime) {
-                switch self.pageStyle {
-                case .topPaddingBar(let padding):
-                     self.sc.contentOffset = CGPoint(x: 0, y: padding - statusBarHeight -  navgationBarHeight)
-                default: break
-            }
-                
-            }
-                    
-         } else {
-             (navigationController as! LDNavigationViewController).barStyle(.clear)
-            UIView.animate(withDuration: aniTime) {
-                self.sc.contentOffset = CGPoint.zero
-            }
-            
-         }
-    }
- 
-}
-
-extension UComicBaseViewController: UITableViewDelegate {
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        
-            osd?.scrollowView(contentOffsetY: scrollView.contentOffset.y)
-
+        view.addSubview(header)
+        header.snp.makeConstraints {
+            $0.left.right.equalToSuperview()
+            $0.top.equalTo(self.view)
+            $0.bottom.equalTo(segment.snp.top)
+        }
     }
 }
+
+
+

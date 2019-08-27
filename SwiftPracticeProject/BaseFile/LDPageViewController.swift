@@ -37,14 +37,7 @@ class LDPageViewController: LDBaseViewController {
     
     
     var pageStyle: PageStyle!
-    lazy var sc: UIScrollView = {
-        let sc = UIScrollView(frame: CGRect.zero)
-        sc.showsVerticalScrollIndicator = true
-        sc.backgroundColor = UIColor.white
-        sc.isScrollEnabled = false
-        return sc
-    }()
-    lazy var contV: UIView = { UIView() }()
+
     lazy var pageVC: UIPageViewController = {
        UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     }()
@@ -103,26 +96,18 @@ class LDPageViewController: LDBaseViewController {
             }
         case let .topPaddingBar(topPadding):
             vcs.forEach { pageVC.addChild($0) }
-            view.addSubview(sc)
-            sc.snp.makeConstraints { $0.edges.equalToSuperview() }
-            sc.addSubview(contV)
-            contV.snp.makeConstraints {
-                $0.edges.equalToSuperview()
-                $0.width.equalToSuperview()
-            }
-            
             configSegment()
-            contV.addSubview(segment)
+            view.addSubview(segment)
             segment.snp.makeConstraints {
                 $0.top.equalToSuperview().offset(topPadding)
                 $0.left.right.equalToSuperview()
                 $0.height.equalTo(40)
             }
-            contV.addSubview(pageVC.view)
+            view.addSubview(pageVC.view)
             pageVC.view.snp.makeConstraints {
                 $0.top.equalTo(segment.snp.bottom)
                 $0.left.right.bottom.equalToSuperview()
-                $0.height.equalTo(screenHeight - 2*navgationBarHeight - statusBarHeight)
+                //$0.height.equalTo(screenHeight - 2*navgationBarHeight - statusBarHeight)
             }
         default: break
         }

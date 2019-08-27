@@ -30,7 +30,7 @@ class ComicCatalogViewController: UComicBaseViewController {
         }
 }
 
-extension ComicCatalogViewController: UITableViewDataSource {
+extension ComicCatalogViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
                 100
     }
@@ -40,5 +40,10 @@ extension ComicCatalogViewController: UITableViewDataSource {
         cell.textLabel?.text = String(indexPath.row)
         return cell
         
+    }
+    
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        guard let parent = self.parent?.parent as? UComicBaseViewController else { return }
+        parent.slideDirection(down: scrollView.contentOffset.y < 0)
     }
 }

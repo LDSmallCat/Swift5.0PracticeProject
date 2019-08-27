@@ -14,7 +14,8 @@ enum NavigationBarStyle {
 }
 
 class LDNavigationViewController: UINavigationController {
-
+    var cBarStyle: NavigationBarStyle!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,6 +31,7 @@ class LDNavigationViewController: UINavigationController {
 }
 extension LDNavigationViewController {
     func barStyle(_ style: NavigationBarStyle) {
+        cBarStyle = style
         switch style {
         case .theme:
             navigationBar.barStyle = .black

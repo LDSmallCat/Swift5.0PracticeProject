@@ -49,7 +49,12 @@ struct ComicModel: Convertible {
     let cover = ""
     let comicId = 0
     let linkType = 0
-
+    let tags = [String]()
+    let description = ""
+    let short_description = ""
+    let author = ""
+    
+    
 }
 
 struct RankModel: Convertible {

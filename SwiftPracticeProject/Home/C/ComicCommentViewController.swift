@@ -31,7 +31,7 @@ class ComicCommentViewController: UComicBaseViewController {
 
 }
 
-extension ComicCommentViewController: UITableViewDataSource {
+extension ComicCommentViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
             100
     }
@@ -41,5 +41,9 @@ extension ComicCommentViewController: UITableViewDataSource {
         cell.textLabel?.text = String(indexPath.row)
         return cell
         
+    }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        guard let parent = self.parent?.parent as? UComicBaseViewController else { return }
+        parent.slideDirection(down: scrollView.contentOffset.y < 0)
     }
 }
