@@ -13,7 +13,6 @@ protocol ObserverTableViewSlide where Self: UIViewController {
     func slideDirection(down: Bool)
 }
 extension UComicBaseViewController: ObserverTableViewSlide {
-
     var animateTime: TimeInterval { 0.35 }
     var height: CGFloat {
         switch self.pageStyle {
@@ -51,8 +50,7 @@ class UComicBaseViewController: LDPageViewController {
             
         }
     }
-            
-    
+   
     lazy var header: ComicDetaileHeaderView = {
        let hr = ComicDetaileHeaderView()
         hr.backgroundColor = UIColor.blue

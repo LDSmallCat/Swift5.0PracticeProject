@@ -1,2 +1,1 @@
-# Swift5.0PracticeProject
-Swift OC混编项目.
+# Swift5 Xcode 11.0 beta 4 macOS Mojave 10.14.6 iOS13
