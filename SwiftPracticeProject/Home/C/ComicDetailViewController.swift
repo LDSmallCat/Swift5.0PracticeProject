@@ -22,7 +22,7 @@ class ComicDetailViewController: UComicBaseViewController{
     }
     func loadData() {
 
-        UApiProvider.ldRequest(UApi.comicDetail(comicId: UComicBaseViewController.comicModel.comicId), successClosure: { (json) in
+        UApiProvider.ldRequest(UApi.comicDetail(comicId: UComicBaseViewController.comicId), successClosure: { (json) in
                 print(json)
             }, abnormalClosure: { (code, message) in
                 print(code,message)
