@@ -65,3 +65,9 @@ class RecommendHeader: LDBaseCollectionReusableView {
         }
     }
 }
+
+class RecommendFooter: LDBaseCollectionReusableView {
+    override func configUI() {
+        backgroundColor = UIColor.background
+    }
+}

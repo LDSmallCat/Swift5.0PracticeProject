@@ -52,8 +52,10 @@ struct ComicModel: Convertible {
     let tags = [String]()
     let description = ""
     let short_description = ""
-    let author = ""
-    
+    let author_name = ""
+    let click_total = "0"
+    let favorite_total = "0"
+    let cate_id = ""
     
 }
 

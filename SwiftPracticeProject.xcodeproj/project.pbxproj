@@ -29,13 +29,14 @@
 		D2604EF2230654E200351C93 /* VIPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EF1230654E200351C93 /* VIPViewController.swift */; };
 		D2604EF42306554300351C93 /* SubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EF32306554300351C93 /* SubscribeViewController.swift */; };
 		D2604EF62306555300351C93 /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EF52306555300351C93 /* RankViewController.swift */; };
+		D27938F823151C45001BD133 /* ComicDetailDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27938F723151C45001BD133 /* ComicDetailDescriptionCell.swift */; };
+		D27938FA231527F6001BD133 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27938F9231527F6001BD133 /* StringExtension.swift */; };
 		D279A15523055D4A0004192A /* LDPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279A15423055D4A0004192A /* LDPageViewController.swift */; };
 		D28732B7230A33E600397CA4 /* LDBaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28732B6230A33E600397CA4 /* LDBaseTableViewCell.swift */; };
 		D28732BB230A343300397CA4 /* LDBaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28732BA230A343300397CA4 /* LDBaseCollectionViewCell.swift */; };
 		D28732BF230A34AC00397CA4 /* RecommendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28732BE230A34AC00397CA4 /* RecommendCell.swift */; };
 		D28732C3230A821300397CA4 /* LDBaseCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28732C2230A821300397CA4 /* LDBaseCollectionReusableView.swift */; };
 		D28732C5230A829000397CA4 /* RecommendHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28732C4230A829000397CA4 /* RecommendHeader.swift */; };
-		D28732C7230A888800397CA4 /* RecommendFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28732C6230A888800397CA4 /* RecommendFooter.swift */; };
 		D288373A230FB3A300EB49CC /* UComicBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2883739230FB3A300EB49CC /* UComicBaseViewController.swift */; };
 		D288373E230FD01C00EB49CC /* ComicDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288373D230FD01C00EB49CC /* ComicDetailViewController.swift */; };
 		D2883740230FD04000EB49CC /* ComicCatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D288373F230FD04000EB49CC /* ComicCatalogViewController.swift */; };
@@ -108,13 +109,14 @@
 		D2604EF1230654E200351C93 /* VIPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPViewController.swift; sourceTree = "<group>"; };
 		D2604EF32306554300351C93 /* SubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewController.swift; sourceTree = "<group>"; };
 		D2604EF52306555300351C93 /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
+		D27938F723151C45001BD133 /* ComicDetailDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailDescriptionCell.swift; sourceTree = "<group>"; };
+		D27938F9231527F6001BD133 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		D279A15423055D4A0004192A /* LDPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDPageViewController.swift; sourceTree = "<group>"; };
 		D28732B6230A33E600397CA4 /* LDBaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDBaseTableViewCell.swift; sourceTree = "<group>"; };
 		D28732BA230A343300397CA4 /* LDBaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDBaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		D28732BE230A34AC00397CA4 /* RecommendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCell.swift; sourceTree = "<group>"; };
 		D28732C2230A821300397CA4 /* LDBaseCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDBaseCollectionReusableView.swift; sourceTree = "<group>"; };
 		D28732C4230A829000397CA4 /* RecommendHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendHeader.swift; sourceTree = "<group>"; };
-		D28732C6230A888800397CA4 /* RecommendFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendFooter.swift; sourceTree = "<group>"; };
 		D2883739230FB3A300EB49CC /* UComicBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UComicBaseViewController.swift; sourceTree = "<group>"; };
 		D288373D230FD01C00EB49CC /* ComicDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailViewController.swift; sourceTree = "<group>"; };
 		D288373F230FD04000EB49CC /* ComicCatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCatalogViewController.swift; sourceTree = "<group>"; };
@@ -327,6 +329,7 @@
 			children = (
 				D2889ACE23052151006C7B0E /* UIColorExtension.swift */,
 				D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */,
+				D27938F9231527F6001BD133 /* StringExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -336,9 +339,9 @@
 			children = (
 				D28732BE230A34AC00397CA4 /* RecommendCell.swift */,
 				D28732C4230A829000397CA4 /* RecommendHeader.swift */,
-				D28732C6230A888800397CA4 /* RecommendFooter.swift */,
 				D2553317230D34BF002CF636 /* RankCell.swift */,
 				D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */,
+				D27938F723151C45001BD133 /* ComicDetailDescriptionCell.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -599,6 +602,8 @@
 			files = (
 				D2883742230FD05500EB49CC /* ComicCommentViewController.swift in Sources */,
 				D2F422F42306A1F800DFC244 /* LDRefresh.swift in Sources */,
+				D27938F823151C45001BD133 /* ComicDetailDescriptionCell.swift in Sources */,
+				D27938FA231527F6001BD133 /* StringExtension.swift in Sources */,
 				D2038C132304F698004CF263 /* VoiceViewController.swift in Sources */,
 				D2604EF0230654D700351C93 /* RecommendViewController.swift in Sources */,
 				D2038BDA2304F391004CF263 /* ViewController.swift in Sources */,
@@ -619,7 +624,6 @@
 				D28732BF230A34AC00397CA4 /* RecommendCell.swift in Sources */,
 				D2889ACF23052151006C7B0E /* UIColorExtension.swift in Sources */,
 				D2553318230D34BF002CF636 /* RankCell.swift in Sources */,
-				D28732C7230A888800397CA4 /* RecommendFooter.swift in Sources */,
 				D2889AC823050E41006C7B0E /* LDTabBar.swift in Sources */,
 				D279A15523055D4A0004192A /* LDPageViewController.swift in Sources */,
 				D2038BD62304F391004CF263 /* AppDelegate.swift in Sources */,

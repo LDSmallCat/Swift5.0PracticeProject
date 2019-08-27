@@ -44,18 +44,27 @@ extension ObserverTableViewSlide {
 
 
 class UComicBaseViewController: LDPageViewController {
-    
-    static var comicModel: ComicModel! {
-        didSet {
-            
-        }
-    }
-   
     lazy var header: ComicDetaileHeaderView = {
        let hr = ComicDetaileHeaderView()
         hr.backgroundColor = UIColor.blue
         return hr
     }()
+   
+    static var comicID: Int!
+    
+    var comicModel: ComicModel! {
+        didSet {
+            UComicBaseViewController.comicID = comicModel.comicId
+            header.bgView.kf.setImage(with: URL(string: comicModel.cover))
+            header.coverView.kf.setImage(with: URL(string: comicModel.cover))
+            header.titleLabel.text = comicModel.name
+            header.authorLabel.text = comicModel.author_name
+            header.tags = comicModel.tags
+            header.tagView.reloadData()
+        }
+    }
+   
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
