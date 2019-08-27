@@ -10,7 +10,7 @@ extension String {
     
     func getHeightFor(_ fontSize: CGFloat, _ width: CGFloat) -> CGFloat {
         let font = UIFont.systemFont(ofSize: fontSize)
-        let rect = NSString(string: self).boundingRect(with: CGSize(width: width, height:CGFloat(MAXFLOAT)), options: .usesLineFragmentOrigin, attributes: [NSAttributedString.Key.font: font], context: nil)
+        let rect = NSString(string: self).boundingRect(with: CGSize(width: width, height:CGFloat(MAXFLOAT)), options: [.usesLineFragmentOrigin], attributes: [NSAttributedString.Key.font: font], context: nil)
         return ceil(rect.height)
     }
     

@@ -9,14 +9,7 @@
 import UIKit
 
 class ComicDetailDescriptionCell: LDBaseTableViewCell {
-   static var caculateLabel: UILabel = {
-        let dl = UILabel()
-        dl.font = UIFont.systemFont(ofSize: 15)
-        dl.numberOfLines = 0
-        return dl
-    }()
-    
-    
+  
     lazy var titleLabel: UILabel = {
         let tl = UILabel()
         tl.text = "作品简介"
@@ -41,7 +34,7 @@ class ComicDetailDescriptionCell: LDBaseTableViewCell {
         
         contentView.addSubview(descLabel)
         descLabel.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom)
+            $0.top.equalTo(titleLabel.snp.bottom).offset(15)
             $0.left.right.bottom.equalToSuperview().inset(UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15))
         }
     }

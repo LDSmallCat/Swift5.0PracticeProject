@@ -65,7 +65,7 @@ extension ComicDetailViewController: UITableViewDataSource ,UITableViewDelegate{
         case 0:
             let pv = self.parent?.parent as! UComicBaseViewController
             let string = "\("【\(pv.comicModel.cate_id)】\(pv.comicModel.description)")"
-            let height = 50 + string.getHeightFor(15, screenWidth - 30)
+            let height = 65 + string.getHeightFor(15, screenWidth - 30)
             
             return height
         default:
