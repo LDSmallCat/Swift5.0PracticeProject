@@ -13,14 +13,17 @@ protocol ObserverScrollowDeleagte: NSObjectProtocol{
 }
 
 class UComicBaseViewController: LDPageViewController {
-    static var comicId: Int = 0
+    
+    static var comicModel: ComicModel! {
+        didSet {
             
+        }
+    }
     weak var osd: ObserverScrollowDeleagte?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-       
-        view.backgroundColor = UIColor.red
+  
         pageVC.children.forEach {
             if let vc = $0 as? UComicBaseViewController
             { vc.osd = self } }
