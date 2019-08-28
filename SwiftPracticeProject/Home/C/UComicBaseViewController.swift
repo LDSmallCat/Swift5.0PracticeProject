@@ -52,7 +52,7 @@ class UComicBaseViewController: LDPageViewController {
    
     
     
-    var comicModel: ComicModel!
+    var comicID: Int!
    
     
     override func viewDidLoad() {

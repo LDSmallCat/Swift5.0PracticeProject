@@ -79,6 +79,7 @@ class ComicGuessLikeCell: LDBaseTableViewCell,UICollectionViewDataSource, UIColl
         lt.scrollDirection = .horizontal
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: lt)
         cv.dataSource = self
+        cv.delegate = self
         cv.register(cellType: RecommendCell.self)
         cv.backgroundColor = UIColor.white
         return cv
@@ -110,5 +111,13 @@ class ComicGuessLikeCell: LDBaseTableViewCell,UICollectionViewDataSource, UIColl
         
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let titles = ["详情","目录","评论"]
+        let vcs = [ComicDetailViewController(),ComicCatalogViewController(),ComicCommentViewController()]
+        
+        let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(240))
+        cv.comicID = guessMolde[indexPath.row].comicId
+        guard let nav = topVC?.navigationController else { return }
+        nav.pushViewController(cv, animated: true)
+    }
 }

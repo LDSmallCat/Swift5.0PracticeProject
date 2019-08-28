@@ -150,7 +150,9 @@ extension MoyaProvider {
                         
                         if code == 1 {
                             guard let se = successClosure else { return }
-                            se(jsonData["returnData"])
+                            let data = jsonData["returnData"]
+                            
+                            se(data)
                         }else{
                             
                             guard let ae = abnormalClosure else { return }

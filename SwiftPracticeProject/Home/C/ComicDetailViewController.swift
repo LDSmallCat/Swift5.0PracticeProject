@@ -11,7 +11,10 @@
 class ComicDetailViewController: LDBaseViewController {
     var ticketsCellString = NSMutableAttributedString()
     var guesslike = [ComicModel](){ didSet { tb.reloadData() } }
-    var comicModel: ComicModel!
+    var comicID: Int!
+    var dStaticModel: DetailStaticModel?
+    var dRealtimeModel: DetailRealtimeModel?
+    var textM: DetailStaticComicModel?
     
     lazy var tb: UITableView = {
         let tb = UITableView(frame: CGRect.zero, style: .grouped)
@@ -36,67 +39,44 @@ class ComicDetailViewController: LDBaseViewController {
         loadData()
         
     }
-    /*
-     SwiftPracticeProject.UComicBaseViewController: 0x7ff77f02fe00>
-     
-     */
+    
     func loadData() {
         guard let pvc = self.parent?.parent as? UComicBaseViewController else { return }
-        comicModel = pvc.comicModel
+        comicID = pvc.comicID
         
-        //头部数据
-        UApiProvider.ldRequest(UApi.detailRealtime(comicId: comicModel.comicId), successClosure: { (json) in
-        let text = NSMutableAttributedString(string: "点击 收藏")
-        let clickString = NSAttributedString(string: " \(json["comic"]["click_total"].stringValue)", attributes: [
-            NSAttributedString.Key.foregroundColor : UIColor.orange,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)
-                                    ])
-        let favoriteString = NSAttributedString(string: " \(json["comic"]["favorite_total"].stringValue)", attributes: [
-            NSAttributedString.Key.foregroundColor : UIColor.orange,
-            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)
-                                                ])
-        text.insert(clickString, at: 2)
-        text.append(favoriteString)
-        pvc.header.clickCollectLabel.attributedText = text
-        pvc.header.bgView.kf.setImage(with: URL(string: self.comicModel.cover))
-        pvc.header.coverView.kf.setImage(with: URL(string: self.comicModel.cover))
-        pvc.header.titleLabel.text = self.comicModel.name
-        pvc.header.authorLabel.text = self.comicModel.author_name
-        pvc.header.tags = self.comicModel.tags
-        pvc.header.tagView.reloadData()
+        UApiProvider.ldRequest(UApi.detailStatic(comicId: comicID), successClosure: { (json) in
+            guard let model = model(from: json.string, DetailStaticModel.self) else { return }
+            
+            self.dStaticModel = model
+            self.tb.reloadData()
         }, abnormalClosure: nil, failureClosure: nil)
-        
-        UApiProvider.ldRequest(UApi.detailStatic(comicId: comicModel.comicId), successClosure: { [weak self] (json) in
-
-            self?.comicModel.otherWorkCount = JSON(json["otherWorks"].arrayValue).count
-            self?.comicModel.cate_id = JSON(json["comic"]["cate_id"]).stringValue
-            self?.tb.reloadData()
-        }, abnormalClosure: nil, failureClosure: nil)
-
-        UApiProvider.ldRequest(UApi.detailRealtime(comicId: comicModel.comicId), successClosure: { (json) in
-            self.setupTicketCellString(json)
+  
+        UApiProvider.ldRequest(UApi.detailRealtime(comicId: comicID), successClosure: { (json) in
+            guard let model = model(from: json["comic"].dictionary, DetailRealtimeModel.self) else { return }
+            self.dRealtimeModel = model
+            self.setupTicketCellString()
+            self.tb.reloadData()
         }, abnormalClosure: nil, failureClosure: nil)
 
         UApiProvider.ldRequest(UApi.guessLike, successClosure: { (json) in
             let arr = modelArray(from: json["comics"].arrayObject, ComicModel.self)
             if arr != nil { self.guesslike.append(contentsOf: arr!) }
+            self.tb.reloadData()
         }, abnormalClosure: nil, failureClosure: nil)
     }
     
    
-    func setupTicketCellString(_ json: JSON) {
-        let monthTicket = JSON(json["comic"]["monthly_ticket"]).stringValue
-        let totalMonthTicket = JSON(json["comic"]["total_ticket"]).stringValue
-        
+    func setupTicketCellString() {
+       
         let text = NSMutableAttributedString(string: "本月月票       |     累计月票  ", attributes: [
                             NSAttributedString.Key.foregroundColor: UIColor.lightGray,
                             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14)
                         ])
-        text.append(NSAttributedString(string: totalMonthTicket, attributes: [
+        text.append(NSAttributedString(string: self.dRealtimeModel!.comic.total_ticket, attributes: [
             NSAttributedString.Key.foregroundColor: UIColor.orange,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)
             ]))
-        text.insert(NSAttributedString(string: monthTicket, attributes: [
+        text.insert(NSAttributedString(string: self.dRealtimeModel!.comic.monthly_ticket, attributes: [
             NSAttributedString.Key.foregroundColor: UIColor.orange,
             NSAttributedString.Key.font: UIFont.systemFont(ofSize: 16)
         ]), at: 6)
@@ -119,18 +99,24 @@ extension ComicDetailViewController: UITableViewDataSource ,UITableViewDelegate{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { 1 }
         
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         switch indexPath.section {
         case 0:
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ComicDetailDescriptionCell.self)
-            cell.descLabel.text = "\("【\(comicModel.cate_id)】\(comicModel.description)")"
+            if self.dStaticModel != nil {
+                cell.descLabel.text = "\("【\(self.dStaticModel!.comic.cate_id)】\(self.dStaticModel!.comic.description)")"
+            }
+            
             return cell
         case 1:
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ComicOtherWorksCell.self)
-            cell.detailTextLabel?.text = "\(comicModel.otherWorkCount)本"
+            if self.dStaticModel != nil {
+                cell.detailTextLabel?.text = "\(self.dStaticModel!.otherWorks.count)本"
+            }
+            
             return cell
         case 2:
             let cell = tableView.dequeueReusableCell(for: indexPath, cellType: ComicTicketsWorksCell.self)
-            
             cell.textLabel?.attributedText = ticketsCellString
             return cell
         case 3:
@@ -146,13 +132,13 @@ extension ComicDetailViewController: UITableViewDataSource ,UITableViewDelegate{
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
-        case 0:
-            let string = "\("【\(comicModel.cate_id)】\(comicModel.description)")"
-            let height = 65 + string.getHeightFor(15, screenWidth - 30)
-            
-            return height
-        case 2: return ticketsCellString.length > 0 ? 44 : CGFloat.leastNonzeroMagnitude
-        case 1: return 44
+//        case 0:
+//            let string = "\("【\(comicModel.cate_id)】\(comicModel.description)")"
+//            let height = 65 + string.getHeightFor(15, screenWidth - 30)
+//
+//            return height
+//        case 2: return ticketsCellString.length > 0 ? 44 : CGFloat.leastNonzeroMagnitude
+//        case 1: return 44
         default: return 200
             
         }
