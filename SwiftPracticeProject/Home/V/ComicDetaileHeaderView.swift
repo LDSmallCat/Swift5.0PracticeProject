@@ -50,7 +50,7 @@ class ComicDetaileHeaderView: UIView {
     lazy var titleLabel:  UILabel = {
         let tl = UILabel()
         tl.textColor = UIColor.white
-        tl.font = UIFont.systemFont(ofSize: 13)
+        tl.font = UIFont.systemFont(ofSize: 16)
         return tl
     }()
 
@@ -158,22 +158,8 @@ extension ComicDetaileHeaderView: UICollectionViewDataSource{
 
 extension ComicDetaileHeaderView {
     func loadData() {
-
-        UApiProvider.ldRequest(UApi.comicDetail(comicId: UComicBaseViewController.comicID), successClosure: { (json) in
-            let text = NSMutableAttributedString(string: "点击 收藏")
-            let clickString = NSAttributedString(string: " \(json["comic"]["click_total"].stringValue)", attributes: [
-                NSAttributedString.Key.foregroundColor : UIColor.orange,
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)
-                                        ])
-            let favoriteString = NSAttributedString(string: " \(json["comic"]["favorite_total"].stringValue)", attributes: [
-                NSAttributedString.Key.foregroundColor : UIColor.orange,
-                NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15)
-                                                    ])
-            text.insert(clickString, at: 2)
-            text.append(favoriteString)
-            self.clickCollectLabel.attributedText = text
-            
-            }, abnormalClosure: nil, failureClosure: nil)
+       
+        
         
     }
 }

@@ -44,10 +44,12 @@ struct ComicListModel: Convertible {
     let canMore = false
 }
 struct ComicModel: Convertible {
+    let comicId = 0
+    var cate_id = ""
+    
     let name = ""
     let subTitle = ""
     let cover = ""
-    let comicId = 0
     let linkType = 0
     let tags = [String]()
     let description = ""
@@ -55,8 +57,9 @@ struct ComicModel: Convertible {
     let author_name = ""
     let click_total = "0"
     let favorite_total = "0"
-    let cate_id = ""
     
+    var otherWorkCount = 0
+    var isLoad = false
 }
 
 struct RankModel: Convertible {

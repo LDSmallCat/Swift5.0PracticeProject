@@ -161,6 +161,8 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let comicList = comicLists[indexPath.section]
         let item = comicList.comics[indexPath.row]
+        
+        
         if comicList.comicType == .billboard { } else {
             
             switch item.linkType {

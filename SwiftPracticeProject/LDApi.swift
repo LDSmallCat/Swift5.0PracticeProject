@@ -83,8 +83,9 @@ enum UApi {
     case vipList
     case subscribeList
     case rankList
-    case comicDetail(comicId: Int)
-    case test
+    case detailRealtime(comicId: Int)
+    case detailStatic(comicId: Int)
+    case guessLike
 }
 
 extension UApi: TargetType {
@@ -96,15 +97,14 @@ extension UApi: TargetType {
         case .vipList: return "list/vipList"
         case .subscribeList: return "list/newSubscribeList"
         case .rankList: return "rank/list"
-        case .test: return ""
-        case .comicDetail: return "comic/detail_realtime"
-            
+        case .detailRealtime: return "comic/detail_realtime"
+        case .detailStatic: return "comic/detail_static_new"
+        case .guessLike: return "comic/guessLike"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .test: return .post
         default: return .get
         }
     }
@@ -116,9 +116,12 @@ extension UApi: TargetType {
         case .vipList: break 
         case .subscribeList: break
         case .rankList: break
-        case .test: break
-        case .comicDetail(let comicId):
+        case .detailRealtime(let comicId):
             parmeters["comicid"] = comicId
+        case .detailStatic(let comicId):
+            parmeters["comicid"] = comicId
+        case .guessLike: break
+            
         }
         
         return .requestParameters(parameters: parmeters, encoding: URLEncoding.default)
