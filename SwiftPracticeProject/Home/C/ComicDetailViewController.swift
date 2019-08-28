@@ -44,25 +44,33 @@ class ComicDetailViewController: LDBaseViewController {
         guard let pvc = self.parent?.parent as? UComicBaseViewController else { return }
         comicID = pvc.comicID
         
-        UApiProvider.ldRequest(UApi.detailStatic(comicId: comicID), successClosure: { (json) in
-            guard let model = model(from: json.string, DetailStaticModel.self) else { return }
-            
-            self.dStaticModel = model
-            self.tb.reloadData()
-        }, abnormalClosure: nil, failureClosure: nil)
+//        UApiProvider.ldRequest(UApi.detailStatic(comicId: comicID), successClosure: { (json) in
+//            guard let model = model(from: json.string, DetailStaticModel.self) else { return }
+//
+//            self.dStaticModel = model
+//            self.tb.reloadData()
+//        }, abnormalClosure: nil, failureClosure: nil)
   
         UApiProvider.ldRequest(UApi.detailRealtime(comicId: comicID), successClosure: { (json) in
-            guard let model = model(from: json["comic"].dictionary, DetailRealtimeModel.self) else { return }
-            self.dRealtimeModel = model
+                print(json)
+            if let js = json["comic"] as? [String : Any]{
+                print(model(from: js, ComicDetailModel.self))
+            }
+            
+            print(model(from: json["comic"].stringValue, ComicDetailModel.self) ?? 0)
+            
+            guard let model = model(from: json["comic"].string, ComicDetailModel.self) else { return }
+            print(model)
+            //self.dRealtimeModel = model
             self.setupTicketCellString()
             self.tb.reloadData()
         }, abnormalClosure: nil, failureClosure: nil)
 
-        UApiProvider.ldRequest(UApi.guessLike, successClosure: { (json) in
-            let arr = modelArray(from: json["comics"].arrayObject, ComicModel.self)
-            if arr != nil { self.guesslike.append(contentsOf: arr!) }
-            self.tb.reloadData()
-        }, abnormalClosure: nil, failureClosure: nil)
+//        UApiProvider.ldRequest(UApi.guessLike, successClosure: { (json) in
+//            let arr = modelArray(from: json["comics"].arrayObject, ComicModel.self)
+//            if arr != nil { self.guesslike.append(contentsOf: arr!) }
+//            self.tb.reloadData()
+//        }, abnormalClosure: nil, failureClosure: nil)
     }
     
    

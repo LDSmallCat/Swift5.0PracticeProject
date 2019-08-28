@@ -106,14 +106,16 @@ struct ImHightModel: Convertible {
 struct DetailRealtimeModel: Convertible {
     let comic = ComicDetailModel()
 }
+
 struct ComicDetailModel: Convertible {
-    let total_ticket = "0"
-    let monthly_ticket = "0"
     let click_total = "0"
-    let comment_total = "0"
     let favorite_total = "0"
     let total_tucao = "0"
-    let comic_id = 0
     let user_id = 0
+    let comic_id = 0
+    let comment_total = "0"
+
+    let total_ticket = "0"
+    let monthly_ticket = "0"
 
 }
