@@ -6,7 +6,7 @@
 //  Copyright © 2019 MJ Lee. All rights reserved.
 //
 
-protocol TypeProxy {}
+protocol TypeProxy: Convertible {}
 
 extension TypeProxy {
     static func `is`(_ value: Any) -> Bool {
@@ -27,7 +27,7 @@ extension TypeProxy {
 }
 
 func typeProxy(_ type: Any.Type) -> TypeProxy.Type {
-    // Any.Type(8 bytes) * 2 == Protocol.Type(16 bytes)
+    // Any.Type(8 bytes) + Int(8 bytes) == Protocol.Type(16 bytes)
     return (type, 0)  ~>> TypeProxy.Type.self
 }
 

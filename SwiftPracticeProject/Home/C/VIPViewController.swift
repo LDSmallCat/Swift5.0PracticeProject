@@ -44,18 +44,12 @@ class VIPViewController: LDBaseViewController {
     func loadData() {
         UApiLodingProvider.ldRequest(UApi.vipList, successClosure: { (json) in
             print(json)
-            let ar = modelArray(from: json["newVipList"].arrayObject, ComicListModel.self)
-            if ar != nil {
-                self.vipList.append(contentsOf: ar!)
-                self.cv.reloadData()
-            }
+            guard let nt = json["newVipList"].arrayObject else {return}
+            let ar = modelArray(from: nt, ComicListModel.self)
+            self.vipList.append(contentsOf: ar)
+            self.cv.reloadData()
             self.cv.ldHeader.endRefreshing()
-        }, abnormalClosure: { (code, msg) in
-                
-            print(code,msg)
-        }) { (msg) in
-            print(msg)
-        }
+        }, abnormalClosure: { (_, _) in }) { (_) in }
     }
 
 }

@@ -33,12 +33,10 @@ class RankViewController: LDBaseViewController {
     }
     func loadData() {
         UApiLodingProvider.ldRequest(UApi.rankList, successClosure: { (json) in
-            print(json)
-            let rk = modelArray(from: json["rankinglist"].arrayObject, RankModel.self)
-            if rk != nil {
-                self.rankList.append(contentsOf: rk!)
-                self.te.reloadData()
-            }
+            guard let arr = json["rankinglist"].arrayObject else {return}
+            let rk = modelArray(from: arr, RankModel.self)
+            self.rankList.append(contentsOf: rk)
+            self.te.reloadData()
             self.te.ldHeader.endRefreshing()
         }, abnormalClosure: nil, failureClosure: nil)
     }

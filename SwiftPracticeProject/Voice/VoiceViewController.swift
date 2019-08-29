@@ -35,12 +35,12 @@ class VoiceViewController: LDBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let student = json.kk.model(Student.self)
+        let student = json.kj.model(Student.self)
         
         
-        guard let stu = student else { return }
-        guard let date1 = stu.date1 else { return }
-        print(date1)
+         let stu = student
+         guard let date1 = stu.date1 else { return }
+         print(date1)
     }
     /*
     // MARK: - Navigation

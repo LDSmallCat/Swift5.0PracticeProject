@@ -49,14 +49,10 @@ struct ClassLayout: ModelLayout {
         let descriptor = description.pointee
         // don't have resilient superclass
         if (0x4000 & flags) == 0 {
-            return (0x800 & flags) == 0
+            return (flags & 0x800) == 0
             ? Int(descriptor.metadataPositiveSizeInWords - descriptor.numImmediateMembers)
             : -Int(descriptor.metadataNegativeSizeInWords)
         }
         return GenenicTypeOffset.wrong
     }
-}
-
-struct ClassROData {
-    let flags: UInt32
 }

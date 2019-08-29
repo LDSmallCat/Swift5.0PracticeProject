@@ -41,12 +41,10 @@ class SubscribeViewController: LDBaseViewController {
     
     func loadData() {
         UApiLodingProvider.ldRequest(UApi.subscribeList, successClosure: { (json) in
-            print(json)
-            let ar = modelArray(from: json["newSubscribeList"].arrayObject, ComicListModel.self)
-            if ar != nil {
-                self.subList.append(contentsOf: ar!)
-                self.cv.reloadData()
-            }
+            guard let nt = json["newSubscribeList"].arrayObject else {return}
+            let ar = modelArray(from: nt, ComicListModel.self)
+            self.subList.append(contentsOf: ar)
+            self.cv.reloadData()
             self.cv.ldHeader.endRefreshing()
             
         }, abnormalClosure: { (code, msg) in

@@ -117,6 +117,7 @@ class ComicGuessLikeCell: LDBaseTableViewCell,UICollectionViewDataSource, UIColl
         
         let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(240))
         cv.comicID = guessMolde[indexPath.row].comic_id
+        cv.comicName = guessMolde[indexPath.row].name
         guard let nav = topVC?.navigationController else { return }
         nav.pushViewController(cv, animated: true)
     }

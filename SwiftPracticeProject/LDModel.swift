@@ -54,7 +54,7 @@ struct ComicModel: Convertible {
     let description = ""
     let short_description = ""
     let author_name = ""
- 
+
 }
 
 struct RankModel: Convertible {
@@ -84,6 +84,8 @@ struct DetailStaticComicModel: Convertible {
     let classifyTags: [classifyTagsModel] = []
     let author = AuthorModel()
     let comic_id = 0
+    let thread_id = 0
+
 }
 
 struct classifyTagsModel: Convertible {
@@ -121,4 +123,25 @@ struct ComicDetailModel: Convertible {
     let total_ticket = "0"
     let monthly_ticket = "0"
 
+}
+
+struct ComicCommentListModel: Convertible {
+    let commentList: [ComicCommentModel] = []
+    let hasMore: Bool = true
+    let serverNextPage: Int = 0
+   
+}
+struct ComicCommentModel: Convertible {
+    let content = ""
+    let content_filter = ""
+    let nickname = "0"
+    let face = ""
+    
+    var cellHeight: CGFloat = 60
+    mutating func kj_didConvertToModel(from json: [String : Any]) {
+        let h = content.getHeightFor(13, ceil(screenWidth - 70)) + 45
+        cellHeight = h > cellHeight ? h : cellHeight
+    }
+    
+    
 }

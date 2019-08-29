@@ -6,12 +6,11 @@
 //  Copyright © 2019 MJ Lee. All rights reserved.
 //
 
+import Foundation
+
 public struct Metadata {
-    // MARK: - Type
     private static let typeLock = NSRecursiveLock()
     private static var types = [TypeKey: BaseType]()
-    // type conform to Convertible
-    private(set) static var modelTypes = [ModelType]()
     
     public static func type(_ type: Any.Type) -> BaseType? {
         // get from cache
@@ -47,10 +46,6 @@ public struct Metadata {
         // ceate and put it into cache
         let mt = mtt.init(name: name, type: type, kind: kind)
         types[key] = mt
-        if type is Convertible.Type,
-            let modelType = mt as? ModelType {
-            modelTypes.append(modelType)
-        }
         return mt
     }
     

@@ -45,10 +45,11 @@ class ComicDetailViewController: LDBaseViewController {
         comicID = pvc.comicID
         
         UApiProvider.ldRequest(UApi.detailStatic(comicId: comicID), successClosure: { (json) in
-            print(json)
-            guard let model = model(from: json.dictionaryObject, DetailStaticModel.self) else { return }
-            self.dStaticModel = model
+            guard let dict = json.dictionaryObject else {return}
+            let ml = model(from: dict, DetailStaticModel.self)
+            self.dStaticModel = ml
             if let pvc = self.parent?.parent as? UComicBaseViewController {
+                pvc.threadID = ml.comic.thread_id
                 pvc.header.bgView.kf.setImage(with: URL(string: (self.dStaticModel!.comic.cover)))
                 pvc.header.coverView.kf.setImage(with: URL(string: (self.dStaticModel!.comic.cover)))
                 pvc.header.titleLabel.text = self.dStaticModel?.comic.name
@@ -61,16 +62,17 @@ class ComicDetailViewController: LDBaseViewController {
         }, abnormalClosure: nil, failureClosure: nil)
   
         UApiProvider.ldRequest(UApi.detailRealtime(comicId: comicID), successClosure: { (json) in
-                print(json)
-            guard let model = model(from: json["comic"].dictionaryObject, ComicDetailModel.self) else { return }
-            self.dRealtimeModel = model
+            guard let dict = json["comic"].dictionaryObject else {return}
+            let ml = model(from: dict, ComicDetailModel.self)
+            self.dRealtimeModel = ml
             self.setupTicketCellString()
             self.tb.reloadData()
         }, abnormalClosure: nil, failureClosure: nil)
 
         UApiProvider.ldRequest(UApi.guessLike, successClosure: { (json) in
-            let arr = modelArray(from: json["comics"].arrayObject, ComicModel.self)
-            if arr != nil { self.guesslike.append(contentsOf: arr!) }
+            guard let arrT = json["comics"].arrayObject else {return}
+            let arr = modelArray(from: arrT, ComicModel.self)
+            self.guesslike.append(contentsOf: arr)
             self.tb.reloadData()
         }, abnormalClosure: nil, failureClosure: nil)
     }

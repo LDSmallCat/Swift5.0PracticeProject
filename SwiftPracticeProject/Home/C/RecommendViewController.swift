@@ -81,19 +81,18 @@ extension RecommendViewController {
     
     func loadData(sexType: Int) {
         UApiLodingProvider.ldRequest(UApi.recommendList(sexType: sexType), successClosure: { [weak self] (json) in
-            //print(json)
-            let ca = modelArray(from: json["comicLists"].arrayObject, ComicListModel.self)
-            let ga = modelArray(from: json["galleryItems"].arrayObject, GalleryItemModel.self)
-                             
-             if ca != nil {
-                 self?.comicLists.append(contentsOf: ca!)
-             }
-             if ga != nil {
-                 self?.galleryItems.append(contentsOf: ga!)
-                 self?.bannerView.imagePaths = self?.galleryItems.map {
-                     $0.cover
-                 } ?? []
-             }
+            if let cl = json["comicLists"].arrayObject {
+                let ca = modelArray(from: cl, ComicListModel.self)
+                self?.comicLists.append(contentsOf: ca)
+            }
+            
+            if let gl = json["galleryItems"].arrayObject {
+                let ga = modelArray(from: gl, GalleryItemModel.self)
+                self?.galleryItems.append(contentsOf: ga)
+                self?.bannerView.imagePaths = self?.galleryItems.map {
+                                     $0.cover
+                                 } ?? []
+            }
                              
              self?.collectionView.reloadData()
              self?.collectionView.ldHeader.endRefreshing()
@@ -176,6 +175,7 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
                 
                 let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(240))
                 cv.comicID = item.comicId
+                cv.comicName = item.name
                 navigationController?.pushViewController(cv, animated: true)
                 
                 

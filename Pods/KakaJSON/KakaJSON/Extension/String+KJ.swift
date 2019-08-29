@@ -1,14 +1,17 @@
 //
-//  String+KK.swift
+//  String+KJ.swift
 //  KakaJSON
 //
 //  Created by MJ Lee on 2019/8/5.
 //  Copyright © 2019 MJ Lee. All rights reserved.
 //
 
-extension String: KKCompatible {}
+import Foundation
 
-public extension KK where Base: ExpressibleByStringLiteral {
+extension String: KJCompatible {}
+extension NSString: KJCompatible {}
+
+public extension KJ where Base: ExpressibleByStringLiteral {
     /// from underline-cased to camel-cased
     ///
     /// e.g. from `my_test_name` to `myTestName`
@@ -39,7 +42,7 @@ public extension KK where Base: ExpressibleByStringLiteral {
         guard let str = base as? String else { return "" }
         var newStr = ""
         for c in str {
-            if c >= "A", c <= "Z" {
+            if ("A"..."Z").contains(c) {
                 newStr += "_"
                 newStr += c.lowercased()
             } else {
@@ -49,36 +52,37 @@ public extension KK where Base: ExpressibleByStringLiteral {
         return newStr
     }
     
-    // MARK: - JSON -> Model
+    /// JSONObject -> Model
     func model<M: Convertible>(_ type: M.Type) -> M? {
-        return model(anyType: type) as? M
+        return model(type: type) as? M
     }
     
-    func model(anyType: Any.Type) -> Any? {
-        if let json = JSONSerialization.kk_JSON(base as? String, JSONObject.self) {
-            return json.kk.model(anyType: anyType)
+    /// JSONObject -> Model
+    func model(type: Convertible.Type) -> Convertible? {
+        guard let string = base as? String else { return nil }
+        return string.kj_fastModel(type)
+    }
+    
+    /// JSONObjectArray -> ModelArray
+    func modelArray<M: Convertible>(_ type: M.Type) -> [M] {
+        return modelArray(type: type) as! [M]
+    }
+    
+    /// JSONObjectArray -> ModelArray
+    func modelArray(type: Convertible.Type) -> [Convertible] {
+        guard let string = base as? String else { return [] }
+        if let json = JSONSerialization.kj_JSON(string, [Any].self) {
+            return json.kj.modelArray(type: type)
         }
         Logger.error("Failed to get JSON from JSONString.")
-        return nil
-    }
-    
-    func modelArray<M: Convertible>(_ type: M.Type) -> [M]? {
-        return modelArray(anyType: type) as? [M]
-    }
-    
-    func modelArray(anyType: Any.Type) -> [Any]? {
-        if let json = JSONSerialization.kk_JSON(base as? String, [Any].self) {
-            return json.kk.modelArray(anyType: anyType)
-        }
-        Logger.error("Failed to get JSON from JSONString.")
-        return nil
+        return []
     }
 }
 
 extension String {
-    func kk_fastModel(_ type: Convertible.Type) -> Convertible? {
-        if let json = JSONSerialization.kk_JSON(self, JSONObject.self) {
-            return json.kk_fastModel(type)
+    func kj_fastModel(_ type: Convertible.Type) -> Convertible? {
+        if let json = JSONSerialization.kj_JSON(self, [String: Any].self) {
+            return json.kj_fastModel(type)
         }
         Logger.error("Failed to get JSON from JSONString.")
         return nil

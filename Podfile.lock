@@ -26,21 +26,21 @@ PODS:
   - UINavigation-SXFixSpace (1.2.4)
 
 DEPENDENCIES:
-  - Alamofire
-  - EmptyDataSet-Swift
-  - HMSegmentedControl
-  - IQKeyboardManagerSwift
-  - KakaJSON
-  - Kingfisher
-  - LLCycleScrollView
-  - MBProgressHUD
-  - MJRefresh
-  - Moya
-  - Reusable
-  - SnapKit
-  - SwiftyJSON
-  - Then
-  - UINavigation-SXFixSpace
+  - Alamofire (~> 4.8.2)
+  - EmptyDataSet-Swift (~> 4.2.0)
+  - HMSegmentedControl (~> 1.5.5)
+  - IQKeyboardManagerSwift (~> 6.4.1)
+  - KakaJSON (~> 1.1.0)
+  - Kingfisher (~> 5.7.1)
+  - LLCycleScrollView (~> 1.6.0)
+  - MBProgressHUD (~> 1.1.0)
+  - MJRefresh (~> 3.2.0)
+  - Moya (~> 13.0.1)
+  - Reusable (~> 4.1.0)
+  - SnapKit (~> 5.0.1)
+  - SwiftyJSON (~> 5.0.0)
+  - Then (~> 2.5.0)
+  - UINavigation-SXFixSpace (~> 1.2.4)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -79,6 +79,6 @@ SPEC CHECKSUMS:
   Then: 0157115e883545c77967b452fe74a1d25fb796e1
   UINavigation-SXFixSpace: 10f223253ebff2ceefa26694e23b7694269763c4
 
-PODFILE CHECKSUM: d180b852b0e6f4d581b1907231581ee5fd0f35cf
+PODFILE CHECKSUM: 59e710dec1d03eff74864606bee90a6c0ee108f9
 
 COCOAPODS: 1.7.4

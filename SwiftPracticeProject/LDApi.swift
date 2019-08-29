@@ -86,11 +86,11 @@ enum UApi {
     case detailRealtime(comicId: Int)
     case detailStatic(comicId: Int)
     case guessLike
+    case commentList(object_id: Int, thread_id: Int, page: Int)
 }
 
 extension UApi: TargetType {
     var baseURL: URL { URL(string: "http://app.u17.com/v3/appV3_3/ios/phone")! }
-    
     var path: String {
         switch self {
         case .recommendList: return "comic/boutiqueListNew"
@@ -100,6 +100,8 @@ extension UApi: TargetType {
         case .detailRealtime: return "comic/detail_realtime"
         case .detailStatic: return "comic/detail_static_new"
         case .guessLike: return "comic/guessLike"
+        case .commentList: return "comment/list"
+
         }
     }
     
@@ -121,7 +123,10 @@ extension UApi: TargetType {
         case .detailStatic(let comicId):
             parmeters["comicid"] = comicId
         case .guessLike: break
-            
+        case let .commentList(object_id, thread_id, page):
+            parmeters["object_id"] = object_id
+            parmeters["thread_id"] = thread_id
+            parmeters["page"] = page
         }
         
         return .requestParameters(parameters: parmeters, encoding: URLEncoding.default)

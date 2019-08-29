@@ -8,11 +8,13 @@
 
 
 protocol ObserverTableViewSlide where Self: UIViewController {
+    var navTitle: String { get }
     var height: CGFloat { get }
     var animateTime: TimeInterval { get }
     func slideDirection(down: Bool)
 }
 extension UComicBaseViewController: ObserverTableViewSlide {
+    var navTitle: String { self.comicName }
     var animateTime: TimeInterval { 0.35 }
     var height: CGFloat {
         switch self.pageStyle {
@@ -34,10 +36,13 @@ extension ObserverTableViewSlide {
         let y = down ? 0 : statusBarHeight + navgationBarHeight - self.height
         let rect = CGRect(x: 0, y: y, width: screenWidth, height: screenHeight + self.height - statusBarHeight - navgationBarHeight)
         UIView.animate(withDuration: animateTime, animations: {
+             self.title = ""
              self.view.frame = rect
             nav.barStyle(barStyle)
         }) { (_) in
-            if down { self.view.frame.size.height = screenHeight; } } }
+            if down { self.view.frame.size.height = screenHeight; }else{
+                self.title = self.navTitle
+            } } }
     
 }
 
@@ -52,9 +57,9 @@ class UComicBaseViewController: LDPageViewController {
    
     
     
-    var comicID: Int!
-   
-    
+    var comicID = 0
+    var threadID = 0
+    var comicName = ""
     override func viewDidLoad() {
         super.viewDidLoad()
         
