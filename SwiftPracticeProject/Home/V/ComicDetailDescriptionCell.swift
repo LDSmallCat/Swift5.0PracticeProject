@@ -35,7 +35,7 @@ class ComicDetailDescriptionCell: LDBaseTableViewCell {
         contentView.addSubview(descLabel)
         descLabel.snp.makeConstraints {
             $0.top.equalTo(titleLabel.snp.bottom).offset(15)
-            $0.left.right.bottom.equalToSuperview().inset(UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15))
+            $0.left.right.equalToSuperview().inset(UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15))
         }
     }
     
@@ -116,7 +116,7 @@ class ComicGuessLikeCell: LDBaseTableViewCell,UICollectionViewDataSource, UIColl
         let vcs = [ComicDetailViewController(),ComicCatalogViewController(),ComicCommentViewController()]
         
         let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(240))
-        cv.comicID = guessMolde[indexPath.row].comicId
+        cv.comicID = guessMolde[indexPath.row].comic_id
         guard let nav = topVC?.navigationController else { return }
         nav.pushViewController(cv, animated: true)
     }

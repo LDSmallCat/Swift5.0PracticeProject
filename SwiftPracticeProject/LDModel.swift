@@ -45,6 +45,7 @@ struct ComicListModel: Convertible {
 }
 struct ComicModel: Convertible {
     let comicId = 0
+    let comic_id = 0
     var cate_id = ""
     let name = ""
     let subTitle = ""
@@ -80,11 +81,17 @@ struct DetailStaticComicModel: Convertible {
     let cate_id = ""
     let short_description = ""
     let name = ""
-    let theme_ids: [String] = []
-    let author = ""
+    let classifyTags: [classifyTagsModel] = []
+    let author = AuthorModel()
     let comic_id = 0
 }
 
+struct classifyTagsModel: Convertible {
+    let argVal = 0
+    let argName = ""
+    let name = ""
+
+}
 struct AuthorModel: Convertible {
     let avatar = ""
     let id = 0
@@ -93,7 +100,7 @@ struct AuthorModel: Convertible {
 }
 
 struct ChapterModel: Convertible {
-    let imHightArr: [ImHightModel] = []
+    let imHightArr: [[ImHightModel]] = []
     let chapter_id = 0
     let name = ""
 
@@ -103,9 +110,6 @@ struct ImHightModel: Convertible {
     let width: CGFloat = 0
 }
 
-struct DetailRealtimeModel: Convertible {
-    let comic = ComicDetailModel()
-}
 
 struct ComicDetailModel: Convertible {
     let click_total = "0"
@@ -114,7 +118,6 @@ struct ComicDetailModel: Convertible {
     let user_id = 0
     let comic_id = 0
     let comment_total = "0"
-
     let total_ticket = "0"
     let monthly_ticket = "0"
 
