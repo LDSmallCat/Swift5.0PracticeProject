@@ -23,15 +23,13 @@ class RankViewController: LDBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
     }
     override func configUI() {
         view.addSubview(te)
         te.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+            $0.edges.equalTo(self.view.usnp.edges) }
     }
-    func loadData() {
+    override func loadData() {
         UApiLodingProvider.ldRequest(UApi.rankList, successClosure: { (json) in
             guard let arr = json["rankinglist"].arrayObject else {return}
             let rk = modelArray(from: arr, RankModel.self)

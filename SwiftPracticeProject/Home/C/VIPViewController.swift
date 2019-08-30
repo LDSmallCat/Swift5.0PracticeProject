@@ -30,18 +30,16 @@ class VIPViewController: LDBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadData()
     }
     
     override func configUI() {
         super.configUI()
         view.addSubview(cv)
         cv.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+            $0.edges.equalTo(self.view.usnp.edges) }
     }
     
-    func loadData() {
+    override func loadData() {
         UApiLodingProvider.ldRequest(UApi.vipList, successClosure: { (json) in
             print(json)
             guard let nt = json["newVipList"].arrayObject else {return}

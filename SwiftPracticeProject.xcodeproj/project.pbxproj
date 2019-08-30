@@ -23,6 +23,8 @@
 		D2038C1A2304F71F004CF263 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2038C182304F71F004CF263 /* Main.storyboard */; };
 		D2038C1B2304F71F004CF263 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D2038C192304F71F004CF263 /* LaunchScreen.storyboard */; };
 		D2038C1F2304F777004CF263 /* LDNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2038C1E2304F777004CF263 /* LDNavigationViewController.swift */; };
+		D20F15DA23190F0D009CBA35 /* ChapterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F15D923190F0D009CBA35 /* ChapterCollectionViewCell.swift */; };
+		D20F15DC2319272A009CBA35 /* SnapKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F15DB2319272A009CBA35 /* SnapKitExtension.swift */; };
 		D2523010230B9769001F9AB6 /* KakaJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252300F230B9769001F9AB6 /* KakaJson.swift */; };
 		D2553318230D34BF002CF636 /* RankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2553317230D34BF002CF636 /* RankCell.swift */; };
 		D2604EF0230654D700351C93 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EEF230654D700351C93 /* RecommendViewController.swift */; };
@@ -103,6 +105,8 @@
 		D2038C182304F71F004CF263 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		D2038C192304F71F004CF263 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D2038C1E2304F777004CF263 /* LDNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDNavigationViewController.swift; sourceTree = "<group>"; };
+		D20F15D923190F0D009CBA35 /* ChapterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterCollectionViewCell.swift; sourceTree = "<group>"; };
+		D20F15DB2319272A009CBA35 /* SnapKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitExtension.swift; sourceTree = "<group>"; };
 		D224CDF32305491B008411A8 /* SwiftPracticeProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPracticeProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		D252300F230B9769001F9AB6 /* KakaJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaJson.swift; sourceTree = "<group>"; };
 		D2553317230D34BF002CF636 /* RankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCell.swift; sourceTree = "<group>"; };
@@ -332,6 +336,7 @@
 				D2889ACE23052151006C7B0E /* UIColorExtension.swift */,
 				D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */,
 				D27938F9231527F6001BD133 /* StringExtension.swift */,
+				D20F15DB2319272A009CBA35 /* SnapKitExtension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -345,6 +350,7 @@
 				D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */,
 				D27938F723151C45001BD133 /* ComicDetailDescriptionCell.swift */,
 				D266FDC32317A4F6000145B8 /* ComicCommentTableViewCell.swift */,
+				D20F15D923190F0D009CBA35 /* ChapterCollectionViewCell.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -624,6 +630,7 @@
 				D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */,
 				D28732C5230A829000397CA4 /* RecommendHeader.swift in Sources */,
 				D28732BB230A343300397CA4 /* LDBaseCollectionViewCell.swift in Sources */,
+				D20F15DA23190F0D009CBA35 /* ChapterCollectionViewCell.swift in Sources */,
 				D28732BF230A34AC00397CA4 /* RecommendCell.swift in Sources */,
 				D2889ACF23052151006C7B0E /* UIColorExtension.swift in Sources */,
 				D2553318230D34BF002CF636 /* RankCell.swift in Sources */,
@@ -634,6 +641,7 @@
 				D2F422F023069AED00DFC244 /* LDGlobal.swift in Sources */,
 				D2883740230FD04000EB49CC /* ComicCatalogViewController.swift in Sources */,
 				D2038BD82304F391004CF263 /* SceneDelegate.swift in Sources */,
+				D20F15DC2319272A009CBA35 /* SnapKitExtension.swift in Sources */,
 				D288373A230FB3A300EB49CC /* UComicBaseViewController.swift in Sources */,
 				D2523010230B9769001F9AB6 /* KakaJson.swift in Sources */,
 				D2F422EB230692AC00DFC244 /* LDModel.swift in Sources */,

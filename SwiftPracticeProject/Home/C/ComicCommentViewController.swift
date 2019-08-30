@@ -8,36 +8,36 @@
 
 import UIKit
 
-class ComicCommentViewController: UComicBaseViewController {
+class ComicCommentViewController: LDBaseViewController {
     var commentList: ComicCommentListModel = ComicCommentListModel() {
         didSet { tb.reloadData() }
     }
     
     lazy var tb: UITableView = {
-            let tb = UITableView(frame: CGRect.zero, style: .plain)
+            let tb = UITableView(frame: CGRect.zero, style: .grouped)
             tb.delegate = self
             tb.dataSource = self
             tb.register(cellType: ComicCommentTableViewCell.self)
+//            tb.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
+//            tb.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
+//            tb.sectionHeaderHeight = CGFloat.leastNonzeroMagnitude
+//            tb.sectionFooterHeight = CGFloat.leastNonzeroMagnitude
             return tb
         }()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadData()
     }
-    func loadData() {
+    override func loadData() {
         guard let pvc = self.parent?.parent as? UComicBaseViewController else { return }
         UApiLodingProvider.ldRequest(UApi.commentList(object_id: pvc.comicID, thread_id: pvc.threadID, page: commentList.serverNextPage), successClosure: { (json) in
             guard let dict = json.dictionaryObject else {return}
             self.commentList = model(from: dict, ComicCommentListModel.self)
-            
         }, abnormalClosure: nil, failureClosure: nil)
     }
     override func configUI() {
         view.addSubview(tb)
-        tb.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        tb.snp.makeConstraints { $0.edges.equalTo(self.view.usnp.edges) }
     }
 
 }
@@ -57,7 +57,8 @@ extension ComicCommentViewController: UITableViewDataSource {
         return commentList.commentList[indexPath.row].cellHeight }
     
 }
-extension ComicCommentViewController: UITableViewDelegate{
+
+extension ComicCommentViewController: UITableViewDelegate {
 func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         guard let parent = self.parent?.parent as? UComicBaseViewController else { return }
         parent.slideDirection(down: scrollView.contentOffset.y < 0)

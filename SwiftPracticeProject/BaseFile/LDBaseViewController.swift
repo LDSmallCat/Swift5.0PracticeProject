@@ -26,10 +26,11 @@ class LDBaseViewController: UIViewController {
             automaticallyAdjustsScrollViewInsets = false
         }
         
-        configUI()     
+        configUI()
+        loadData()
     }
-    
-    func configUI() {  }
+    func loadData() { }
+    func configUI() { }
     
     func configNavigationBar() {
         guard let navi = navigationController as? LDNavigationViewController else { return }

@@ -35,11 +35,10 @@ class SubscribeViewController: LDBaseViewController {
         super.configUI()
         view.addSubview(cv)
         cv.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+            $0.edges.equalTo(self.view.usnp.edges) }
     }
     
-    func loadData() {
+    override func loadData() {
         UApiLodingProvider.ldRequest(UApi.subscribeList, successClosure: { (json) in
             guard let nt = json["newSubscribeList"].arrayObject else {return}
             let ar = modelArray(from: nt, ComicListModel.self)

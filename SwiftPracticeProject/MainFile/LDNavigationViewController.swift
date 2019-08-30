@@ -15,10 +15,12 @@ enum NavigationBarStyle {
 
 class LDNavigationViewController: UINavigationController {
     var cBarStyle: NavigationBarStyle!
-    
+    override func viewDidAppear(_ animated: Bool) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
     }
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
@@ -46,6 +48,7 @@ extension LDNavigationViewController {
             navigationBar.setBackgroundImage(UIColor.white.image(), for: .default)
             navigationBar.shadowImage = nil
         }
+        
     }
 }
 extension LDNavigationViewController {

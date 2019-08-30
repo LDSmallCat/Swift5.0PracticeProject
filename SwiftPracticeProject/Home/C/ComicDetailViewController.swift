@@ -36,11 +36,10 @@ class ComicDetailViewController: LDBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loadData()
         
     }
     
-    func loadData() {
+    override func loadData() {
         guard let pvc = self.parent?.parent as? UComicBaseViewController else { return }
         comicID = pvc.comicID
         
@@ -49,12 +48,13 @@ class ComicDetailViewController: LDBaseViewController {
             let ml = model(from: dict, DetailStaticModel.self)
             self.dStaticModel = ml
             if let pvc = self.parent?.parent as? UComicBaseViewController {
+                pvc.chapterList = ml.chapter_list
                 pvc.threadID = ml.comic.thread_id
-                pvc.header.bgView.kf.setImage(with: URL(string: (self.dStaticModel!.comic.cover)))
-                pvc.header.coverView.kf.setImage(with: URL(string: (self.dStaticModel!.comic.cover)))
-                pvc.header.titleLabel.text = self.dStaticModel?.comic.name
-                pvc.header.authorLabel.text = self.dStaticModel?.comic.author.name
-                pvc.header.tags = (self.dStaticModel!.comic.classifyTags.map { $0.name })
+                pvc.header.bgView.kf.setImage(with: URL(string: (ml.comic.cover)))
+                pvc.header.coverView.kf.setImage(with: URL(string: (ml.comic.cover)))
+                pvc.header.titleLabel.text = ml.comic.name
+                pvc.header.authorLabel.text = ml.comic.author.name
+                pvc.header.tags = (ml.comic.classifyTags.map { $0.name })
                 pvc.header.tagView.reloadData()
             }
             
@@ -63,8 +63,8 @@ class ComicDetailViewController: LDBaseViewController {
   
         UApiProvider.ldRequest(UApi.detailRealtime(comicId: comicID), successClosure: { (json) in
             guard let dict = json["comic"].dictionaryObject else {return}
-            let ml = model(from: dict, ComicDetailModel.self)
-            self.dRealtimeModel = ml
+            let cl = model(from: dict, ComicDetailModel.self)
+            self.dRealtimeModel = cl
             self.setupTicketCellString()
             self.tb.reloadData()
         }, abnormalClosure: nil, failureClosure: nil)
@@ -108,9 +108,7 @@ class ComicDetailViewController: LDBaseViewController {
     }
     override func configUI() {
         view.addSubview(tb)
-        tb.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+        tb.snp.makeConstraints { $0.edges.equalTo(self.view.usnp.edges) }
     }
 
     

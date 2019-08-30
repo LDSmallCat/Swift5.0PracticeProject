@@ -56,7 +56,7 @@ class RecommendViewController: LDBaseViewController {
     
     override func configUI() {
         view.addSubview(collectionView)
-        collectionView.snp.makeConstraints{ $0.edges.equalToSuperview()}
+        collectionView.snp.makeConstraints{             $0.edges.equalTo(self.view.usnp.edges)}
         
         view.addSubview(bannerView)
         bannerView.snp.makeConstraints{ $0.top.left.right.equalToSuperview()

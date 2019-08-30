@@ -64,11 +64,7 @@ struct RankModel: Convertible {
 }
 
 // MARK: - detailStaticModel
-struct DetailStaticModel: Convertible {
-    let otherWorks: [OtherWorksModel] = []
-    let comic = DetailStaticComicModel()
-    let chapter_list: [ChapterModel] = []
-}
+
 struct OtherWorksModel: Convertible{
     let comicId = 0
     let name = ""
@@ -100,16 +96,42 @@ struct AuthorModel: Convertible {
     let name = ""
 
 }
-
+struct DetailStaticModel: Convertible {
+    let otherWorks: [OtherWorksModel] = []
+    let comic = DetailStaticComicModel()
+    let chapter_list: [ChapterModel] = []
+}
 struct ChapterModel: Convertible {
     let imHightArr: [[ImHightModel]] = []
     let chapter_id = 0
     let name = ""
-
+    func kj_modelValue(from jsonValue: Any?, _ property: Property) -> Any? {
+        if property.name != "imHightArr" { return jsonValue }
+        return (jsonValue as? [[[String:Any]]])?.map {
+          return modelArray(from: $0, ImHightModel.self)
+        }
+    }
+//    Cannot convert return expression of type '[_]?' to return type 'Any?'
+//    Insert ' as Any?'
+//    func kj_modelValue(from jsonValue: Any?, _ property: Property) -> Any? {
+//        if property.name != "imHightArr" { return jsonValue }
+//        guard let doubleArray = jsonValue as? [Any] else { return [] }
+//
+//        var imHightArr = [[ImHightModel]]()
+//
+//        for element in doubleArray {
+//           //数组里面是字典
+//           guard let arr = element as? [[String: Any]] else { return [] }
+//           //转为数组模型
+//           imHightArr.append(modelArray(from: arr, ImHightModel.self))
+//        }
+//        return imHightArr
+//
+//    }
 }
 struct ImHightModel: Convertible {
-    let height: CGFloat = 0
-    let width: CGFloat = 0
+    let height = 0
+    let width = 0
 }
 
 
