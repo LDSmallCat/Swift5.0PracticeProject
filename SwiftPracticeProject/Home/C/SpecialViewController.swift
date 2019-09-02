@@ -33,7 +33,7 @@ class SpecialViewController: LDBaseViewController {
         tb.delegate = self
         tb.ldHeader = LDRefreshHeader{[weak self] in
                      self?.page = 0;self?.loadData() }
-        tb.ldFooter = LDRefreshFooter{ self.loadData() }
+        tb.ldFooter = LDRefreshFooter{[weak self] in self?.loadData() }
         tb.rowHeight = 200
         tb.register(cellType: SpecialTableViewCell.self)
         return tb

@@ -39,12 +39,12 @@ class SubscribeViewController: LDBaseViewController {
     }
     
     override func loadData() {
-        UApiLodingProvider.ldRequest(UApi.subscribeList, successClosure: { (json) in
+        UApiLodingProvider.ldRequest(UApi.subscribeList, successClosure: {[weak self] (json) in
             guard let nt = json["newSubscribeList"].arrayObject else {return}
             let ar = modelArray(from: nt, ComicListModel.self)
-            self.subList.append(contentsOf: ar)
-            self.cv.reloadData()
-            self.cv.ldHeader.endRefreshing()
+            self?.subList.append(contentsOf: ar)
+            self?.cv.reloadData()
+            self?.cv.ldHeader.endRefreshing()
             
         }, abnormalClosure: { (code, msg) in
             print(code,msg)

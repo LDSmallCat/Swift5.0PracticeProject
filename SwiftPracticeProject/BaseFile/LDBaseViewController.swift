@@ -32,7 +32,7 @@ class LDBaseViewController: UIViewController {
     func loadData() { }
     func configUI() { }
     deinit {
-            print("\(self) deinit")
+        print("\(self) deinit")
     }
     func configNavigationBar() {
         guard let navi = navigationController as? LDNavigationViewController else { return }

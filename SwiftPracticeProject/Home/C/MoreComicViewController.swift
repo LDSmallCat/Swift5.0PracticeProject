@@ -36,7 +36,7 @@ class MoreComicViewController: LDBaseViewController {
         tb.delegate = self
         tb.ldHeader = LDRefreshHeader{[weak self] in
              self?.page = 0;self?.loadData() }
-        tb.ldFooter = LDRefreshFooter{ self.loadData() }
+        tb.ldFooter = LDRefreshFooter{[weak self] in self?.loadData() }
         tb.register(cellType: MoreComicTableViewCell.self)
         tb.rowHeight = 180
         return tb

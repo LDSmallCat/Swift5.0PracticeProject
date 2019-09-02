@@ -31,7 +31,7 @@ class ComicCommentViewController: LDBaseViewController {
             tb.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
             tb.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
             tb.sectionFooterHeight = CGFloat.leastNonzeroMagnitude
-            tb.ldFooter = LDRefreshFooter{ self.loadData() }
+            tb.ldFooter = LDRefreshFooter{[weak self] in self?.loadData() }
             return tb
         }()
     override func viewDidLoad() {
@@ -41,9 +41,9 @@ class ComicCommentViewController: LDBaseViewController {
     
     override func loadData() {
         guard let pvc = self.parent?.parent as? UComicBaseViewController else { return }
-        UApiLodingProvider.ldRequest(UApi.commentList(object_id: pvc.comicID, thread_id: pvc.threadID, page: commentList?.serverNextPage ?? 0), successClosure: { (json) in
+        UApiLodingProvider.ldRequest(UApi.commentList(object_id: pvc.comicID, thread_id: pvc.threadID, page: commentList?.serverNextPage ?? 0), successClosure: {[weak self] (json) in
             guard let dict = json.dictionaryObject else {return}
-            self.commentList = model(from: dict, ComicCommentListModel.self)
+            self?.commentList = model(from: dict, ComicCommentListModel.self)
             
         }, abnormalClosure: nil, failureClosure: nil)
     }

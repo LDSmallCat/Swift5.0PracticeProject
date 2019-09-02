@@ -43,11 +43,11 @@ class ComicDetailViewController: LDBaseViewController {
         guard let pvc = self.parent?.parent as? UComicBaseViewController else { return }
         comicID = pvc.comicID
         
-        UApiProvider.ldRequest(UApi.detailStatic(comicId: comicID), successClosure: { (json) in
+        UApiProvider.ldRequest(UApi.detailStatic(comicId: comicID), successClosure: { [weak self] (json) in
             guard let dict = json.dictionaryObject else {return}
             let ml = model(from: dict, DetailStaticModel.self)
-            self.dStaticModel = ml
-            if let pvc = self.parent?.parent as? UComicBaseViewController {
+            self?.dStaticModel = ml
+            if let pvc = self?.parent?.parent as? UComicBaseViewController {
                 pvc.chapterList = ml.chapter_list
                 pvc.threadID = ml.comic.thread_id
                 pvc.comicName = ml.comic.name
@@ -59,22 +59,22 @@ class ComicDetailViewController: LDBaseViewController {
                 pvc.header.tagView.reloadData()
             }
             
-            self.tb.reloadData()
+            self?.tb.reloadData()
         }, abnormalClosure: nil, failureClosure: nil)
   
-        UApiProvider.ldRequest(UApi.detailRealtime(comicId: comicID), successClosure: { (json) in
+        UApiProvider.ldRequest(UApi.detailRealtime(comicId: comicID), successClosure: {[weak self] (json) in
             guard let dict = json["comic"].dictionaryObject else {return}
             let cl = model(from: dict, ComicDetailModel.self)
-            self.dRealtimeModel = cl
-            self.setupTicketCellString()
-            self.tb.reloadData()
+            self?.dRealtimeModel = cl
+            self?.setupTicketCellString()
+            self?.tb.reloadData()
         }, abnormalClosure: nil, failureClosure: nil)
 
-        UApiProvider.ldRequest(UApi.guessLike, successClosure: { (json) in
+        UApiProvider.ldRequest(UApi.guessLike, successClosure: {[weak self] (json) in
             guard let arrT = json["comics"].arrayObject else {return}
             let arr = modelArray(from: arrT, ComicModel.self)
-            self.guesslike.append(contentsOf: arr)
-            self.tb.reloadData()
+            self?.guesslike.append(contentsOf: arr)
+            self?.tb.reloadData()
         }, abnormalClosure: nil, failureClosure: nil)
     }
     

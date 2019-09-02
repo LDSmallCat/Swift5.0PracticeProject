@@ -21,7 +21,7 @@ class VIPViewController: LDBaseViewController {
         cv.register(cellType: RecommendCell.self)
         cv.register(supplementaryViewType: RecommendHeader.self, ofKind: UICollectionView.elementKindSectionHeader)
         cv.register(supplementaryViewType: RecommendFooter.self, ofKind: UICollectionView.elementKindSectionFooter)
-        cv.ldHeader = LDRefreshHeader(refreshingBlock: {self.loadData()})
+        cv.ldHeader = LDRefreshHeader(refreshingBlock: {[weak self] in self?.loadData()})
         cv.backgroundColor = UIColor.white
         cv.dataSource = self
         cv.delegate = self
@@ -40,13 +40,13 @@ class VIPViewController: LDBaseViewController {
     }
     
     override func loadData() {
-        UApiLodingProvider.ldRequest(UApi.vipList, successClosure: { (json) in
+        UApiLodingProvider.ldRequest(UApi.vipList, successClosure: {[weak self] (json) in
             print(json)
             guard let nt = json["newVipList"].arrayObject else {return}
             let ar = modelArray(from: nt, ComicListModel.self)
-            self.vipList.append(contentsOf: ar)
-            self.cv.reloadData()
-            self.cv.ldHeader.endRefreshing()
+            self?.vipList.append(contentsOf: ar)
+            self?.cv.reloadData()
+            self?.cv.ldHeader.endRefreshing()
         }, abnormalClosure: { (_, _) in }) { (_) in }
     }
 
