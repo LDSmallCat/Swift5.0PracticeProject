@@ -70,7 +70,23 @@ extension RecommendViewController {
     func didSelectBanner(index: Int) {
         let item = galleryItems[index]
         
-        print(item.linkType, item.id, item.cover)
+        switch item.linkType {
+                        
+        case 2:
+            print(item.linkType)
+            
+        default:
+            guard let ext = item.ext.first else { return }
+            let titles = ["详情","目录","评论"]
+            let vcs = [ComicDetailViewController(),ComicCatalogViewController(),ComicCommentViewController()]
+            let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(240))
+            
+            cv.comicID = Int(ext.val) ?? 0
+            cv.comicName = item.title
+            navigationController?.pushViewController(cv, animated: true)
+            
+            
+        }
         
     }
 }
@@ -172,7 +188,6 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
             default:
                 let titles = ["详情","目录","评论"]
                 let vcs = [ComicDetailViewController(),ComicCatalogViewController(),ComicCommentViewController()]
-                
                 let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(240))
                 cv.comicID = item.comicId
                 cv.comicName = item.name

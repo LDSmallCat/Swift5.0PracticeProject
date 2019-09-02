@@ -17,7 +17,7 @@ struct GalleryItemModel: Convertible {
     let id: Int = 0
     let linkType: Int = 0
     let cover = ""
-    let ext: [ExtModel]?
+    let ext: [ExtModel]
     let title = ""
     let content = ""
     init() { ext = [] }

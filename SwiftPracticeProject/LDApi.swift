@@ -149,9 +149,9 @@ extension MoyaProvider {
                 switch result {
                     case let .success(response):
                         let jsonData = JSON(response.data)["data"]
-                        let code = jsonData["stateCode"].int!
+                        let code = jsonData["stateCode"].int ?? 1
                         
-                        let msg = jsonData["message"].string!
+                        let msg = jsonData["message"].string ?? "No Message"
                         
                         if code == 1 {
                             guard let se = successClosure else { return }

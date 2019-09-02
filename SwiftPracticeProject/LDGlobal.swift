@@ -8,6 +8,7 @@
 
 let screenWidth = UIScreen.main.bounds.width
 let screenHeight = UIScreen.main.bounds.height
+let defaultCellHeight: CGFloat = 80
 
 let navgationBarHeight: CGFloat = 44.0
 

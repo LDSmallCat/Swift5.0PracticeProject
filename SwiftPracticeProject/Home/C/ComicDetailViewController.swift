@@ -50,6 +50,7 @@ class ComicDetailViewController: LDBaseViewController {
             if let pvc = self.parent?.parent as? UComicBaseViewController {
                 pvc.chapterList = ml.chapter_list
                 pvc.threadID = ml.comic.thread_id
+                pvc.comicName = ml.comic.name
                 pvc.header.bgView.kf.setImage(with: URL(string: (ml.comic.cover)))
                 pvc.header.coverView.kf.setImage(with: URL(string: (ml.comic.cover)))
                 pvc.header.titleLabel.text = ml.comic.name
@@ -156,11 +157,10 @@ extension ComicDetailViewController: UITableViewDataSource ,UITableViewDelegate{
         case 0:
             if self.dStaticModel != nil {
             let string = "\("【\(self.dStaticModel!.comic.cate_id)】\(self.dStaticModel!.comic.description)")"
-            let height = 65 + string.getHeightFor(15, screenWidth - 30)
-            return height
-            }else { return CGFloat.leastNonzeroMagnitude }
+            return 65 + string.getHeightFor(15, screenWidth - 30)
+            }else { return defaultCellHeight  }
             
-        case 2: return ticketsCellString.length > 0 ? 44 : CGFloat.leastNonzeroMagnitude
+        case 2: return ticketsCellString.length > 0 ? 44 : defaultCellHeight
         case 1: return 44
         default: return 200
             

@@ -55,8 +55,6 @@ class UComicBaseViewController: LDPageViewController {
         return hr
     }()
    
-    
-    
     var comicID = 0
     var threadID = 0
     var comicName = ""

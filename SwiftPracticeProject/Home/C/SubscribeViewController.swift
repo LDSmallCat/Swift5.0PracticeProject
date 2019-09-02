@@ -94,4 +94,30 @@ extension SubscribeViewController: UICollectionViewDataSource, UICollectionViewD
             
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let comicList = subList[indexPath.section]
+        let item = comicList.comics[indexPath.row]
+        
+        
+        if comicList.comicType == .billboard { } else {
+            
+            switch item.linkType {
+                
+            case 2:
+                print(item.linkType)
+                
+            default:
+                let titles = ["详情","目录","评论"]
+                let vcs = [ComicDetailViewController(),ComicCatalogViewController(),ComicCommentViewController()]
+                let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(240))
+                cv.comicID = item.comicId
+                cv.comicName = item.name
+                navigationController?.pushViewController(cv, animated: true)
+                
+                
+            }
+    
+        }
+    }
 }
