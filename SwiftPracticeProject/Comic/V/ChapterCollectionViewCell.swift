@@ -13,7 +13,6 @@ class ChapterCollectionViewCell: LDBaseCollectionViewCell {
     var cModel: ChapterModel = ChapterModel() {
         didSet {
             nameLabel.text = cModel.name
-            //nameLabel.backgroundColor = UIColor.red
         }
     }
     

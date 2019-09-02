@@ -27,6 +27,13 @@
 		D20F15DC2319272A009CBA35 /* SnapKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F15DB2319272A009CBA35 /* SnapKitExtension.swift */; };
 		D2523010230B9769001F9AB6 /* KakaJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252300F230B9769001F9AB6 /* KakaJson.swift */; };
 		D2553318230D34BF002CF636 /* RankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2553317230D34BF002CF636 /* RankCell.swift */; };
+		D25CFF7A231CC3F800332B94 /* MoreComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25CFF79231CC3F800332B94 /* MoreComicViewController.swift */; };
+		D25CFF7C231CDB1200332B94 /* MoreComicTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25CFF7B231CDB1200332B94 /* MoreComicTableViewCell.swift */; };
+		D25CFF7E231CF94600332B94 /* SpecialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25CFF7D231CF94600332B94 /* SpecialViewController.swift */; };
+		D25CFF80231CFC9500332B94 /* SpecialTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25CFF7F231CFC9500332B94 /* SpecialTableViewCell.swift */; };
+		D25CFF82231D056600332B94 /* LDWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25CFF81231D056600332B94 /* LDWebViewController.swift */; };
+		D25CFF84231D12A600332B94 /* UpdateListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25CFF83231D12A600332B94 /* UpdateListViewController.swift */; };
+		D25CFF86231D148500332B94 /* UpdateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25CFF85231D148500332B94 /* UpdateTableViewCell.swift */; };
 		D2604EF0230654D700351C93 /* RecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EEF230654D700351C93 /* RecommendViewController.swift */; };
 		D2604EF2230654E200351C93 /* VIPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EF1230654E200351C93 /* VIPViewController.swift */; };
 		D2604EF42306554300351C93 /* SubscribeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EF32306554300351C93 /* SubscribeViewController.swift */; };
@@ -110,6 +117,13 @@
 		D224CDF32305491B008411A8 /* SwiftPracticeProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPracticeProject-Bridging-Header.h"; sourceTree = "<group>"; };
 		D252300F230B9769001F9AB6 /* KakaJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaJson.swift; sourceTree = "<group>"; };
 		D2553317230D34BF002CF636 /* RankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCell.swift; sourceTree = "<group>"; };
+		D25CFF79231CC3F800332B94 /* MoreComicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreComicViewController.swift; sourceTree = "<group>"; };
+		D25CFF7B231CDB1200332B94 /* MoreComicTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreComicTableViewCell.swift; sourceTree = "<group>"; };
+		D25CFF7D231CF94600332B94 /* SpecialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialViewController.swift; sourceTree = "<group>"; };
+		D25CFF7F231CFC9500332B94 /* SpecialTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialTableViewCell.swift; sourceTree = "<group>"; };
+		D25CFF81231D056600332B94 /* LDWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDWebViewController.swift; sourceTree = "<group>"; };
+		D25CFF83231D12A600332B94 /* UpdateListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateListViewController.swift; sourceTree = "<group>"; };
+		D25CFF85231D148500332B94 /* UpdateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateTableViewCell.swift; sourceTree = "<group>"; };
 		D2604EEF230654D700351C93 /* RecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendViewController.swift; sourceTree = "<group>"; };
 		D2604EF1230654E200351C93 /* VIPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VIPViewController.swift; sourceTree = "<group>"; };
 		D2604EF32306554300351C93 /* SubscribeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +239,7 @@
 				D2F422EF23069AED00DFC244 /* LDGlobal.swift */,
 				D2F422EA230692AC00DFC244 /* LDModel.swift */,
 				D2F422F12306A1E000DFC244 /* Component */,
+				D25CFF76231CC1A300332B94 /* Comic */,
 				D2038C0A2304F63F004CF263 /* Home */,
 				D2038C0D2304F659004CF263 /* Mine */,
 				D2038C0C2304F652004CF263 /* Video */,
@@ -285,6 +300,7 @@
 				D279A15423055D4A0004192A /* LDPageViewController.swift */,
 				D28732BA230A343300397CA4 /* LDBaseCollectionViewCell.swift */,
 				D28732C2230A821300397CA4 /* LDBaseCollectionReusableView.swift */,
+				D25CFF81231D056600332B94 /* LDWebViewController.swift */,
 			);
 			path = BaseFile;
 			sourceTree = "<group>";
@@ -330,6 +346,37 @@
 			path = Test;
 			sourceTree = "<group>";
 		};
+		D25CFF76231CC1A300332B94 /* Comic */ = {
+			isa = PBXGroup;
+			children = (
+				D25CFF78231CC1B800332B94 /* V */,
+				D25CFF77231CC1B000332B94 /* C */,
+			);
+			path = Comic;
+			sourceTree = "<group>";
+		};
+		D25CFF77231CC1B000332B94 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				D2883739230FB3A300EB49CC /* UComicBaseViewController.swift */,
+				D288373D230FD01C00EB49CC /* ComicDetailViewController.swift */,
+				D288373F230FD04000EB49CC /* ComicCatalogViewController.swift */,
+				D2883741230FD05500EB49CC /* ComicCommentViewController.swift */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
+		D25CFF78231CC1B800332B94 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */,
+				D27938F723151C45001BD133 /* ComicDetailDescriptionCell.swift */,
+				D266FDC32317A4F6000145B8 /* ComicCommentTableViewCell.swift */,
+				D20F15D923190F0D009CBA35 /* ChapterCollectionViewCell.swift */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
 		D2889AC923051B90006C7B0E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -347,10 +394,9 @@
 				D28732BE230A34AC00397CA4 /* RecommendCell.swift */,
 				D28732C4230A829000397CA4 /* RecommendHeader.swift */,
 				D2553317230D34BF002CF636 /* RankCell.swift */,
-				D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */,
-				D27938F723151C45001BD133 /* ComicDetailDescriptionCell.swift */,
-				D266FDC32317A4F6000145B8 /* ComicCommentTableViewCell.swift */,
-				D20F15D923190F0D009CBA35 /* ChapterCollectionViewCell.swift */,
+				D25CFF7B231CDB1200332B94 /* MoreComicTableViewCell.swift */,
+				D25CFF7F231CFC9500332B94 /* SpecialTableViewCell.swift */,
+				D25CFF85231D148500332B94 /* UpdateTableViewCell.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -363,10 +409,9 @@
 				D2604EF1230654E200351C93 /* VIPViewController.swift */,
 				D2604EF32306554300351C93 /* SubscribeViewController.swift */,
 				D2604EF52306555300351C93 /* RankViewController.swift */,
-				D2883739230FB3A300EB49CC /* UComicBaseViewController.swift */,
-				D288373D230FD01C00EB49CC /* ComicDetailViewController.swift */,
-				D288373F230FD04000EB49CC /* ComicCatalogViewController.swift */,
-				D2883741230FD05500EB49CC /* ComicCommentViewController.swift */,
+				D25CFF79231CC3F800332B94 /* MoreComicViewController.swift */,
+				D25CFF7D231CF94600332B94 /* SpecialViewController.swift */,
+				D25CFF83231D12A600332B94 /* UpdateListViewController.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -626,11 +671,13 @@
 				D2038C0F2304F671004CF263 /* LDBaseViewController.swift in Sources */,
 				D288373E230FD01C00EB49CC /* ComicDetailViewController.swift in Sources */,
 				D2604EF42306554300351C93 /* SubscribeViewController.swift in Sources */,
+				D25CFF7E231CF94600332B94 /* SpecialViewController.swift in Sources */,
 				D2889AD3230521A1006C7B0E /* UIBarButtonItemExtension.swift in Sources */,
 				D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */,
 				D28732C5230A829000397CA4 /* RecommendHeader.swift in Sources */,
 				D28732BB230A343300397CA4 /* LDBaseCollectionViewCell.swift in Sources */,
 				D20F15DA23190F0D009CBA35 /* ChapterCollectionViewCell.swift in Sources */,
+				D25CFF82231D056600332B94 /* LDWebViewController.swift in Sources */,
 				D28732BF230A34AC00397CA4 /* RecommendCell.swift in Sources */,
 				D2889ACF23052151006C7B0E /* UIColorExtension.swift in Sources */,
 				D2553318230D34BF002CF636 /* RankCell.swift in Sources */,
@@ -640,11 +687,16 @@
 				D2038BD62304F391004CF263 /* AppDelegate.swift in Sources */,
 				D2F422F023069AED00DFC244 /* LDGlobal.swift in Sources */,
 				D2883740230FD04000EB49CC /* ComicCatalogViewController.swift in Sources */,
+				D25CFF84231D12A600332B94 /* UpdateListViewController.swift in Sources */,
 				D2038BD82304F391004CF263 /* SceneDelegate.swift in Sources */,
+				D25CFF80231CFC9500332B94 /* SpecialTableViewCell.swift in Sources */,
 				D20F15DC2319272A009CBA35 /* SnapKitExtension.swift in Sources */,
+				D25CFF86231D148500332B94 /* UpdateTableViewCell.swift in Sources */,
 				D288373A230FB3A300EB49CC /* UComicBaseViewController.swift in Sources */,
 				D2523010230B9769001F9AB6 /* KakaJson.swift in Sources */,
 				D2F422EB230692AC00DFC244 /* LDModel.swift in Sources */,
+				D25CFF7C231CDB1200332B94 /* MoreComicTableViewCell.swift in Sources */,
+				D25CFF7A231CC3F800332B94 /* MoreComicViewController.swift in Sources */,
 				D28732C3230A821300397CA4 /* LDBaseCollectionReusableView.swift in Sources */,
 				D2038C092304F62E004CF263 /* LDTabBarController.swift in Sources */,
 				D29AFA432313B1A400ECD742 /* ComicDetaileHeaderView.swift in Sources */,

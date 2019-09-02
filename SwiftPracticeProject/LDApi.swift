@@ -87,6 +87,8 @@ enum UApi {
     case detailStatic(comicId: Int)
     case guessLike
     case commentList(object_id: Int, thread_id: Int, page: Int)
+    case comicList(argCon: Int, argName: String, argValue: Int, page: Int)
+    case special(argCon: Int, page: Int)
 }
 
 extension UApi: TargetType {
@@ -101,6 +103,8 @@ extension UApi: TargetType {
         case .detailStatic: return "comic/detail_static_new"
         case .guessLike: return "comic/guessLike"
         case .commentList: return "comment/list"
+        case .comicList: return "list/commonComicList"
+        case .special: return "comic/special"
 
         }
     }
@@ -127,6 +131,14 @@ extension UApi: TargetType {
             parmeters["object_id"] = object_id
             parmeters["thread_id"] = thread_id
             parmeters["page"] = page
+        case let .comicList(argCon, argName, argValue, page):
+            parmeters["argCon"] = argCon
+            parmeters["argName"] = argName
+            parmeters["argValue"] = argValue
+            parmeters["page"] = max(1, page)
+        case let .special(argCon,page):
+            parmeters["argCon"] = argCon
+            parmeters["page"] = max(1, page)
         }
         
         return .requestParameters(parameters: parmeters, encoding: URLEncoding.default)

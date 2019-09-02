@@ -73,7 +73,9 @@ extension RecommendViewController {
         switch item.linkType {
                         
         case 2:
-            print(item.linkType)
+           guard let ext = item.ext.first else { return }
+            let vc = LDWebViewController(url: ext.val)
+            navigationController?.pushViewController(vc, animated: true)
             
         default:
             guard let ext = item.ext.first else { return }
@@ -163,7 +165,27 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
             let comicList = comicLists[indexPath.section]
             head.imgView.kf.setImage(with: URL(string: comicList.newTitleIconUrl))
             head.titleLbael.text = comicList.itemTitle
-            head.moreActionClosure { print(comicList.itemTitle) }
+            head.moreActionClosure { [weak self] in
+                switch comicList.comicType {
+                case .thematic:
+                let vc = LDPageViewController(titles: ["漫画","次元"], vcs: [SpecialViewController(argCon: 2),SpecialViewController(argCon: 4)], pageStyle: .navgationBar)
+                self?.navigationController?.pushViewController(vc, animated: true)
+                case .animation:
+                let vc = LDWebViewController(url: "http://m.u17.com/wap/cartoon/list")
+                vc.title = "动画"
+                self?.navigationController?.pushViewController(vc, animated: true)
+                case .update:
+                let updateVC = UpdateListViewController(argCon: comicList.argCon, argName: comicList.argName, argValue: comicList.argValue)
+                updateVC.title = comicList.itemTitle
+                self?.navigationController?.pushViewController(updateVC, animated: true)
+                default:
+                let moreVC = MoreComicViewController(argCon: comicList.argCon, argName: comicList.argName, argValue: comicList.argValue)
+                moreVC.title = comicList.itemTitle
+                self?.navigationController?.pushViewController(moreVC, animated: true)
+                }
+                
+                
+            }
            
             
             return head
@@ -177,13 +199,18 @@ extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDat
         let comicList = comicLists[indexPath.section]
         let item = comicList.comics[indexPath.row]
         
-        
-        if comicList.comicType == .billboard { } else {
+        if comicList.comicType == .billboard {
+        let moreVC = MoreComicViewController(argName: item.argName, argValue: item.argValue)
+        moreVC.title = item.name
+        self.navigationController?.pushViewController(moreVC, animated: true)
+            
+        } else {
             
             switch item.linkType {
-                
             case 2:
-                print(item.linkType)
+                guard let ext = item.ext.first else { return }
+                let vc = LDWebViewController(url: ext.val)
+                navigationController?.pushViewController(vc, animated: true)
                 
             default:
                 let titles = ["详情","目录","评论"]

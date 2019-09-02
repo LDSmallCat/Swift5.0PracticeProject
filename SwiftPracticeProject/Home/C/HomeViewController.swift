@@ -14,7 +14,9 @@ class HomeViewController: LDPageViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let att: [NSAttributedString.Key : Any] =
-        [NSAttributedString.Key.foregroundColor : UIColor.white]
+        [NSAttributedString.Key.foregroundColor : UIColor.white,
+         NSAttributedString.Key.font: UIFont.systemFont(ofSize: 20)
+         ]
         self.navigationController?.navigationBar.titleTextAttributes = att
     }
    

@@ -17,10 +17,9 @@ struct GalleryItemModel: Convertible {
     let id: Int = 0
     let linkType: Int = 0
     let cover = ""
-    let ext: [ExtModel]
+    let ext: [ExtModel] = []
     let title = ""
     let content = ""
-    init() { ext = [] }
 }
 
 // MARK: - HomeModel
@@ -38,23 +37,71 @@ struct ComicListModel: Convertible {
     let newTitleIconUrl = ""
     let titleIconUrl = ""
     let comicType: comicType = .none
-
+    var argCon: Int = 0
+    var argValue: Int = 0
     //VIP
     let argName = ""
     let canMore = false
+}
+struct MoreComicModel: Convertible {
+    let page = 1
+    let hasMore = true
+    let comics: [ComicModel] = []
 }
 struct ComicModel: Convertible {
     let comicId = 0
     let comic_id = 0
     var cate_id = ""
     let name = ""
+    let title = ""
     let subTitle = ""
     let cover = ""
     let linkType = 0
     let description = ""
     let short_description = ""
     let author_name = ""
+    let tags: [String] = []
+    let author = ""
+    let specialType: Int = 0
+    let specialId: Int = 0
+    let ext: [ExtModel] = []
 
+    let conTag = 0
+    let argValue = 0
+    let argCon = 0
+    let argName = ""
+
+    let isComment = false
+    var clickTag = 0
+    var tagString = ""
+    var clickString = ""
+    
+    mutating func kj_didConvertToModel(from json: [String : Any]) {
+        clickTag = conTag
+        let comicDate = Date().timeIntervalSince(Date(timeIntervalSince1970: TimeInterval(conTag)))
+        
+        if comicDate < 60 {
+            tagString = "\(Int(comicDate))秒前"
+        } else if comicDate < 3600 {
+            tagString = "\(Int(comicDate / 60))分前"
+        } else if comicDate < 86400 {
+            tagString = "\(Int(comicDate / 3600))小时前"
+        } else if comicDate < 31536000{
+            tagString = "\(Int(comicDate / 86400))天前"
+        } else {
+            tagString = "\(Int(comicDate / 31536000))年前"
+        }
+        
+        
+        if clickTag > 100000000 {
+            clickString = String(format: "%.1f亿", Double(clickTag) / 100000000)
+        } else if clickTag > 10000 {
+            clickString = String(format: "%.1f万", Double(clickTag) / 10000)
+        }else {
+            clickString = "\(clickTag)"
+        }
+        
+    }
 }
 
 struct RankModel: Convertible {

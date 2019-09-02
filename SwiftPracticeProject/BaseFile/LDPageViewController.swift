@@ -107,7 +107,7 @@ class LDPageViewController: LDBaseViewController {
             pageVC.view.snp.makeConstraints {
                 $0.top.equalTo(segment.snp.bottom)
                 $0.left.right.bottom.equalToSuperview()
-                //$0.height.equalTo(screenHeight - 2*navgationBarHeight - statusBarHeight)
+                
             }
         default: break
         }
@@ -186,7 +186,6 @@ extension LDPageViewController: UIPageViewControllerDelegate, UIPageViewControll
     }
     
     func pageViewController(_ pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
-           print(pageViewController.viewControllers!)
         guard let viewController = pageViewController.viewControllers?.last,
               let index = vcs.firstIndex(of: viewController) else { return  }
         currentSelectedIndex = index

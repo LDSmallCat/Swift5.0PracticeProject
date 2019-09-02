@@ -38,6 +38,7 @@ class ComicCommentViewController: LDBaseViewController {
         super.viewDidLoad()
 
     }
+    
     override func loadData() {
         guard let pvc = self.parent?.parent as? UComicBaseViewController else { return }
         UApiLodingProvider.ldRequest(UApi.commentList(object_id: pvc.comicID, thread_id: pvc.threadID, page: commentList?.serverNextPage ?? 0), successClosure: { (json) in
