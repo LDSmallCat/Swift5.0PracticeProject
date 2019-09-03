@@ -158,29 +158,33 @@ extension MoyaProvider {
         -> Void {
             
             request(target) { (result) in
-                switch result {
-                    case let .success(response):
-                        let jsonData = JSON(response.data)["data"]
-                        let code = jsonData["stateCode"].int ?? 1
-                        
-                        let msg = jsonData["message"].string ?? "No Message"
-                        
-                        if code == 1 {
-                            guard let se = successClosure else { return }
-                            let data = jsonData["returnData"]
-                            
-                            se(data)
-                        }else{
-                            
-                            guard let ae = abnormalClosure else { return }
-                            ae(code,msg)
-                        }
-                    
-                    case let .failure(error):
-                    guard let fe = failureClosure else { return }
-                        fe(error.errorDescription ?? "网络错误")
+        switch result {
+            case let .success(response):
+                let outJsonData = JSON(response.data)
+                let outCode = outJsonData["code"]
+                if outCode.intValue == 1 {
+                    let jsonData = outJsonData["data"]
+                    let code = jsonData["stateCode"].intValue
+                    let msg = jsonData["message"].stringValue
+                    if code == 1 {
+                        guard let se = successClosure else { return }
+                        let data = jsonData["returnData"];se(data)
+                    } else {
+                        guard let ae = abnormalClosure else { return }
+                        ae(code,msg)
                     }
+                }else{
+                    print("msg = " + outJsonData["msg"].stringValue)
+                    print("code = " + outCode.stringValue)
+                    guard let ae = abnormalClosure else { return }
+                    ae(outCode.intValue,outJsonData["msg"].stringValue)
+                }
+          
+            case let .failure(error):
+            guard let fe = failureClosure else { return }
+                fe(error.errorDescription ?? "网络错误")
             }
+        }
             
     }
 }

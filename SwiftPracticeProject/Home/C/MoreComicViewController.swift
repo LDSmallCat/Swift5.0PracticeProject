@@ -32,6 +32,7 @@ class MoreComicViewController: LDBaseViewController {
     lazy var tb: UITableView = {
         let tb = UITableView(frame: CGRect.zero, style: .plain)
         tb.backgroundColor = UIColor.background
+        tb.tableFooterView = UIView()
         tb.dataSource = self
         tb.delegate = self
         tb.ldHeader = LDRefreshHeader{[weak self] in
@@ -39,6 +40,7 @@ class MoreComicViewController: LDBaseViewController {
         tb.ldFooter = LDRefreshFooter{[weak self] in self?.loadData() }
         tb.register(cellType: MoreComicTableViewCell.self)
         tb.rowHeight = 180
+        tb.empty = EmptyView {[weak self] in self?.loadData() }
         return tb
     }()
     
@@ -66,12 +68,18 @@ class MoreComicViewController: LDBaseViewController {
     }
     
     override func loadData() {
+        
         UApiLodingProvider.ldRequest(UApi.comicList(argCon: argCon, argName: argName, argValue: argValue, page: page + 1), successClosure: { [weak self] (json) in
             self?.tb.ldFooter.endRefreshing()
             self?.tb.ldHeader.endRefreshing()
+            self?.tb.empty?.allowShow = true
             guard let dict = json.dictionaryObject else { return }
+            
             self?.moreModel = model(from: dict, MoreComicModel.self)
-         }, abnormalClosure: nil, failureClosure: nil)
+         }, abnormalClosure: { [weak self] (code, msg) in
+            self?.tb.empty?.allowShow = true
+            self?.tb.reloadData()
+            }, failureClosure: nil)
         
     }
     
