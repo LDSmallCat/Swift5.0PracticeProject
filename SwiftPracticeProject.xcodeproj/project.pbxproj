@@ -40,6 +40,10 @@
 		D2604EF62306555300351C93 /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2604EF52306555300351C93 /* RankViewController.swift */; };
 		D266FDC42317A4F6000145B8 /* ComicCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D266FDC32317A4F6000145B8 /* ComicCommentTableViewCell.swift */; };
 		D2749E61231E0368002D6CB0 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2749E60231E0368002D6CB0 /* EmptyView.swift */; };
+		D2749E6B231E3BF4002D6CB0 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2749E6A231E3BF4002D6CB0 /* SearchViewController.swift */; };
+		D2749E71231E3FC8002D6CB0 /* BaseTableViewHeaderFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2749E70231E3FC8002D6CB0 /* BaseTableViewHeaderFooterView.swift */; };
+		D2749E73231E40EA002D6CB0 /* SearchHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2749E72231E40EA002D6CB0 /* SearchHeaderView.swift */; };
+		D2749E75231E5522002D6CB0 /* SearchFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2749E74231E5522002D6CB0 /* SearchFooterView.swift */; };
 		D27938F823151C45001BD133 /* ComicDetailDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27938F723151C45001BD133 /* ComicDetailDescriptionCell.swift */; };
 		D27938FA231527F6001BD133 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D27938F9231527F6001BD133 /* StringExtension.swift */; };
 		D279A15523055D4A0004192A /* LDPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D279A15423055D4A0004192A /* LDPageViewController.swift */; };
@@ -131,6 +135,10 @@
 		D2604EF52306555300351C93 /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
 		D266FDC32317A4F6000145B8 /* ComicCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCommentTableViewCell.swift; sourceTree = "<group>"; };
 		D2749E60231E0368002D6CB0 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		D2749E6A231E3BF4002D6CB0 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		D2749E70231E3FC8002D6CB0 /* BaseTableViewHeaderFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewHeaderFooterView.swift; sourceTree = "<group>"; };
+		D2749E72231E40EA002D6CB0 /* SearchHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHeaderView.swift; sourceTree = "<group>"; };
+		D2749E74231E5522002D6CB0 /* SearchFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFooterView.swift; sourceTree = "<group>"; };
 		D27938F723151C45001BD133 /* ComicDetailDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailDescriptionCell.swift; sourceTree = "<group>"; };
 		D27938F9231527F6001BD133 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		D279A15423055D4A0004192A /* LDPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDPageViewController.swift; sourceTree = "<group>"; };
@@ -297,12 +305,8 @@
 		D2038C072304F3D1004CF263 /* BaseFile */ = {
 			isa = PBXGroup;
 			children = (
-				D28732B6230A33E600397CA4 /* LDBaseTableViewCell.swift */,
-				D2038C0E2304F671004CF263 /* LDBaseViewController.swift */,
-				D279A15423055D4A0004192A /* LDPageViewController.swift */,
-				D28732BA230A343300397CA4 /* LDBaseCollectionViewCell.swift */,
-				D28732C2230A821300397CA4 /* LDBaseCollectionReusableView.swift */,
-				D25CFF81231D056600332B94 /* LDWebViewController.swift */,
+				D2749E6F231E3F4B002D6CB0 /* C */,
+				D2749E6E231E3F44002D6CB0 /* V */,
 			);
 			path = BaseFile;
 			sourceTree = "<group>";
@@ -387,6 +391,27 @@
 			path = EmptyView;
 			sourceTree = "<group>";
 		};
+		D2749E6E231E3F44002D6CB0 /* V */ = {
+			isa = PBXGroup;
+			children = (
+				D28732BA230A343300397CA4 /* LDBaseCollectionViewCell.swift */,
+				D28732B6230A33E600397CA4 /* LDBaseTableViewCell.swift */,
+				D28732C2230A821300397CA4 /* LDBaseCollectionReusableView.swift */,
+				D2749E70231E3FC8002D6CB0 /* BaseTableViewHeaderFooterView.swift */,
+			);
+			path = V;
+			sourceTree = "<group>";
+		};
+		D2749E6F231E3F4B002D6CB0 /* C */ = {
+			isa = PBXGroup;
+			children = (
+				D25CFF81231D056600332B94 /* LDWebViewController.swift */,
+				D2038C0E2304F671004CF263 /* LDBaseViewController.swift */,
+				D279A15423055D4A0004192A /* LDPageViewController.swift */,
+			);
+			path = C;
+			sourceTree = "<group>";
+		};
 		D2889AC923051B90006C7B0E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -407,6 +432,8 @@
 				D25CFF7B231CDB1200332B94 /* MoreComicTableViewCell.swift */,
 				D25CFF7F231CFC9500332B94 /* SpecialTableViewCell.swift */,
 				D25CFF85231D148500332B94 /* UpdateTableViewCell.swift */,
+				D2749E72231E40EA002D6CB0 /* SearchHeaderView.swift */,
+				D2749E74231E5522002D6CB0 /* SearchFooterView.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -422,6 +449,7 @@
 				D25CFF79231CC3F800332B94 /* MoreComicViewController.swift */,
 				D25CFF7D231CF94600332B94 /* SpecialViewController.swift */,
 				D25CFF83231D12A600332B94 /* UpdateListViewController.swift */,
+				D2749E6A231E3BF4002D6CB0 /* SearchViewController.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -680,6 +708,7 @@
 				D2038C152304F69E004CF263 /* VideoViewController.swift in Sources */,
 				D28B861923066900005299D9 /* LDApi.swift in Sources */,
 				D28732B7230A33E600397CA4 /* LDBaseTableViewCell.swift in Sources */,
+				D2749E71231E3FC8002D6CB0 /* BaseTableViewHeaderFooterView.swift in Sources */,
 				D2038C0F2304F671004CF263 /* LDBaseViewController.swift in Sources */,
 				D288373E230FD01C00EB49CC /* ComicDetailViewController.swift in Sources */,
 				D2604EF42306554300351C93 /* SubscribeViewController.swift in Sources */,
@@ -690,8 +719,10 @@
 				D28732BB230A343300397CA4 /* LDBaseCollectionViewCell.swift in Sources */,
 				D20F15DA23190F0D009CBA35 /* ChapterCollectionViewCell.swift in Sources */,
 				D25CFF82231D056600332B94 /* LDWebViewController.swift in Sources */,
+				D2749E73231E40EA002D6CB0 /* SearchHeaderView.swift in Sources */,
 				D28732BF230A34AC00397CA4 /* RecommendCell.swift in Sources */,
 				D2889ACF23052151006C7B0E /* UIColorExtension.swift in Sources */,
+				D2749E75231E5522002D6CB0 /* SearchFooterView.swift in Sources */,
 				D2553318230D34BF002CF636 /* RankCell.swift in Sources */,
 				D2889AC823050E41006C7B0E /* LDTabBar.swift in Sources */,
 				D266FDC42317A4F6000145B8 /* ComicCommentTableViewCell.swift in Sources */,
@@ -708,6 +739,7 @@
 				D2523010230B9769001F9AB6 /* KakaJson.swift in Sources */,
 				D2F422EB230692AC00DFC244 /* LDModel.swift in Sources */,
 				D25CFF7C231CDB1200332B94 /* MoreComicTableViewCell.swift in Sources */,
+				D2749E6B231E3BF4002D6CB0 /* SearchViewController.swift in Sources */,
 				D25CFF7A231CC3F800332B94 /* MoreComicViewController.swift in Sources */,
 				D28732C3230A821300397CA4 /* LDBaseCollectionReusableView.swift in Sources */,
 				D2038C092304F62E004CF263 /* LDTabBarController.swift in Sources */,

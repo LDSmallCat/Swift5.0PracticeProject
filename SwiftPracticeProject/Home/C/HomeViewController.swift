@@ -26,7 +26,7 @@ class HomeViewController: LDPageViewController {
         
     }
     @objc private func searchAction() {
-        navigationController?.pushViewController(ViewController(), animated: true)
+        navigationController?.pushViewController(SearchViewController(), animated: true)
     }
 }
 

@@ -89,6 +89,7 @@ enum UApi {
     case commentList(object_id: Int, thread_id: Int, page: Int)
     case comicList(argCon: Int, argName: String, argValue: Int, page: Int)
     case special(argCon: Int, page: Int)
+    case searchHot
 }
 
 extension UApi: TargetType {
@@ -105,13 +106,13 @@ extension UApi: TargetType {
         case .commentList: return "comment/list"
         case .comicList: return "list/commonComicList"
         case .special: return "comic/special"
-
+        case .searchHot: return "search/hotkeywordsnew"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        default: return .get
+            default: return .get
         }
     }
     var task: Task {
@@ -119,14 +120,10 @@ extension UApi: TargetType {
         switch self {
         case .recommendList(let sexType):
             parmeters["sexType"] = sexType
-        case .vipList: break 
-        case .subscribeList: break
-        case .rankList: break
         case .detailRealtime(let comicId):
             parmeters["comicid"] = comicId
         case .detailStatic(let comicId):
             parmeters["comicid"] = comicId
-        case .guessLike: break
         case let .commentList(object_id, thread_id, page):
             parmeters["object_id"] = object_id
             parmeters["thread_id"] = thread_id
@@ -139,6 +136,8 @@ extension UApi: TargetType {
         case let .special(argCon,page):
             parmeters["argCon"] = argCon
             parmeters["page"] = max(1, page)
+        
+        default: break
         }
         
         return .requestParameters(parameters: parmeters, encoding: URLEncoding.default)

@@ -113,7 +113,16 @@ struct RankModel: Convertible {
     let argValue = 0
 
 }
-
+struct SearchHotModel: Convertible {
+    let comic_id = 0
+    let name = ""
+    let bgColor = ""
+    var cellWidth: CGFloat = 80
+    mutating func kj_didConvertToModel(from json: [String : Any]) {
+        
+       cellWidth = name.getWidthFor(14) + 40
+   }
+}
 // MARK: - detailStaticModel
 
 struct OtherWorksModel: Convertible{
