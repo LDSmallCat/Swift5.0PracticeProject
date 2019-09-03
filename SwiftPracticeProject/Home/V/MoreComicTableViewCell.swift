@@ -9,7 +9,20 @@
 import UIKit
 
 class MoreComicTableViewCell: LDBaseTableViewCell {
-    var spinnerName: String?
+    var spinnerName: String!
+    var indexPath: IndexPath? {
+        didSet {
+            if spinnerName == "更新时间" { return }
+            guard let ip = indexPath else { return }
+                switch ip.row {
+                case 0: orderView.image = UIImage.init(named: "rank_frist")
+                case 1: orderView.image = UIImage.init(named: "rank_second")
+                case 2: orderView.image = UIImage.init(named: "rank_third")
+                default: orderView.image = nil
+                }
+        }
+    }
+    
     var model: ComicModel? {
         didSet {
             guard let ml = model else { return }
@@ -24,6 +37,7 @@ class MoreComicTableViewCell: LDBaseTableViewCell {
             }else{
                 orderView.isHidden = false
                 tagLabel.text = spinnerName! + ml.clickString
+                
             }
         }
     }

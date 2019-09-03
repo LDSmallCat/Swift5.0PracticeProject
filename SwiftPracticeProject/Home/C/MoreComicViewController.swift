@@ -9,6 +9,8 @@
 import UIKit
 
 class MoreComicViewController: LDBaseViewController {
+    var spinnerName = "更新时间"
+    
     private var argCon: Int = 0
     private var argName: String = ""
     private var argValue: Int = 0
@@ -91,7 +93,8 @@ extension MoreComicViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: MoreComicTableViewCell.self)
-        cell.spinnerName = "更新时间"
+        cell.spinnerName = spinnerName
+        cell.indexPath = indexPath
         cell.model = comicList[indexPath.row]
         return cell
     }

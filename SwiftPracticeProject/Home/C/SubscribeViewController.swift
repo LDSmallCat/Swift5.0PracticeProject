@@ -70,14 +70,10 @@ extension SubscribeViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-       return CGSize(width: screenWidth, height: 44)
-        
-    }
+       CGSize(width: screenWidth, height: 44) }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-
-       return section == subList.count - 1 ? CGSize.zero : CGSize(width: screenWidth, height: 10)
-    }
+        section == subList.count - 1 ? CGSize.zero : CGSize(width: screenWidth, height: 10) }
     
     public func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
@@ -86,7 +82,13 @@ extension SubscribeViewController: UICollectionViewDataSource, UICollectionViewD
             header.imgView.kf.setImage(with: URL(string: subModel.titleIconUrl))
             header.titleLbael.text = subModel.itemTitle
             header.moreButton.isHidden = !subModel.canMore
-            header.moreActionClosure { print(subModel.itemTitle) }
+            header.moreActionClosure { [weak self] in
+            let moreVC = MoreComicViewController(argCon: subModel.argCon, argName: subModel.argName, argValue: subModel.argValue)
+            moreVC.title = subModel.itemTitle
+            moreVC.spinnerName = "收藏量 "
+            self?.navigationController?.pushViewController(moreVC, animated: true)
+                
+            }
             return header;
         }else{
             let foot = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: RecommendFooter.self)
@@ -98,26 +100,11 @@ extension SubscribeViewController: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let comicList = subList[indexPath.section]
         let item = comicList.comics[indexPath.row]
-        
-        
-        if comicList.comicType == .billboard { } else {
-            
-            switch item.linkType {
-                
-            case 2:
-                print(item.linkType)
-                
-            default:
-                let titles = ["详情","目录","评论"]
-                let vcs = [ComicDetailViewController(),ComicCatalogViewController(),ComicCommentViewController()]
-                let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(240))
-                cv.comicID = item.comicId
-                cv.comicName = item.name
-                navigationController?.pushViewController(cv, animated: true)
-                
-                
-            }
-    
-        }
+        let titles = ["详情","目录","评论"]
+        let vcs = [ComicDetailViewController(),ComicCatalogViewController(),ComicCommentViewController()]
+        let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(240))
+        cv.comicID = item.comicId
+        cv.comicName = item.name
+        navigationController?.pushViewController(cv, animated: true)
     }
 }

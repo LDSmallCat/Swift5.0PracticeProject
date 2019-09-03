@@ -69,28 +69,14 @@ extension VIPViewController: UICollectionViewDataSource, UICollectionViewDelegat
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             let comicList = vipList[indexPath.section]
             let item = comicList.comics[indexPath.row]
-            
-            
-            if comicList.comicType == .billboard { } else {
-                
-                switch item.linkType {
-                    
-                case 2:
-                    print(item.linkType)
-                    
-                default:
-                    let titles = ["详情","目录","评论"]
-                    let vcs = [ComicDetailViewController(),ComicCatalogViewController(),ComicCommentViewController()]
-                    let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(240))
-                    cv.comicID = item.comicId
-                    cv.comicName = item.name
-                    navigationController?.pushViewController(cv, animated: true)
-                    
-                    
-                }
-        
-            }
+            let titles = ["详情","目录","评论"]
+            let vcs = [ComicDetailViewController(),ComicCatalogViewController(),ComicCommentViewController()]
+            let cv = UComicBaseViewController(titles: titles, vcs: vcs, pageStyle: .topPaddingBar(240))
+            cv.comicID = item.comicId
+            cv.comicName = item.name
+            navigationController?.pushViewController(cv, animated: true)
     }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
        return CGSize(width: screenWidth, height: 44)
         
@@ -108,7 +94,12 @@ extension VIPViewController: UICollectionViewDataSource, UICollectionViewDelegat
             header.imgView.kf.setImage(with: URL(string: vipModel.newTitleIconUrl))
             header.titleLbael.text = vipModel.itemTitle
             header.moreButton.isHidden = !vipModel.canMore
-            header.moreActionClosure { print(vipModel.itemTitle) }
+            header.moreActionClosure { [weak self] in
+            let moreVC = MoreComicViewController(argCon: vipModel.argCon, argName: vipModel.argName, argValue: vipModel.argValue)
+            moreVC.title = vipModel.itemTitle
+            self?.navigationController?.pushViewController(moreVC, animated: true)
+                
+            }
             return header;
         }else{
             let foot = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, for: indexPath, viewType: RecommendFooter.self)

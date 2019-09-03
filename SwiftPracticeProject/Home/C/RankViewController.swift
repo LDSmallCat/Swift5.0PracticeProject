@@ -15,6 +15,7 @@ class RankViewController: LDBaseViewController {
         tb.rowHeight = screenWidth * 0.4
         tb.separatorStyle = .none
         tb.dataSource = self
+        tb.delegate = self
         tb.tableFooterView = UIView()
         tb.register(cellType: RankCell.self)
         tb.ldHeader = LDRefreshHeader(refreshingBlock: { [weak self] in self?.loadData()  })
@@ -39,14 +40,20 @@ class RankViewController: LDBaseViewController {
         }, abnormalClosure: nil, failureClosure: nil)
     }
 }
-extension RankViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        rankList.count
-    }
+extension RankViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int { rankList.count }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(for: indexPath, cellType: RankCell.self)
         cell.model = rankList[indexPath.row]
         return cell
         
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let rankModel = rankList[indexPath.row]
+        
+        let moreVC = MoreComicViewController(argCon: rankModel.argCon, argName: rankModel.argName, argValue: rankModel.argValue)
+        moreVC.title = rankModel.title + "榜"
+        moreVC.spinnerName = "月票 "
+        navigationController?.pushViewController(moreVC, animated: true)
     }
 }

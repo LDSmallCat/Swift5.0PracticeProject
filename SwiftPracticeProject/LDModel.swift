@@ -108,6 +108,10 @@ struct RankModel: Convertible {
     let subTitle = ""
     let title = ""
     let cover = ""
+    let argCon = 0
+    let argName = ""
+    let argValue = 0
+
 }
 
 // MARK: - detailStaticModel
