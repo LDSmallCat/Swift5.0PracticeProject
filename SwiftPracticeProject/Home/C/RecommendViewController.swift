@@ -99,6 +99,7 @@ extension RecommendViewController {
     
     func loadData(sexType: Int) {
         UApiLodingProvider.ldRequest(UApi.recommendList(sexType: sexType), successClosure: { [weak self] (json) in
+            self?.collectionView.ldHeader.endRefreshing()
             if let cl = json["comicLists"].arrayObject {
                 let ca = modelArray(from: cl, ComicListModel.self)
                 self?.comicLists.append(contentsOf: ca)
@@ -114,16 +115,22 @@ extension RecommendViewController {
                              
              self?.collectionView.reloadData()
              self?.collectionView.ldHeader.endRefreshing()
-        }, abnormalClosure: { (code, message) in
+        }, abnormalClosure: { [weak self] (code, message) in
             print("abnormalClosure",code,message)
-        }) { (message) in
+            self?.collectionView.ldHeader.endRefreshing()
+        }) { [weak self] (message) in
             print("message")
+            self?.collectionView.ldHeader.endRefreshing()
         }
 
         }
 }
 
-extension RecommendViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension RecommendViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+       return CGSize(width: (screenWidth - 11) / 2 , height: 160)
+    }
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView == collectionView {
             bannerView.snp.updateConstraints {

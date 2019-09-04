@@ -10,7 +10,9 @@ import UIKit
 
 class ComicCatalogViewController: LDBaseViewController {
     
-    var chapterList: [ChapterModel] = []
+    var chapterList: [ChapterModel] = [] {
+        didSet { tb.reloadData() }
+    }
 
     lazy var tb: UICollectionView = {
         let lt = UICollectionViewFlowLayout()
@@ -31,10 +33,14 @@ class ComicCatalogViewController: LDBaseViewController {
         
        
     }
-    override func loadData() {
-        guard let pvc = self.parent?.parent as? UComicBaseViewController else { return }
-        chapterList = pvc.chapterList
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
+        if chapterList.isEmpty {
+            guard let pvc = self.parent?.parent as? UComicBaseViewController else { return }
+            chapterList = pvc.chapterList
+        }
     }
     override func configUI() {
         view.addSubview(tb)

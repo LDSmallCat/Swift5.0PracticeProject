@@ -59,11 +59,11 @@
 		D2889AC823050E41006C7B0E /* LDTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889AC723050E41006C7B0E /* LDTabBar.swift */; };
 		D2889ACF23052151006C7B0E /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889ACE23052151006C7B0E /* UIColorExtension.swift */; };
 		D2889AD3230521A1006C7B0E /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */; };
-		D28B861923066900005299D9 /* LDApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B861823066900005299D9 /* LDApi.swift */; };
+		D28B861923066900005299D9 /* UApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B861823066900005299D9 /* UApi.swift */; };
 		D29AFA432313B1A400ECD742 /* ComicDetaileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */; };
-		D2F422EB230692AC00DFC244 /* LDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EA230692AC00DFC244 /* LDModel.swift */; };
+		D2F422EB230692AC00DFC244 /* UModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EA230692AC00DFC244 /* UModel.swift */; };
 		D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F422ED230697DA00DFC244 /* LDOCFile.m */; };
-		D2F422F023069AED00DFC244 /* LDGlobal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EF23069AED00DFC244 /* LDGlobal.swift */; };
+		D2F422F023069AED00DFC244 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EF23069AED00DFC244 /* Global.swift */; };
 		D2F422F42306A1F800DFC244 /* LDRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422F32306A1F800DFC244 /* LDRefresh.swift */; };
 		D5BC557B1464E38258EC6809 /* Pods_SwiftPracticeProjectTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B8723BB38403252036805B7 /* Pods_SwiftPracticeProjectTests.framework */; };
 		E6CD31584458759FCCA050A0 /* Pods_SwiftPracticeProjectUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2828B6065899C4F9E4F370FC /* Pods_SwiftPracticeProjectUITests.framework */; };
@@ -154,12 +154,12 @@
 		D2889AC723050E41006C7B0E /* LDTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDTabBar.swift; sourceTree = "<group>"; };
 		D2889ACE23052151006C7B0E /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
-		D28B861823066900005299D9 /* LDApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDApi.swift; sourceTree = "<group>"; };
+		D28B861823066900005299D9 /* UApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UApi.swift; sourceTree = "<group>"; };
 		D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetaileHeaderView.swift; sourceTree = "<group>"; };
-		D2F422EA230692AC00DFC244 /* LDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDModel.swift; sourceTree = "<group>"; };
+		D2F422EA230692AC00DFC244 /* UModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UModel.swift; sourceTree = "<group>"; };
 		D2F422EC230697DA00DFC244 /* LDOCFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDOCFile.h; sourceTree = "<group>"; };
 		D2F422ED230697DA00DFC244 /* LDOCFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDOCFile.m; sourceTree = "<group>"; };
-		D2F422EF23069AED00DFC244 /* LDGlobal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDGlobal.swift; sourceTree = "<group>"; };
+		D2F422EF23069AED00DFC244 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		D2F422F32306A1F800DFC244 /* LDRefresh.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LDRefresh.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -240,14 +240,10 @@
 			isa = PBXGroup;
 			children = (
 				D252300E230B9758001F9AB6 /* Test */,
-				D2F422EC230697DA00DFC244 /* LDOCFile.h */,
-				D2F422ED230697DA00DFC244 /* LDOCFile.m */,
-				D2038BD92304F391004CF263 /* ViewController.swift */,
-				D2038BE32304F392004CF263 /* Info.plist */,
 				D2038BDE2304F392004CF263 /* Assets.xcassets */,
-				D28B861823066900005299D9 /* LDApi.swift */,
-				D2F422EF23069AED00DFC244 /* LDGlobal.swift */,
-				D2F422EA230692AC00DFC244 /* LDModel.swift */,
+				D28B861823066900005299D9 /* UApi.swift */,
+				D2F422EF23069AED00DFC244 /* Global.swift */,
+				D2F422EA230692AC00DFC244 /* UModel.swift */,
 				D2F422F12306A1E000DFC244 /* Component */,
 				D25CFF76231CC1A300332B94 /* Comic */,
 				D2038C0A2304F63F004CF263 /* Home */,
@@ -283,6 +279,7 @@
 		D2038C052304F3B1004CF263 /* SourceFile */ = {
 			isa = PBXGroup;
 			children = (
+				D2038BE32304F392004CF263 /* Info.plist */,
 				D224CDF32305491B008411A8 /* SwiftPracticeProject-Bridging-Header.h */,
 				D2038C192304F71F004CF263 /* LaunchScreen.storyboard */,
 				D2038C182304F71F004CF263 /* Main.storyboard */,
@@ -348,6 +345,9 @@
 			isa = PBXGroup;
 			children = (
 				D252300F230B9769001F9AB6 /* KakaJson.swift */,
+				D2F422EC230697DA00DFC244 /* LDOCFile.h */,
+				D2F422ED230697DA00DFC244 /* LDOCFile.m */,
+				D2038BD92304F391004CF263 /* ViewController.swift */,
 			);
 			path = Test;
 			sourceTree = "<group>";
@@ -706,7 +706,7 @@
 				D2604EF62306555300351C93 /* RankViewController.swift in Sources */,
 				D2604EF2230654E200351C93 /* VIPViewController.swift in Sources */,
 				D2038C152304F69E004CF263 /* VideoViewController.swift in Sources */,
-				D28B861923066900005299D9 /* LDApi.swift in Sources */,
+				D28B861923066900005299D9 /* UApi.swift in Sources */,
 				D28732B7230A33E600397CA4 /* LDBaseTableViewCell.swift in Sources */,
 				D2749E71231E3FC8002D6CB0 /* BaseTableViewHeaderFooterView.swift in Sources */,
 				D2038C0F2304F671004CF263 /* LDBaseViewController.swift in Sources */,
@@ -728,7 +728,7 @@
 				D266FDC42317A4F6000145B8 /* ComicCommentTableViewCell.swift in Sources */,
 				D279A15523055D4A0004192A /* LDPageViewController.swift in Sources */,
 				D2038BD62304F391004CF263 /* AppDelegate.swift in Sources */,
-				D2F422F023069AED00DFC244 /* LDGlobal.swift in Sources */,
+				D2F422F023069AED00DFC244 /* Global.swift in Sources */,
 				D2883740230FD04000EB49CC /* ComicCatalogViewController.swift in Sources */,
 				D25CFF84231D12A600332B94 /* UpdateListViewController.swift in Sources */,
 				D2038BD82304F391004CF263 /* SceneDelegate.swift in Sources */,
@@ -737,7 +737,7 @@
 				D25CFF86231D148500332B94 /* UpdateTableViewCell.swift in Sources */,
 				D288373A230FB3A300EB49CC /* UComicBaseViewController.swift in Sources */,
 				D2523010230B9769001F9AB6 /* KakaJson.swift in Sources */,
-				D2F422EB230692AC00DFC244 /* LDModel.swift in Sources */,
+				D2F422EB230692AC00DFC244 /* UModel.swift in Sources */,
 				D25CFF7C231CDB1200332B94 /* MoreComicTableViewCell.swift in Sources */,
 				D2749E6B231E3BF4002D6CB0 /* SearchViewController.swift in Sources */,
 				D25CFF7A231CC3F800332B94 /* MoreComicViewController.swift in Sources */,
@@ -902,7 +902,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RS8S42PTY6;
-				INFOPLIST_FILE = SwiftPracticeProject/Info.plist;
+				INFOPLIST_FILE = SwiftPracticeProject/SourceFile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -925,7 +925,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RS8S42PTY6;
-				INFOPLIST_FILE = SwiftPracticeProject/Info.plist;
+				INFOPLIST_FILE = SwiftPracticeProject/SourceFile/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

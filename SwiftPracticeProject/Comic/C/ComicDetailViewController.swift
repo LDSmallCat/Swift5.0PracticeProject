@@ -31,6 +31,7 @@ class ComicDetailViewController: LDBaseViewController {
         tb.sectionHeaderHeight = CGFloat.leastNonzeroMagnitude
         tb.sectionFooterHeight = 10
         tb.tableHeaderView = UIView(frame: CGRect(x: 0, y: 0, width: 0, height: CGFloat.leastNonzeroMagnitude))
+        tb.ldHeader = LDRefreshHeader {[weak self] in self?.loadData() }
         return tb
     }()
     override func viewDidLoad() {
@@ -46,7 +47,7 @@ class ComicDetailViewController: LDBaseViewController {
         UApiProvider.ldRequest(UApi.detailStatic(comicId: comicID), successClosure: { [weak self] (json) in
             guard let dict = json.dictionaryObject else {return}
             let ml = model(from: dict, DetailStaticModel.self)
-            
+            self?.tb.ldHeader.endRefreshing()
             self?.dStaticModel = ml
             if let pvc = self?.parent?.parent as? UComicBaseViewController {
                 pvc.chapterList = ml.chapter_list

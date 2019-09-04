@@ -1,5 +1,5 @@
 //
-//  LDGlobal.swift
+//  Global.swift
 //  SwiftPracticeProject
 //
 //  Created by Mac on 2019/8/16.

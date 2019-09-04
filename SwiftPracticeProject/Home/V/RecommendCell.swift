@@ -92,7 +92,7 @@ class RecommendCell: LDBaseCollectionViewCell {
     var model: ComicModel? {
         didSet {
             guard let model = model else { return }
-            titleLabel.text = model.name
+            titleLabel.text = model.name.isEmpty ? model.title : model.name
             descLabel.text = model.short_description
          
             coverImage.kf.setImage(with: URL(string: model.cover), placeholder: (bounds.width > bounds.height) ? UIImage(named: "normal_placeholder_h") : UIImage(named: "normal_placeholder_v"))
