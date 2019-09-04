@@ -171,8 +171,7 @@ struct ChapterModel: Convertible {
           return modelArray(from: $0, ImHightModel.self)
         }
     }
-//    Cannot convert return expression of type '[_]?' to return type 'Any?'
-//    Insert ' as Any?'
+//
 //    func kj_modelValue(from jsonValue: Any?, _ property: Property) -> Any? {
 //        if property.name != "imHightArr" { return jsonValue }
 //        guard let doubleArray = jsonValue as? [Any] else { return [] }

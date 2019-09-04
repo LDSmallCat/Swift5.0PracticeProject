@@ -46,6 +46,7 @@ class ComicDetailViewController: LDBaseViewController {
         UApiProvider.ldRequest(UApi.detailStatic(comicId: comicID), successClosure: { [weak self] (json) in
             guard let dict = json.dictionaryObject else {return}
             let ml = model(from: dict, DetailStaticModel.self)
+            
             self?.dStaticModel = ml
             if let pvc = self?.parent?.parent as? UComicBaseViewController {
                 pvc.chapterList = ml.chapter_list

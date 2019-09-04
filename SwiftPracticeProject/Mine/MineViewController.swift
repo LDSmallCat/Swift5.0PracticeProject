@@ -6,75 +6,65 @@
 //  Copyright © 2019 caolaidong. All rights reserved.
 //
 
-struct Dog: Convertible {
-    var name: String = ""
-    var weight: Double = 0.0
+struct MineModel: Convertible {
+    let icon = ""
+    let title = ""
 }
 
-struct Person: Convertible {
-
-    var name: String = ""
-    var pet = [[Dog]]()
-    
-   func kj_modelValue(from jsonValue: Any?, _ property: Property) -> Any? {
-
-     if property.name != "pet" { return jsonValue }
-    
-        return (jsonValue as? [[[String: Any]]])?.map {
-            modelArray(from: $0, Dog.self) }
-    }
-    
-//    func kj_modelValue(from jsonValue: Any?, _ property: Property) -> Any? {
-//
-//        if property.name != "pet" { return jsonValue }
-//
-//
-//        guard let doubleArray = jsonValue as? [Any] else { return [] }
-//        var pet = [[Dog]]()
-//
-//        for element in doubleArray {
-//            //数组里面是字典
-//            guard let arr = element as? [[String: Any]] else { return [] }
-//            //转为数组模型
-//            pet.append(modelArray(from: arr, Dog.self))
-//        }
-//        return pet
-//    }
-}
 
 class MineViewController: LDBaseViewController {
-
+    
+    var dataArray: [[MineModel]] = []
+    
+    
+    private lazy var myArray: Array = {
+            return [
+                [
+                      [
+                        "icon":  "mine_vip",
+                        "title": "我的VIP"
+                      ],
+                      [
+                        "icon":"mine_coin",
+                        "title": "充值妖气币"
+                      ]
+                ],
+                
+                    [["icon":"mine_accout", "title": "消费记录"],
+                     ["icon":"mine_subscript", "title": "我的订阅"],
+                     ["icon":"mine_seal", "title": "我的封印图"]],
+                    
+                    [
+                         ["icon":"mine_message", "title": "我的消息/优惠券"],
+                         ["icon":"mine_cashew", "title": "妖果商城"],
+                         ["icon":"mine_freed", "title": "在线阅读免流量"]
+                    ],
+                    
+                    [
+                         ["icon":"mine_feedBack", "title": "帮助中心"],
+                         ["icon":"mine_mail", "title": "我要反馈"],
+                         ["icon":"mine_judge", "title": "给我们评分"],
+                         ["icon":"mine_author", "title": "成为作者"],
+                         ["icon":"mine_setting", "title": "设置"]
+                   ]
+        ]
+        }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.red
         
-        let json: [String: Any] = [
-            "name": "Jack",
-            "pet": [
-                        ["name": "Wang1", "weight": 109.51],
-                        ["name": "Wang2", "weight": 109.52]
-                   ]
-        ]
-        
-        let person = json.kj.model(Person.self)
-        print(person)
-       
         
     }
     
-//    override func configNavigationBar() {
-//        super.configNavigationBar()
-//        (navigationController as? LDNavigationViewController)?.barStyle(.clear)
-//    }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        for element in myArray {
+            dataArray.append(modelArray(from: element, MineModel.self))
+        }
+        
+        
     }
-    */
 
 }
+
