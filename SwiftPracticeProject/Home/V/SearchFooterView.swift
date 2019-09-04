@@ -19,12 +19,13 @@ class SearchCell: LDBaseCollectionViewCell {
     override func configUI() {
         layer.borderWidth = 1
         layer.borderColor = UIColor.background.cgColor
-        
+        layer.cornerRadius = 22
         contentView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
             $0.edges.equalToSuperview().inset(UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20))
         }
     }
+    
 }
 
 
@@ -44,12 +45,12 @@ class SearchFooterView: BaseTableViewHeaderFooterView {
         ly.minimumLineSpacing = 10
         ly.minimumInteritemSpacing = 10
         ly.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-        
+        ly.scrollDirection = .vertical
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: ly)
         cv.backgroundColor = UIColor.white
         cv.delegate = self
-        
         cv.dataSource = self
+        
         cv.register(cellType: SearchCell.self)
         return cv
     }()
@@ -61,22 +62,25 @@ class SearchFooterView: BaseTableViewHeaderFooterView {
     }
 }
 
-extension SearchFooterView: UICollectionViewDelegate, UICollectionViewDataSource {
+extension SearchFooterView: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            
+            
+        return CGSize(width: searchList[indexPath.row].cellWidth, height: 44)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { searchList.count }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: SearchCell.self)
         cell.titleLabel.text = searchList[indexPath.row].name
-        cell.layer.cornerRadius = cell.bounds.height * 0.5
-        cell.backgroundColor = UIColor.random
+        
         return cell
         
     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        print(searchList[indexPath.row].cellWidth)
-        return CGSize(width: searchList[indexPath.row].cellWidth, height: 44)
-    }
+    
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let didSelectedClosure = didSelectIndexClosure else { return }

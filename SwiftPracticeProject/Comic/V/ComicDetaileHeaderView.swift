@@ -87,7 +87,6 @@ class ComicDetaileHeaderView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configUI()
-        loadData()
     }
     
     required init?(coder: NSCoder) {
@@ -156,10 +155,4 @@ extension ComicDetaileHeaderView: UICollectionViewDataSource{
     
 }
 
-extension ComicDetaileHeaderView {
-    func loadData() {
-       
-        
-        
-    }
-}
+

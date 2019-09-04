@@ -90,6 +90,8 @@ enum UApi {
     case comicList(argCon: Int, argName: String, argValue: Int, page: Int)
     case special(argCon: Int, page: Int)
     case searchHot
+    case searchRelative(inputText: String)
+    case searchResult(argCon: Int, q: String)
 }
 
 extension UApi: TargetType {
@@ -107,6 +109,8 @@ extension UApi: TargetType {
         case .comicList: return "list/commonComicList"
         case .special: return "comic/special"
         case .searchHot: return "search/hotkeywordsnew"
+        case .searchRelative: return "search/relative"
+        case .searchResult: return "search/searchResult"
         }
     }
     
@@ -136,7 +140,11 @@ extension UApi: TargetType {
         case let .special(argCon,page):
             parmeters["argCon"] = argCon
             parmeters["page"] = max(1, page)
-        
+        case let .searchRelative(inputText):
+            parmeters["inputText"] = inputText
+        case let .searchResult(argCon, q):
+            parmeters["argCon"] = argCon
+            parmeters["q"] = q
         default: break
         }
         
