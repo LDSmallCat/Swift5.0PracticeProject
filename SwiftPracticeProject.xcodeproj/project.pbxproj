@@ -61,6 +61,7 @@
 		D2889AD3230521A1006C7B0E /* UIBarButtonItemExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */; };
 		D28B861923066900005299D9 /* UApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B861823066900005299D9 /* UApi.swift */; };
 		D29AFA432313B1A400ECD742 /* ComicDetaileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */; };
+		D2BCA0A22320CA4100F88DCF /* ComicCatalogHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCA0A12320CA4100F88DCF /* ComicCatalogHeader.swift */; };
 		D2F422EB230692AC00DFC244 /* UModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EA230692AC00DFC244 /* UModel.swift */; };
 		D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F422ED230697DA00DFC244 /* LDOCFile.m */; };
 		D2F422F023069AED00DFC244 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EF23069AED00DFC244 /* Global.swift */; };
@@ -156,6 +157,7 @@
 		D2889AD2230521A1006C7B0E /* UIBarButtonItemExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBarButtonItemExtension.swift; sourceTree = "<group>"; };
 		D28B861823066900005299D9 /* UApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UApi.swift; sourceTree = "<group>"; };
 		D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetaileHeaderView.swift; sourceTree = "<group>"; };
+		D2BCA0A12320CA4100F88DCF /* ComicCatalogHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCatalogHeader.swift; sourceTree = "<group>"; };
 		D2F422EA230692AC00DFC244 /* UModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UModel.swift; sourceTree = "<group>"; };
 		D2F422EC230697DA00DFC244 /* LDOCFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDOCFile.h; sourceTree = "<group>"; };
 		D2F422ED230697DA00DFC244 /* LDOCFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDOCFile.m; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 				D27938F723151C45001BD133 /* ComicDetailDescriptionCell.swift */,
 				D266FDC32317A4F6000145B8 /* ComicCommentTableViewCell.swift */,
 				D20F15D923190F0D009CBA35 /* ChapterCollectionViewCell.swift */,
+				D2BCA0A12320CA4100F88DCF /* ComicCatalogHeader.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -714,6 +717,7 @@
 				D2604EF42306554300351C93 /* SubscribeViewController.swift in Sources */,
 				D25CFF7E231CF94600332B94 /* SpecialViewController.swift in Sources */,
 				D2889AD3230521A1006C7B0E /* UIBarButtonItemExtension.swift in Sources */,
+				D2BCA0A22320CA4100F88DCF /* ComicCatalogHeader.swift in Sources */,
 				D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */,
 				D28732C5230A829000397CA4 /* RecommendHeader.swift in Sources */,
 				D28732BB230A343300397CA4 /* LDBaseCollectionViewCell.swift in Sources */,

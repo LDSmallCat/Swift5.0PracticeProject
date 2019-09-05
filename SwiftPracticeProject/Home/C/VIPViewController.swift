@@ -78,7 +78,7 @@ extension VIPViewController: UICollectionViewDataSource, UICollectionViewDelegat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-       return CGSize(width: screenWidth, height: 44)
+       return CGSize(width: screenWidth, height: navgationBarHeight)
         
     }
     

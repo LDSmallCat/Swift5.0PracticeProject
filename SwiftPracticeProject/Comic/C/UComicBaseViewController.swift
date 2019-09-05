@@ -58,7 +58,8 @@ class UComicBaseViewController: LDPageViewController {
     var comicID = 0
     var threadID = 0
     var comicName = ""
-    var chapterList: [ChapterModel] = []
+    var detailStackModel: DetailStaticModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

@@ -67,7 +67,7 @@ extension SearchFooterView: UICollectionViewDataSource, UICollectionViewDelegate
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             
             
-        return CGSize(width: searchList[indexPath.row].cellWidth, height: 44)
+        return CGSize(width: searchList[indexPath.row].cellWidth, height: navgationBarHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { searchList.count }

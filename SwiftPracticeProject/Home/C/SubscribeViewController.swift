@@ -70,7 +70,7 @@ extension SubscribeViewController: UICollectionViewDataSource, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-       CGSize(width: screenWidth, height: 44) }
+       CGSize(width: screenWidth, height: navgationBarHeight) }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         section == subList.count - 1 ? CGSize.zero : CGSize(width: screenWidth, height: 10) }

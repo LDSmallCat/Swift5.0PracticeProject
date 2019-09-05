@@ -159,7 +159,7 @@ extension RecommendViewController: UICollectionViewDataSource, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         let comicList = comicLists[section]
-        return comicList.itemTitle.count > 0 ? CGSize(width: screenWidth, height: 44) : CGSize.zero
+        return comicList.itemTitle.count > 0 ? CGSize(width: screenWidth, height: navgationBarHeight) : CGSize.zero
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {

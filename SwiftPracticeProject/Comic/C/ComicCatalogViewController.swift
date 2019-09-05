@@ -9,14 +9,14 @@
 import UIKit
 
 class ComicCatalogViewController: LDBaseViewController {
-    
-    var chapterList: [ChapterModel] = [] {
+    private var isPositive = true
+    var detailStackModel: DetailStaticModel! {
         didSet { tb.reloadData() }
     }
-
+    
     lazy var tb: UICollectionView = {
         let lt = UICollectionViewFlowLayout()
-        lt.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        lt.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
         lt.minimumLineSpacing = 10
         lt.minimumInteritemSpacing = 5
         lt.itemSize = CGSize(width: floor((screenWidth - 30) / 2), height: 40)
@@ -24,6 +24,7 @@ class ComicCatalogViewController: LDBaseViewController {
         cv.dataSource = self
         cv.delegate = self
         cv.alwaysBounceVertical = true
+        cv.register(supplementaryViewType: ComicCatalogHeader.self, ofKind: UICollectionView.elementKindSectionHeader)
         cv.register(cellType: ChapterCollectionViewCell.self)
         cv.backgroundColor = UIColor.white
         return cv
@@ -37,9 +38,10 @@ class ComicCatalogViewController: LDBaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if chapterList.isEmpty {
+        if detailStackModel == nil {
             guard let pvc = self.parent?.parent as? UComicBaseViewController else { return }
-            chapterList = pvc.chapterList
+            detailStackModel = pvc.detailStackModel
+            
         }
     }
     override func configUI() {
@@ -48,17 +50,41 @@ class ComicCatalogViewController: LDBaseViewController {
     }
 }
 
-extension ComicCatalogViewController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { chapterList.count }
+extension ComicCatalogViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { detailStackModel.chapter_list.count }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ChapterCollectionViewCell.self)
-        cell.cModel = chapterList[indexPath.row]
+        if isPositive {
+            cell.cModel = detailStackModel.chapter_list[indexPath.row]
+        }else {
+            cell.cModel = detailStackModel.chapter_list.reversed()[indexPath.row]
+        }
+        
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, for: indexPath, viewType: ComicCatalogHeader.self)
+            header.model = detailStackModel
+            header.sortClosure = { [weak self] button in
+                if self?.isPositive == true {
+                    self?.isPositive = false
+                    button.setTitle("倒序", for: .normal)
+                }else{
+                    self?.isPositive = true
+                    button.setTitle("正序", for: .normal)
+                }
+                collectionView.reloadData()
+            }
+            return header
+            
+        
+
+    }
     
-    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        CGSize(width: screenWidth, height: navgationBarHeight) }
     
 }
 

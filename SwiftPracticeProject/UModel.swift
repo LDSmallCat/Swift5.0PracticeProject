@@ -141,7 +141,8 @@ struct DetailStaticComicModel: Convertible {
     let author = AuthorModel()
     let comic_id = 0
     let thread_id = 0
-
+    let last_update_time: TimeInterval = 0
+    
 }
 
 struct classifyTagsModel: Convertible {

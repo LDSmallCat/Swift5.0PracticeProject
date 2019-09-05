@@ -50,7 +50,7 @@ class ComicDetailViewController: LDBaseViewController {
             self?.tb.ldHeader.endRefreshing()
             self?.dStaticModel = ml
             if let pvc = self?.parent?.parent as? UComicBaseViewController {
-                pvc.chapterList = ml.chapter_list
+                pvc.detailStackModel = ml
                 pvc.threadID = ml.comic.thread_id
                 pvc.comicName = ml.comic.name
                 pvc.header.bgView.kf.setImage(with: URL(string: (ml.comic.cover)))
@@ -162,8 +162,8 @@ extension ComicDetailViewController: UITableViewDataSource ,UITableViewDelegate{
             return 65 + string.getHeightFor(15, screenWidth - 30)
             }else { return defaultCellHeight  }
             
-        case 2: return ticketsCellString.length > 0 ? 44 : defaultCellHeight
-        case 1: return 44
+        case 2: return ticketsCellString.length > 0 ? navgationBarHeight : defaultCellHeight
+        case 1: return navgationBarHeight
         default: return 200
             
         }

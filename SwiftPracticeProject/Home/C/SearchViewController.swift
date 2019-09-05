@@ -213,12 +213,12 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
         
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return tableView == resultTableView ? 180 : 44
+        return tableView == resultTableView ? 180 : navgationBarHeight
     }
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         switch tableView {
-        case historyTableView: return 44
-        case searchTableView: return relative.isEmpty ? CGFloat.leastNormalMagnitude : 44
+        case historyTableView: return navgationBarHeight
+        case searchTableView: return relative.isEmpty ? CGFloat.leastNormalMagnitude : navgationBarHeight
         default: return CGFloat.leastNormalMagnitude
         }
         
@@ -226,8 +226,8 @@ extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         switch tableView {
-            case historyTableView: return section == 0 ? 10 : tableView.frame.height - 44
-            case searchTableView: return 44
+            case historyTableView: return section == 0 ? 10 : tableView.frame.height - navgationBarHeight
+            case searchTableView: return navgationBarHeight
             default: return CGFloat.leastNormalMagnitude
         }
     }
