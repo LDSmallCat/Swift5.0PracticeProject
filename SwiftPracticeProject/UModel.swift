@@ -22,7 +22,6 @@ struct GalleryItemModel: Convertible {
     let content = ""
 }
 
-// MARK: - HomeModel
 enum comicType: Int, ConvertibleEnum {
     case none = 0
     case update = 3
@@ -31,7 +30,6 @@ enum comicType: Int, ConvertibleEnum {
     case billboard = 11
 }
 struct ComicListModel: Convertible {
-    //homePage
     let comics: [ComicModel] = []
     let itemTitle = ""
     let newTitleIconUrl = ""
@@ -39,7 +37,6 @@ struct ComicListModel: Convertible {
     let comicType: comicType = .none
     var argCon: Int = 0
     var argValue: Int = 0
-    //VIP
     let argName = ""
     let canMore = false
 }
@@ -123,7 +120,6 @@ struct SearchHotModel: Convertible {
        cellWidth = name.getWidthFor(14) + 40
    }
 }
-// MARK: - detailStaticModel
 
 struct OtherWorksModel: Convertible{
     let comicId = 0
@@ -176,9 +172,7 @@ struct ChapterModel: Convertible {
 //    func kj_modelValue(from jsonValue: Any?, _ property: Property) -> Any? {
 //        if property.name != "imHightArr" { return jsonValue }
 //        guard let doubleArray = jsonValue as? [Any] else { return [] }
-//
 //        var imHightArr = [[ImHightModel]]()
-//
 //        for element in doubleArray {
 //           //数组里面是字典
 //           guard let arr = element as? [[String: Any]] else { return [] }
@@ -224,6 +218,4 @@ struct ComicCommentModel: Convertible {
         let h = content.getHeightFor(13, ceil(screenWidth - 70)) + 45
         cellHeight = h > cellHeight ? h : cellHeight
     }
-    
-    
 }
