@@ -95,5 +95,8 @@ extension ComicCatalogViewController: UICollectionViewDelegate {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
             guard let parent = self.parent?.parent as? UComicBaseViewController else { return }
             parent.slideDirection(down: scrollView.contentOffset.y < 0)
-        }
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+    }
 }

@@ -63,6 +63,7 @@
 		D28B861923066900005299D9 /* UApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = D28B861823066900005299D9 /* UApi.swift */; };
 		D29AFA432313B1A400ECD742 /* ComicDetaileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */; };
 		D2BCA0A22320CA4100F88DCF /* ComicCatalogHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCA0A12320CA4100F88DCF /* ComicCatalogHeader.swift */; };
+		D2CBD05823211208008598D6 /* ReadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CBD05723211208008598D6 /* ReadCollectionViewCell.swift */; };
 		D2F422EB230692AC00DFC244 /* UModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EA230692AC00DFC244 /* UModel.swift */; };
 		D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F422ED230697DA00DFC244 /* LDOCFile.m */; };
 		D2F422F023069AED00DFC244 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EF23069AED00DFC244 /* Global.swift */; };
@@ -160,6 +161,7 @@
 		D28B861823066900005299D9 /* UApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UApi.swift; sourceTree = "<group>"; };
 		D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetaileHeaderView.swift; sourceTree = "<group>"; };
 		D2BCA0A12320CA4100F88DCF /* ComicCatalogHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCatalogHeader.swift; sourceTree = "<group>"; };
+		D2CBD05723211208008598D6 /* ReadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2F422EA230692AC00DFC244 /* UModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UModel.swift; sourceTree = "<group>"; };
 		D2F422EC230697DA00DFC244 /* LDOCFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDOCFile.h; sourceTree = "<group>"; };
 		D2F422ED230697DA00DFC244 /* LDOCFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDOCFile.m; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 				D266FDC32317A4F6000145B8 /* ComicCommentTableViewCell.swift */,
 				D20F15D923190F0D009CBA35 /* ChapterCollectionViewCell.swift */,
 				D2BCA0A12320CA4100F88DCF /* ComicCatalogHeader.swift */,
+				D2CBD05723211208008598D6 /* ReadCollectionViewCell.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -732,6 +735,7 @@
 				D2BCA0A22320CA4100F88DCF /* ComicCatalogHeader.swift in Sources */,
 				D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */,
 				D28732C5230A829000397CA4 /* RecommendHeader.swift in Sources */,
+				D2CBD05823211208008598D6 /* ReadCollectionViewCell.swift in Sources */,
 				D28732BB230A343300397CA4 /* LDBaseCollectionViewCell.swift in Sources */,
 				D20F15DA23190F0D009CBA35 /* ChapterCollectionViewCell.swift in Sources */,
 				D25CFF82231D056600332B94 /* LDWebViewController.swift in Sources */,
