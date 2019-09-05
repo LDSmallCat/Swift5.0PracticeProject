@@ -25,6 +25,7 @@
 		D2038C1F2304F777004CF263 /* LDNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2038C1E2304F777004CF263 /* LDNavigationViewController.swift */; };
 		D20F15DA23190F0D009CBA35 /* ChapterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F15D923190F0D009CBA35 /* ChapterCollectionViewCell.swift */; };
 		D20F15DC2319272A009CBA35 /* SnapKitExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F15DB2319272A009CBA35 /* SnapKitExtension.swift */; };
+		D233BA6823210ADE005D37C4 /* ReadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D233BA6723210ADE005D37C4 /* ReadViewController.swift */; };
 		D2523010230B9769001F9AB6 /* KakaJson.swift in Sources */ = {isa = PBXBuildFile; fileRef = D252300F230B9769001F9AB6 /* KakaJson.swift */; };
 		D2553318230D34BF002CF636 /* RankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2553317230D34BF002CF636 /* RankCell.swift */; };
 		D25CFF7A231CC3F800332B94 /* MoreComicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D25CFF79231CC3F800332B94 /* MoreComicViewController.swift */; };
@@ -121,6 +122,7 @@
 		D20F15D923190F0D009CBA35 /* ChapterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChapterCollectionViewCell.swift; sourceTree = "<group>"; };
 		D20F15DB2319272A009CBA35 /* SnapKitExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapKitExtension.swift; sourceTree = "<group>"; };
 		D224CDF32305491B008411A8 /* SwiftPracticeProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SwiftPracticeProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		D233BA6723210ADE005D37C4 /* ReadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadViewController.swift; sourceTree = "<group>"; };
 		D252300F230B9769001F9AB6 /* KakaJson.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaJson.swift; sourceTree = "<group>"; };
 		D2553317230D34BF002CF636 /* RankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCell.swift; sourceTree = "<group>"; };
 		D25CFF79231CC3F800332B94 /* MoreComicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreComicViewController.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				D288373D230FD01C00EB49CC /* ComicDetailViewController.swift */,
 				D288373F230FD04000EB49CC /* ComicCatalogViewController.swift */,
 				D2883741230FD05500EB49CC /* ComicCommentViewController.swift */,
+				D233BA6723210ADE005D37C4 /* ReadViewController.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -708,6 +711,7 @@
 				D2F422F42306A1F800DFC244 /* LDRefresh.swift in Sources */,
 				D27938F823151C45001BD133 /* ComicDetailDescriptionCell.swift in Sources */,
 				D27938FA231527F6001BD133 /* StringExtension.swift in Sources */,
+				D233BA6823210ADE005D37C4 /* ReadViewController.swift in Sources */,
 				D2749E61231E0368002D6CB0 /* EmptyView.swift in Sources */,
 				D2038C132304F698004CF263 /* VoiceViewController.swift in Sources */,
 				D2604EF0230654D700351C93 /* RecommendViewController.swift in Sources */,
