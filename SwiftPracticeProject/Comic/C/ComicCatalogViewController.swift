@@ -51,7 +51,9 @@ class ComicCatalogViewController: LDBaseViewController {
 }
 
 extension ComicCatalogViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int { detailStackModel.chapter_list.count }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let detailStackModel = detailStackModel else { return 0 }
+       return detailStackModel.chapter_list.count }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath, cellType: ChapterCollectionViewCell.self)
