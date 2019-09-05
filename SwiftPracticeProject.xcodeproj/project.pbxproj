@@ -242,12 +242,12 @@
 			isa = PBXGroup;
 			children = (
 				D2038BDE2304F392004CF263 /* Assets.xcassets */,
-				D252300E230B9758001F9AB6 /* Test */,
-				D233BA662321093F005D37C4 /* Tools */,
 				D2038C0A2304F63F004CF263 /* Home */,
 				D2038C0C2304F652004CF263 /* Video */,
 				D2038C0B2304F648004CF263 /* Voice */,
 				D2038C0D2304F659004CF263 /* Mine */,
+				D252300E230B9758001F9AB6 /* Test */,
+				D233BA662321093F005D37C4 /* Tools */,
 				D2038C052304F3B1004CF263 /* SourceFile */,
 			);
 			path = SwiftPracticeProject;
