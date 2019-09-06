@@ -65,6 +65,7 @@
 		D2BCA0A22320CA4100F88DCF /* ComicCatalogHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCA0A12320CA4100F88DCF /* ComicCatalogHeader.swift */; };
 		D2CBD05823211208008598D6 /* ReadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CBD05723211208008598D6 /* ReadCollectionViewCell.swift */; };
 		D2DB0F112321FBAF002533BD /* ReadTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB0F102321FBAF002533BD /* ReadTopBar.swift */; };
+		D2DB0F1423223084002533BD /* NoticeBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB0F1323223084002533BD /* NoticeBar.swift */; };
 		D2F422EB230692AC00DFC244 /* UModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EA230692AC00DFC244 /* UModel.swift */; };
 		D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F422ED230697DA00DFC244 /* LDOCFile.m */; };
 		D2F422F023069AED00DFC244 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EF23069AED00DFC244 /* Global.swift */; };
@@ -164,6 +165,7 @@
 		D2BCA0A12320CA4100F88DCF /* ComicCatalogHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCatalogHeader.swift; sourceTree = "<group>"; };
 		D2CBD05723211208008598D6 /* ReadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadCollectionViewCell.swift; sourceTree = "<group>"; };
 		D2DB0F102321FBAF002533BD /* ReadTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadTopBar.swift; sourceTree = "<group>"; };
+		D2DB0F1323223084002533BD /* NoticeBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeBar.swift; sourceTree = "<group>"; };
 		D2F422EA230692AC00DFC244 /* UModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UModel.swift; sourceTree = "<group>"; };
 		D2F422EC230697DA00DFC244 /* LDOCFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDOCFile.h; sourceTree = "<group>"; };
 		D2F422ED230697DA00DFC244 /* LDOCFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDOCFile.m; sourceTree = "<group>"; };
@@ -446,6 +448,7 @@
 		D2DB0F1223222FA0002533BD /* NoticeBar */ = {
 			isa = PBXGroup;
 			children = (
+				D2DB0F1323223084002533BD /* NoticeBar.swift */,
 			);
 			path = NoticeBar;
 			sourceTree = "<group>";
@@ -743,6 +746,7 @@
 				D288373E230FD01C00EB49CC /* ComicDetailViewController.swift in Sources */,
 				D2604EF42306554300351C93 /* SubscribeViewController.swift in Sources */,
 				D25CFF7E231CF94600332B94 /* SpecialViewController.swift in Sources */,
+				D2DB0F1423223084002533BD /* NoticeBar.swift in Sources */,
 				D2889AD3230521A1006C7B0E /* UIBarButtonItemExtension.swift in Sources */,
 				D2BCA0A22320CA4100F88DCF /* ComicCatalogHeader.swift in Sources */,
 				D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */,

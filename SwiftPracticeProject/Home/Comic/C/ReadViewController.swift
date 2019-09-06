@@ -81,7 +81,11 @@ class ReadViewController: LDBaseViewController {
             self?.loadData(with: self?.previousIndex ?? 0, isPrevious: true, needClear: false, finished: { [weak self] (finish) in
                 self?.previousIndex = self?.previousIndex ?? 0 - 1
             })
-            
+        }
+        cv.ldFooter = LDRefreshAutoFooter {[weak self] in
+            self?.loadData(with: self?.nextIndex ?? 0, isPrevious: false, needClear: false, finished: { [weak self] (_) in
+                self?.previousIndex = self?.previousIndex ?? 0 - 1
+            })
         }
         cv.ldFooter = LDRefreshAutoFooter {[weak self] in
             
@@ -145,8 +149,10 @@ extension ReadViewController {
         if index <= -1 {
             collectionView.ldHeader.endRefreshing()
             
+            NoticeBar(config: NoticeBarConfig(title: "亲,这已经是第一页了")).show(duration: 2)
         } else if index >= detailStatic.chapter_list.count {
-            collectionView.ldFooter.endRefreshingWithNoMoreData()
+            collectionView.ldFooter.endRefreshing()
+            NoticeBar(config: NoticeBarConfig(title: "亲,已经木有了")).show(duration: 2)
         } else {
             
             let chapterId = detailStatic.chapter_list[index].chapter_id
