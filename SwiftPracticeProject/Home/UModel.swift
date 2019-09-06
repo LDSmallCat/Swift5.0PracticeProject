@@ -158,6 +158,7 @@ struct DetailStaticModel: Convertible {
     let comic = DetailStaticComicModel()
     let chapter_list: [ChapterModel] = []
 }
+
 struct ChapterModel: Convertible {
     let imHightArr: [[ImHightModel]] = []
     let chapter_id = 0

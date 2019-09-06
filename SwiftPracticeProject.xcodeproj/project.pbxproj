@@ -64,6 +64,7 @@
 		D29AFA432313B1A400ECD742 /* ComicDetaileHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */; };
 		D2BCA0A22320CA4100F88DCF /* ComicCatalogHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2BCA0A12320CA4100F88DCF /* ComicCatalogHeader.swift */; };
 		D2CBD05823211208008598D6 /* ReadCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CBD05723211208008598D6 /* ReadCollectionViewCell.swift */; };
+		D2DB0F112321FBAF002533BD /* ReadTopBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2DB0F102321FBAF002533BD /* ReadTopBar.swift */; };
 		D2F422EB230692AC00DFC244 /* UModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EA230692AC00DFC244 /* UModel.swift */; };
 		D2F422EE230697DA00DFC244 /* LDOCFile.m in Sources */ = {isa = PBXBuildFile; fileRef = D2F422ED230697DA00DFC244 /* LDOCFile.m */; };
 		D2F422F023069AED00DFC244 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2F422EF23069AED00DFC244 /* Global.swift */; };
@@ -162,6 +163,7 @@
 		D29AFA422313B1A400ECD742 /* ComicDetaileHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetaileHeaderView.swift; sourceTree = "<group>"; };
 		D2BCA0A12320CA4100F88DCF /* ComicCatalogHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicCatalogHeader.swift; sourceTree = "<group>"; };
 		D2CBD05723211208008598D6 /* ReadCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadCollectionViewCell.swift; sourceTree = "<group>"; };
+		D2DB0F102321FBAF002533BD /* ReadTopBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadTopBar.swift; sourceTree = "<group>"; };
 		D2F422EA230692AC00DFC244 /* UModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UModel.swift; sourceTree = "<group>"; };
 		D2F422EC230697DA00DFC244 /* LDOCFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LDOCFile.h; sourceTree = "<group>"; };
 		D2F422ED230697DA00DFC244 /* LDOCFile.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LDOCFile.m; sourceTree = "<group>"; };
@@ -393,6 +395,7 @@
 				D20F15D923190F0D009CBA35 /* ChapterCollectionViewCell.swift */,
 				D2BCA0A12320CA4100F88DCF /* ComicCatalogHeader.swift */,
 				D2CBD05723211208008598D6 /* ReadCollectionViewCell.swift */,
+				D2DB0F102321FBAF002533BD /* ReadTopBar.swift */,
 			);
 			path = V;
 			sourceTree = "<group>";
@@ -440,6 +443,13 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		D2DB0F1223222FA0002533BD /* NoticeBar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = NoticeBar;
+			sourceTree = "<group>";
+		};
 		D2F422E82306906100DFC244 /* V */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,6 +484,7 @@
 		D2F422F12306A1E000DFC244 /* Component */ = {
 			isa = PBXGroup;
 			children = (
+				D2DB0F1223222FA0002533BD /* NoticeBar */,
 				D2749E5F231E0333002D6CB0 /* EmptyView */,
 				D2F422F22306A1ED00DFC244 /* Refresh */,
 			);
@@ -725,6 +736,7 @@
 				D2604EF2230654E200351C93 /* VIPViewController.swift in Sources */,
 				D2038C152304F69E004CF263 /* VideoViewController.swift in Sources */,
 				D28B861923066900005299D9 /* UApi.swift in Sources */,
+				D2DB0F112321FBAF002533BD /* ReadTopBar.swift in Sources */,
 				D28732B7230A33E600397CA4 /* LDBaseTableViewCell.swift in Sources */,
 				D2749E71231E3FC8002D6CB0 /* BaseTableViewHeaderFooterView.swift in Sources */,
 				D2038C0F2304F671004CF263 /* LDBaseViewController.swift in Sources */,

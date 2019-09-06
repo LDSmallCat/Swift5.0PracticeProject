@@ -11,12 +11,12 @@ let screenHeight = UIScreen.main.bounds.height
 let defaultCellHeight: CGFloat = 80
 
 let navgationBarHeight: CGFloat = 44.0
-
 let statusBarHeight: CGFloat = isIphoneX ? 44.0 : 20.0
+let tabBarHeight: CGFloat = 49 + UIWindow().safeAreaInsets.bottom
 
 var topVC: UIViewController? {
     var resultVC: UIViewController?
-    
+     
     resultVC = _topVC(UIApplication.shared.keyWindow?.rootViewController)
     while resultVC?.presentedViewController != nil {
         resultVC = _topVC(resultVC?.presentedViewController)

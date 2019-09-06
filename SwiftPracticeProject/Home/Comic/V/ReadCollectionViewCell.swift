@@ -9,8 +9,8 @@
 struct ImageModel: Convertible {
     var location = ""
     var image_id  = 0
-    var width = 0
-    var height = 0
+    var width: CGFloat = 0
+    var height: CGFloat = 0
     var total_tucao = 0
     var webp = 0
     var type = 0

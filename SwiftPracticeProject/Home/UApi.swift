@@ -92,6 +92,7 @@ enum UApi {
     case searchHot
     case searchRelative(inputText: String)
     case searchResult(argCon: Int, q: String)
+    case chapter(chapter_id: Int)
 }
 
 extension UApi: TargetType {
@@ -111,6 +112,7 @@ extension UApi: TargetType {
         case .searchHot: return "search/hotkeywordsnew"
         case .searchRelative: return "search/relative"
         case .searchResult: return "search/searchResult"
+        case .chapter: return "comic/chapterNew"
         }
     }
     
@@ -145,6 +147,8 @@ extension UApi: TargetType {
         case let .searchResult(argCon, q):
             parmeters["argCon"] = argCon
             parmeters["q"] = q
+        case .chapter(let chapter_id):
+            parmeters["chapter_id"] = chapter_id
         default: break
         }
         

@@ -7,7 +7,6 @@
 //
 
 #import "LDOCFile.h"
-
 @implementation LDOCFile
 
 @end

@@ -98,5 +98,8 @@ extension ComicCatalogViewController: UICollectionViewDelegate {
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let index = isPositive ? indexPath.row : (detailStackModel.chapter_list.count - indexPath.row - 1)
+        let vc = ReadViewController(detailStatic: detailStackModel, selectIndex: index)
+        navigationController?.pushViewController(vc, animated: true)    
     }
 }
