@@ -19,7 +19,7 @@ class SearchViewController: LDBaseViewController {
     }
     private var comicModel: MoreComicModel? {
         didSet {
-            guard let cm = comicModel else { return }
+            guard comicModel != nil else { return }
             resultTableView.reloadData()
         }
     }

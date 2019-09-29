@@ -16,7 +16,9 @@ let tabBarHeight: CGFloat = 49 + UIWindow().safeAreaInsets.bottom
 
 var topVC: UIViewController? {
     var resultVC: UIViewController?
-     
+    let appDelegate = UIApplication.shared.keyWindow
+    
+    
     resultVC = _topVC(UIApplication.shared.keyWindow?.rootViewController)
     while resultVC?.presentedViewController != nil {
         resultVC = _topVC(resultVC?.presentedViewController)

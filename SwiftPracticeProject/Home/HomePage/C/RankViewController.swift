@@ -24,6 +24,7 @@ class RankViewController: LDBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
     override func configUI() {
         view.addSubview(te)

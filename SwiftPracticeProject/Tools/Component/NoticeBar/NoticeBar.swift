@@ -7,7 +7,7 @@
 //
 
 import UIKit
- fileprivate let _statusBarHeight = UIApplication.shared.statusBarFrame.height
+fileprivate let _statusBarHeight = UIApplication.shared.statusBarFrame.height
 
 enum NoticeBarAnimationType {
     case top
